@@ -1,0 +1,41 @@
+openai:
+  base_url: "https://openrouter.ai/api/v1"
+
+default_model: "openrouter.anthropic/claude-3.5-haiku"
+
+# Logging and Console Configuration:
+logger:
+    # Switch the progress display on or off
+    progress_display: true
+    # Show chat User/Assistant messages on the console
+    show_chat: true
+    # Show tool calls on the console
+    show_tools: true
+    # Truncate long tool responses on the console
+    truncate_tools: true
+
+# MCP Servers
+mcp:
+    servers:
+        fetch:
+            command: "uvx"
+            args: ["mcp-server-fetch"]
+        # filesystem:
+        #     command: "npx"
+        #     args: ["-y", "@modelcontextprotocol/server-filesystem", "."]
+        # brave:
+        #     command: npx
+        #     args: ["-y", "@modelcontextprotocol/server-brave-search"]
+        # perplexity_mcp:
+        #     env:
+        #         PERPLEXITY_MODEL: "sonar"
+        #     command: "uvx"
+        #     args:
+        #         - "perplexity-mcp"
+
+        # Our custom newspaper creation server (HTTP transport)
+        # news_agent_server:
+        agent_server:
+          transport: "http"
+          url: "http://localhost:8080/mcp"
+          read_transport_sse_timeout_seconds: 900

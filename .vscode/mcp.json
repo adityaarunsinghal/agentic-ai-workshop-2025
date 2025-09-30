@@ -1,0 +1,20 @@
+{
+	"servers": {
+		"weather-mcp-server": {
+			"type": "stdio",
+			"command": "uv",
+			"args": [
+				"run",
+				"--directory",
+				".",
+				"python",
+				"src/server/weather_server.py"
+			]
+		},
+		"news-agent-server": {
+			"type": "http",
+			"url": "http://localhost:8080/mcp"
+		}
+	},
+	"inputs": []
+}

@@ -1,0 +1,8 @@
+[project]
+name = "newspaper_fastagent_client"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.13.7"
+dependencies = [
+    "fast-agent-mcp>=0.3.2",
+]
