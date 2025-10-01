@@ -272,6 +272,8 @@ AWS Agentic AI Organization, MCP Contributor
 </tr>
 </table>
 
+**Note:** This project is an independent, personal initiative and is not affiliated with, endorsed by, or representative of Amazon Web Services (AWS) or Amazon.com, Inc. The views and opinions expressed here are solely those of the individual contributors and do not reflect the official policy or position of their employers.
+
 ## Academic Context
 
 This project emerged from a graduate-level workshop series on agentic AI systems. The codebase emphasizes:
