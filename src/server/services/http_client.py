@@ -1,18 +1,17 @@
 """
-HTTP Client Services with Retry Logic and VCR Recording
+HTTP Client Services with Retry Logic
 
 Provides robust HTTP clients for external API integration with:
 - Automatic retry logic with exponential backoff
-- VCR-style response caching for development
-- Bot detection avoidance for web scraping
+- Connection pooling and timeout management
 - Respectful delays for rate limiting
-- Intelligent content extraction from HTML
 - Comprehensive error handling and logging
+- Simple content extraction from HTML
 
 Classes:
     BaseHTTPClient: Foundation class with retry and configuration
     HackerNewsClient: Specialized client for Hacker News API
-    WebScraperClient: Web scraping client with content extraction
+    fetch_content: Simple utility for fetching and converting HTML to markdown
 """
 
 import httpx
@@ -39,7 +38,7 @@ class BaseHTTPClient:
     """
 
     def __init__(self):
-        """Initialize base HTTP client with settings and retry configuration."""
+        """Initialize base HTTP client with settings and retry config."""
         self.settings = get_settings()
         self.logger = get_logger(self.__class__.__name__)
         self.timeout = self.settings.http.timeout

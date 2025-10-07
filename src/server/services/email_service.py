@@ -29,6 +29,7 @@ class EmailService:
             self.server = email_settings.get("server", "localhost")
             self.port = email_settings.get("port", 587)
             self.use_tls = email_settings.get("use_tls", True)
+            self.use_ssl = email_settings.get("use_ssl", False)
             self.username = email_settings.get("username", "")
             self.password = email_settings.get("password", "")
             self.from_email = email_settings.get("from_email", "newspaper@localhost")
@@ -38,6 +39,7 @@ class EmailService:
             self.server = email_settings.server
             self.port = email_settings.port
             self.use_tls = email_settings.use_tls
+            self.use_ssl = getattr(email_settings, "use_ssl", False)
             self.username = email_settings.username
             self.password = email_settings.password
             self.from_email = email_settings.from_email
@@ -82,15 +84,22 @@ class EmailService:
             msg.attach(text_part)
             msg.attach(html_part)
 
-            # Send email
-            if self.use_tls:
-                server = smtplib.SMTP(self.server, self.port)
-                server.starttls()
+            # Send email - handle both SSL and TLS
+            if self.use_ssl:
+                # Use SSL (port 465)
+                server = smtplib.SMTP_SSL(self.server, self.port, timeout=30)
+                self.logger.debug(f"Connected via SSL to {self.server}:{self.port}")
             else:
-                server = smtplib.SMTP(self.server, self.port)
+                # Use TLS (port 587)
+                server = smtplib.SMTP(self.server, self.port, timeout=30)
+                if self.use_tls:
+                    server.starttls()
+                    self.logger.debug(f"Started TLS on {self.server}:{self.port}")
 
+            # Login and send
             if self.username and self.password:
                 server.login(self.username, self.password)
+                self.logger.debug("SMTP login successful")
 
             server.send_message(msg)
             server.quit()
@@ -135,45 +144,17 @@ class EmailService:
         return content
 
     def _create_html_version(self, newspaper_data: Dict) -> str:
-        """Create HTML version using authentic newspaper template."""
+        """Create HTML version using enhanced template."""
         template = self.jinja_env.get_template("newspaper_email.html")
-
-        # Transform data for template
-        organized_articles = self._organize_articles(newspaper_data)
 
         return template.render(
             newspaper_title=newspaper_data.get("title", "The Tech Tribune"),
+            subtitle=newspaper_data.get("subtitle", ""),
             current_date=datetime.now().strftime("%A, %B %d, %Y"),
-            edition=newspaper_data.get("edition", "Daily Edition"),
-            articles=organized_articles,
+            edition=newspaper_data.get("edition_type", "Daily Edition"),
+            sections=newspaper_data.get("sections", []),
+            editorial_elements=newspaper_data.get("editorial_elements", []),
+            table_of_contents=newspaper_data.get(
+                "table_of_contents", {"enabled": False}
+            ),
         )
-
-    def _organize_articles(self, newspaper_data: Dict) -> Dict:
-        """Organize articles into front page and columns."""
-        sections = newspaper_data.get("sections", [])
-        all_articles = []
-
-        # Flatten all articles
-        for section in sections:
-            all_articles.extend(section.get("articles", []))
-
-        if not all_articles:
-            return {"front_page": None, "column_1": [], "column_2": [], "column_3": []}
-
-        # Sort by score if available (use 0 as default)
-        all_articles.sort(
-            key=lambda x: x.get("score", 0) if isinstance(x, dict) else 0, reverse=True
-        )
-
-        # Front page gets top article
-        front_page = all_articles[0] if all_articles else None
-
-        # Distribute rest across columns
-        remaining = all_articles[1:]
-        columns = {"column_1": [], "column_2": [], "column_3": []}
-
-        for i, article in enumerate(remaining):
-            column = f"column_{(i % 3) + 1}"
-            columns[column].append(article)
-
-        return {"front_page": front_page, **columns}
