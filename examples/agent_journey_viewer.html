@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Journey Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 { font-size: 32px; margin-bottom: 10px; }
+        .header p { opacity: 0.9; }
+        .file-input {
+            padding: 20px;
+            border: 3px dashed rgba(255,255,255,0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .file-input:hover {
+            border-color: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.2);
+        }
+        .message {
+            background: white;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #e0e0e0;
+        }
+        .message.user { border-left-color: #1976d2; }
+        .message.assistant { border-left-color: #7b1fa2; }
+        .role {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .role.user { background: #e3f2fd; color: #1976d2; }
+        .role.assistant { background: #f3e5f5; color: #7b1fa2; }
+        .content {
+            margin: 15px 0;
+            color: #333;
+            padding-left: 20px;
+        }
+        .content.collapsed {
+            max-height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .content.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, white);
+        }
+        .expand-btn {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+        .expand-btn:hover {
+            background: #e0e0e0;
+            color: #333;
+        }
+        .tool-calls {
+            background: #fff8e1;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            border: 1px solid #ffe082;
+        }
+        .tool-call {
+            margin-bottom: 12px;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ffecb3;
+        }
+        .tool-name {
+            font-weight: 700;
+            color: #e65100;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .tool-args {
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            color: #666;
+            background: #fafafa;
+            padding: 8px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .tool-results {
+            background: #e8f5e9;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            border: 1px solid #a5d6a7;
+        }
+        .result-content {
+            font-size: 13px;
+            background: white;
+            padding: 12px 12px 12px 32px;
+            border-radius: 6px;
+            border: 1px solid #c8e6c9;
+        }
+        .result-content.collapsed {
+            max-height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .result-content.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, white);
+        }
+        .stop-reason {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #fce4ec;
+            color: #c2185b;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 10px;
+            text-transform: uppercase;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat {
+            text-align: center;
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .content h1, .content h2, .content h3 { margin-top: 16px; margin-bottom: 8px; }
+        .content ul, .content ol { margin-left: 40px; margin-bottom: 12px; }
+        .result-content ul, .result-content ol { margin-left: 40px; margin-bottom: 12px; }
+        .content code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .content pre {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+        .content pre code {
+            background: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Agent Journey Viewer</h1>
+            <p style="color: #666; margin: 10px 0;">Load an agent journey JSON file to visualize the conversation flow</p>
+            <input type="file" id="fileInput" accept=".json" style="display: none;">
+            <div class="file-input" id="dropZone">
+                📁 Click to select or drag & drop agent journey JSON file
+            </div>
+            <div id="stats" class="stats" style="display: none;"></div>
+        </div>
+        <div id="messages"></div>
+    </div>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#007bff';
+            dropZone.style.background = '#f0f8ff';
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.borderColor = '#ccc';
+            dropZone.style.background = '';
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#ccc';
+            dropZone.style.background = '';
+
+            const file = e.dataTransfer.files[0];
+            if (file) loadFile(file);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) loadFile(file);
+        });
+
+        function loadFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    displayJourney(data);
+                } catch (err) {
+                    alert('Error parsing JSON: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function displayJourney(data) {
+            const messagesDiv = document.getElementById('messages');
+            const statsDiv = document.getElementById('stats');
+            messagesDiv.innerHTML = '';
+
+            // Calculate stats
+            const totalMessages = data.messages.length;
+            const toolCalls = data.messages.filter(m => m.tool_calls).length;
+            const toolResults = data.messages.filter(m => m.tool_results).length;
+
+            statsDiv.style.display = 'flex';
+            statsDiv.innerHTML = `
+                <div class="stat">
+                    <div class="stat-value">${totalMessages}</div>
+                    <div class="stat-label">Total Messages</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">${toolCalls}</div>
+                    <div class="stat-label">Tool Calls</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">${toolResults}</div>
+                    <div class="stat-label">Tool Results</div>
+                </div>
+            `;
+
+            // Display messages
+            data.messages.forEach((msg, idx) => {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `message ${msg.role}`;
+
+                let html = `<span class="role ${msg.role}">${msg.role}</span>`;
+
+                if (msg.stop_reason) {
+                    html += `<span class="stop-reason">${msg.stop_reason}</span>`;
+                }
+
+                // Content
+                if (msg.content && msg.content.length > 0) {
+                    msg.content.forEach((c, cidx) => {
+                        if (c.type === 'text') {
+                            const contentId = `content-${idx}-${cidx}`;
+                            const isLong = c.text.length > 1000;
+                            html += `<div class="content ${isLong ? 'collapsed' : ''}" id="${contentId}">${marked.parse(c.text)}</div>`;
+                            if (isLong) {
+                                html += `<button class="expand-btn" onclick="toggleExpand('${contentId}')">Show More ▼</button>`;
+                            }
+                        }
+                    });
+                }
+
+                // Tool calls
+                if (msg.tool_calls) {
+                    html += '<div class="tool-calls"><strong>🔧 Tool Calls:</strong>';
+                    Object.entries(msg.tool_calls).forEach(([id, call]) => {
+                        html += `
+                            <div class="tool-call">
+                                <div class="tool-name">${call.params.name}</div>
+                                <div class="tool-args">${JSON.stringify(call.params.arguments, null, 2)}</div>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                }
+
+                // Tool results
+                if (msg.tool_results) {
+                    html += '<div class="tool-results"><strong>✅ Tool Results:</strong>';
+                    Object.entries(msg.tool_results).forEach(([id, result], ridx) => {
+                        const text = result.content?.[0]?.text || '';
+                        const resultId = `result-${idx}-${ridx}`;
+                        const isLong = text.length > 1000;
+                        const preview = isLong ? text.substring(0, 1000) : text;
+                        html += `<div class="result-content ${isLong ? 'collapsed' : ''}" id="${resultId}" data-full="${escapeHtml(text)}">${marked.parse(preview)}</div>`;
+                        if (isLong) {
+                            html += `<button class="expand-btn" onclick="toggleResult('${resultId}')">Show More ▼</button>`;
+                        }
+                    });
+                    html += '</div>';
+                }
+
+                msgDiv.innerHTML = html;
+                messagesDiv.appendChild(msgDiv);
+            });
+        }
+
+        function toggleExpand(id) {
+            const elem = document.getElementById(id);
+            const btn = elem.nextElementSibling;
+            elem.classList.toggle('collapsed');
+            btn.textContent = elem.classList.contains('collapsed') ? 'Show More ▼' : 'Show Less ▲';
+        }
+
+        function toggleResult(id) {
+            const elem = document.getElementById(id);
+            const btn = elem.nextElementSibling;
+            const fullText = elem.getAttribute('data-full');
+
+            if (elem.classList.contains('collapsed')) {
+                elem.innerHTML = marked.parse(fullText);
+                elem.classList.remove('collapsed');
+                btn.textContent = 'Show Less ▲';
+            } else {
+                elem.innerHTML = marked.parse(fullText.substring(0, 1000));
+                elem.classList.add('collapsed');
+                btn.textContent = 'Show More ▼';
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

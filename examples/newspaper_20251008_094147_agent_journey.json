@@ -1,0 +1,1107 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Create a morning newspaper that's perfect for my commute (under 20 min read).\n\nStart by understanding what I care about - check my interests file to see what topics resonate with me. Pull from Hacker News top stories, but be selective - only include what truly matters to me or represents important developments.\n\nStructure it as a \"Morning Tech Brief\" with a featured breaking news section for 2-3 deeply covered stories, plus a grid of quick reads for another 4-5 interesting items. The breaking stories should have full context and rich summaries, while quick reads can be more concise.\n\nAs you work through articles, store interesting ones in the archive for future reference. Look for common threads - what themes are emerging across these stories today? Capture that insight in an editor's note that helps me see the bigger picture.\n\nBefore finalizing, show me what you've built and get my input - would I prefer more depth or broader coverage given my time budget? Adjust accordingly.\n\nWhen it's polished and I'm ready, send it to my email and archive it for history.\n\nRemember: quality over quantity. Better to have 5-7 perfectly curated stories than 15 mediocre ones. Make editorial judgments based on my interests, not just popularity.\nDo NOT STOP until you have at least 10 mins of reading content."
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'll create a personalized morning tech brief for you. Let me start by understanding your interests and then curating the best stories from Hacker News."
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01HbtjAkkRKjVP9DQea7SBmL": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-read_interests",
+            "arguments": {}
+          }
+        },
+        "toolu_bdrk_019zpnecDsyfjtRLtVpBDmhs": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-fetch_hn_stories",
+            "arguments": {
+              "count": 30,
+              "category": "top"
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01HbtjAkkRKjVP9DQea7SBmL": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# \ud83d\udccb Your Interests\n\n**Last Updated:** xxx\n\n**Topics (1):**\n- Agentic AI only\n\n**Preferred Sources:**\n- Hacker News\n- Any links that perplexity gives\n\n**Summary Style:** detailed\n\n**Notes:**\n- Nothing more for now\n"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_019zpnecDsyfjtRLtVpBDmhs": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# \ud83d\udcf0 30 Hacker News Stories (top)\n\n1. **Synology reverses policy banning third-party HDDs after sales allegedly plummet** (551 points by baobun)\n   https://www.guru3d.com/story/synology-reverses-policy-banning-thirdparty-hdds-after-nas-sales-plummet/\n\n2. **The Email They Shouldn't Have Read** (54 points by miniBill)\n   https://it-notes.dragas.net/2025/10/08/the-email-they-shouldnt-have-read/\n\n3. **SEC approves Texas Stock Exchange, first new US integrated exchange in decades** (95 points by pseudolus)\n   https://www.cbsnews.com/texas/news/sec-approves-texas-stock-exchange-txse/\n\n4. **Nobel Prize in Chemistry 2025** (134 points by pykello)\n   https://www.nobelprize.org/prizes/chemistry/2025/popular-information/\n\n5. **Legal Contracts Built for AI Agents** (10 points by arnon)\n   https://paid.ai/blog/ai-agents/paid-gitlaw-introducing-legal-contracts-built-for-ai-agents\n\n6. **Working pipe operator today in pure JavaScript** (160 points by urvader)\n   https://github.com/irony/aspipes\n\n7. **Empathy for Dummies** (19 points by surprisetalk)\n   https://quarter--mile.com/empathy-for-dummies\n\n8. **A Clausewitzian Lens on Modern Urban Warfare** (16 points by bryanrasmussen)\n   https://mwi.westpoint.edu/a-clausewitzian-lens-on-modern-urban-warfare/\n\n9. **Qualcomm to acquire Arduino** (1228 points by janjongboom)\n   https://www.qualcomm.com/news/releases/2025/10/qualcomm-to-acquire-arduino-accelerating-developers--access-to-i\n\n10. **Gemini 2.5 Computer Use model** (554 points by mfiguiere)\n   https://blog.google/technology/google-deepmind/gemini-computer-use-model/\n\n11. **Vibe engineering** (411 points by janpio)\n   https://simonwillison.net/2025/Oct/7/vibe-engineering/\n\n12. **The Weaponization of Travel Blacklists** (11 points by throw7)\n   https://papersplease.org/wp/2025/10/06/the-weaponization-of-travel-blacklists/\n\n13. **Seeing like a software company** (277 points by praptak)\n   https://www.seangoedecke.com/seeing-like-a-software-company/\n\n14. **Mathematicians discover prime number pattern in fractal chaos** (103 points by baruchel)\n   https://www.scientificamerican.com/article/mathematicians-discover-prime-number-pattern-in-fractal-chaos/\n\n15. **Monumental rock art: humans thrived in Arab. Desert during Pleistocene-Holocene** (17 points by ano-ther)\n   https://www.nature.com/articles/s41467-025-63417-y\n\n16. **IKEA Catalogs 1951-2021** (433 points by bookofjoe)\n   https://ikeamuseum.com/en/explore/ikea-catalogue/\n\n17. **An illustrated introduction to linear algebra** (382 points by egonschiele)\n   https://www.ducktyped.org/p/an-illustrated-introduction-to-linear\n\n18. **Show HN: Timelinize \u2013 Privately organize your own data from everywhere, locally** (506 points by mholt)\n   https://timelinize.com\n\n19. **Study of 1M-year-old skull points to earlier origins of modern humans** (105 points by rjknight)\n   https://www.theguardian.com/science/2025/sep/25/study-of-1m-year-old-skull-points-to-earlier-origins-of-modern-humans\n\n20. **Show HN: I'm building a browser for reverse engineers** (295 points by nullpt_rs)\n   https://nullpt.rs/reverse-engineering-browser\n\n21. **Packing the world for longest lines of sight** (108 points by tombh)\n   https://tombh.co.uk/packing-world-lines-of-sight\n\n22. **Nobel Prize in Physics 2025** (436 points by luisb)\n   https://www.nobelprize.org/prizes/physics/2025/popular-information/\n\n23. **Global Village Construction Set** (163 points by jacquesm)\n   https://www.opensourceecology.org/gvcs/\n\n24. **Less is more: Recursive reasoning with tiny networks** (254 points by guybedo)\n   https://alexiajm.github.io/2025/09/29/tiny_recursive_models.html\n\n25. **Canadian bill would strip internet access from 'specified persons', no warrant** (517 points by walterbell)\n   https://nationalpost.com/opinion/canadian-bill-would-strip-internet-access-from-specified-persons\n\n26. **German government comes out against Chat Control** (1019 points by SolonIslandus)\n   https://xcancel.com/paddi_hansen/status/1975595307800142205\n\n27. **How does gradient descent work?** (288 points by jxmorris12)\n   https://centralflows.github.io/part1/\n\n28. **The evolution of Lua, continued [pdf]** (207 points by welovebunnies)\n   https://www.lua.org/doc/cola.pdf\n\n29. **Launch HN: LlamaFarm (YC W22) \u2013 Open-source framework for distributed AI** (90 points by mhamann)\n   https://github.com/llama-farm/llamafarm\n\n30. **Eliminating contrails from flying could be cheap** (137 points by K2L8M11N2)\n   https://www.sustainabilitybynumbers.com/p/eliminating-contrails\n\n"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nPerfect! I can see you're focused on **Agentic AI**. Looking at the HN stories, I can identify several highly relevant pieces:\n\n1. **Story #5**: Legal Contracts Built for AI Agents (directly on topic!)\n2. **Story #10**: Gemini 2.5 Computer Use model (AI agents taking computer actions)\n3. **Story #11**: Vibe engineering (about AI development practices)\n4. **Story #29**: Launch HN: LlamaFarm - Open-source framework for distributed AI\n\nLet me fetch the full content for these stories to create deeply researched featured articles, plus a few related interesting pieces for quick reads."
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01CqfZXBgqc54GKwKxqiYPt7": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-fetch_article_content",
+            "arguments": {
+              "url": "https://paid.ai/blog/ai-agents/paid-gitlaw-introducing-legal-contracts-built-for-ai-agents"
+            }
+          }
+        },
+        "toolu_bdrk_01YGdSsEb2MKRyHXhqSNbbiH": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-fetch_article_content",
+            "arguments": {
+              "url": "https://blog.google/technology/google-deepmind/gemini-computer-use-model/"
+            }
+          }
+        },
+        "toolu_bdrk_01Abzj7w7PKBxBFSuP8qAT3h": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-fetch_article_content",
+            "arguments": {
+              "url": "https://simonwillison.net/2025/Oct/7/vibe-engineering/"
+            }
+          }
+        },
+        "toolu_bdrk_01U453u8hsxFnw5wRVYygphp": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-fetch_article_content",
+            "arguments": {
+              "url": "https://github.com/llama-farm/llamafarm"
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01CqfZXBgqc54GKwKxqiYPt7": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# Content from https://paid.ai/blog/ai-agents/paid-gitlaw-introducing-legal-contracts-built-for-ai-agents\n\n<!--\ncanonical: https://paid.ai/blog/ai-agents/paid-gitlaw-introducing-legal-contracts-built-for-ai-agents\nlink-alternate: https://paid.ai/rss.xml\nmeta-article-author: Arnon Shimoni\nmeta-article-modified_time: 2025-10-08T10:05:56.096Z\nmeta-article-published_time: 2025-10-08T05:36:09.875Z\nmeta-description: Paid has partnered with GitLaw to create and release an open-source Master Services Agreement (MSA) specifically designed for AI agent companies. This contract addresses the unique challenges that traditional SaaS contracts fail to cover when applied to autonomous, adaptive AI systems. The Agentic MSA clarifies decision responsibility, establishes appropriate liability frameworks, and provides clear language around data ownership and training rights.\nmeta-og-description: Paid has partnered with GitLaw to create and release an open-source Master Services Agreement (MSA) specifically designed for AI agent companies. This contract addresses the unique challenges that traditional SaaS contracts fail to cover when applied to autonomous, adaptive AI systems. The Agentic MSA clarifies decision responsibility, establishes appropriate liability frameworks, and provides clear language around data ownership and training rights.\nmeta-og-image: https://paid.ai/_astro/ai_decision_tree_hero_jDIEQ.png\nmeta-og-title: Paid + GitLaw: Introducing Legal Contracts Built for AI Agents | Paid.ai blog\nmeta-og-type: website\nmeta-og-url: https://paid.ai/blog/ai-agents/paid-gitlaw-introducing-legal-contracts-built-for-ai-agents\nmeta-robots: index, follow\nmeta-theme-color: #ffffff\nmeta-twitter:creator: @paid_ai\nmeta-twitter:image: https://paid.ai/_astro/ai_decision_tree_hero_square_1E7T9S.png\nmeta-viewport: width=device-width, initial-scale=1\ntitle: Paid + GitLaw: Introducing Legal Contracts Built for AI Agents | Paid.ai blog\n-->\n\n [https://www.googletagmanager.com/ns.html?id=GTM-N8JQSG7Z](https://www.googletagmanager.com/ns.html?id=GTM-N8JQSG7Z)\n\n \n\n[![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtWzI0cHhdIHctWzY5cHhdIHRyYW5zaXRpb24tb3BhY2l0eSBncm91cC1ob3ZlcjpvcGFjaXR5LTgwIiBmaWxsPSJub25lIiB2aWV3Ym94PSIwIDAgMjQ0IDg1Ij4KPHBhdGggZD0iTTg2LjI3NzkgODQuMzEwOUM4MS42MjI4IDg0LjMxMDkgNzcuNDMzMyA4My4xMjkyIDczLjcwOTIgODAuNzY1OUM2OS45ODUyIDc4LjQwMjUgNjcuMDQ4OSA3NS4xNDQgNjQuOTAwNSA3MC45OTAzQzYyLjc1MiA2Ni43NjQ5IDYxLjY3NzcgNjEuODU5MiA2MS42Nzc3IDU2LjI3MzFDNjEuNjc3NyA1MC4zMjkgNjMuMDAyNiA0NS4xMDEgNjUuNjUyNCA0MC41ODkyQzY4LjMwMjIgMzYuMDA1OCA3MS45NTQ3IDMyLjQyNDkgNzYuNjA5NyAyOS44NDY4QzgxLjMzNjQgMjcuMjY4NiA4Ni44MTUgMjUuOTc5NSA5My4wNDU2IDI1Ljk3OTVDOTkuMTMzIDI1Ljk3OTUgMTA0LjQzMyAyNy4yMzI4IDEwOC45NDQgMjkuNzM5M0MxMTMuNDU2IDMyLjE3NDMgMTE2Ljk2NSAzNS42MTE5IDExOS40NzIgNDAuMDUyMUMxMjIuMDUgNDQuNDIwNyAxMjMuMzM5IDQ5LjUwNTQgMTIzLjMzOSA1NS4zMDYzVjgxLjYzOThDMTIzLjMzOSA4Mi45Mzg2IDEyMi4yODYgODMuOTkxNiAxMjAuOTg3IDgzLjk5MTZIMTA2LjE0QzEwNC44NDEgODMuOTkxNiAxMDMuNzg4IDgyLjkzODYgMTAzLjc4OCA4MS42Mzk4Vjc1LjAzODVDMTAzLjc4OCA3NC44MTk5IDEwMy42MTEgNzQuNjQyNyAxMDMuMzkyIDc0LjY0MjdDMTAzLjI0IDc0LjY0MjcgMTAzLjEwMiA3NC43MyAxMDMuMDM0IDc0Ljg2NjFDMTAyLjExNSA3Ni43MDg5IDEwMC44OTggNzguMzUzMyA5OS4zODM2IDc5Ljc5OTFDOTcuODc5NyA4MS4yMzE0IDk2LjA1MzUgODIuMzQxNCA5My45MDUgODMuMTI5MkM5MS43NTY1IDgzLjkxNyA4OS4yMTQyIDg0LjMxMDkgODYuMjc3OSA4NC4zMTA5Wk05Mi42MTU5IDY2LjI2MzZDOTQuNTQ5NiA2Ni4yNjM2IDk2LjIzMjUgNjUuNzk4MSA5Ny42NjQ5IDY0Ljg2NzFDOTkuMTY4OCA2My45MzYxIDEwMC4zMTUgNjIuNjQ3IDEwMS4xMDIgNjAuOTk5OEMxMDEuOTYyIDU5LjI4MSAxMDIuMzkyIDU3LjM0NzQgMTAyLjM5MiA1NS4xOTg5QzEwMi4zOTIgNTMuMTIyIDEwMS45NjIgNTEuMjk1OCAxMDEuMTAyIDQ5LjcyMDNDMTAwLjMxNSA0OC4xNDQ3IDk5LjE2ODggNDYuODkxNCA5Ny42NjQ5IDQ1Ljk2MDRDOTYuMjMyNSA0NS4wMjk0IDk0LjU0OTYgNDQuNTYzOSA5Mi42MTU5IDQ0LjU2MzlDOTAuNzUzOSA0NC41NjM5IDg5LjA3MDkgNDUuMDI5NCA4Ny41NjcgNDUuOTYwNEM4Ni4wNjMgNDYuODkxNCA4NC44ODE0IDQ4LjE0NDcgODQuMDIyIDQ5LjcyMDNDODMuMjM0MiA1MS4yOTU4IDgyLjg0MDMgNTMuMTIyIDgyLjg0MDMgNTUuMTk4OUM4Mi44NDAzIDU3LjM0NzQgODMuMjM0MiA1OS4yODEgODQuMDIyIDYwLjk5OThDODQuODgxNCA2Mi42NDcgODYuMDYzIDYzLjkzNjEgODcuNTY3IDY0Ljg2NzFDODkuMDcwOSA2NS43OTgxIDkwLjc1MzkgNjYuMjYzNiA5Mi42MTU5IDY2LjI2MzZaIiBmaWxsPSIjMTkxOTE5Ij48L3BhdGg+CjxwYXRoIGQ9Ik0xMzEuNjkzIDgzLjk5MTZDMTMwLjM5NCA4My45OTE2IDEyOS4zNDEgODIuOTM4NyAxMjkuMzQxIDgxLjYzOThWMzAuODczQzEyOS4zNDEgMjkuNTc0MiAxMzAuMzk0IDI4LjUyMTIgMTMxLjY5MyAyOC41MjEySDE0Ny42NDhDMTQ4Ljk0NyAyOC41MjEyIDE1MCAyOS41NzQyIDE1MCAzMC44NzNWODEuNjM5OEMxNTAgODIuOTM4NyAxNDguOTQ3IDgzLjk5MTYgMTQ3LjY0OCA4My45OTE2SDEzMS42OTNaTTEzOS42NzEgMjIuODQ1NkMxMzYuNjU4IDIyLjg0NTYgMTM0LjA3NSAyMS43NzQ4IDEzMS45MjMgMTkuNjMzMUMxMjkuNzcxIDE3LjQyIDEyOC42OTUgMTQuODQ5OSAxMjguNjk1IDExLjkyMjlDMTI4LjY5NSA4LjkyNDUgMTI5Ljc3MSA2LjM1NDQ0IDEzMS45MjMgNC4yMTI3MkMxMzQuMDc1IDEuOTk5NjIgMTM2LjY1OCAwLjg5MzA2NiAxMzkuNjcxIDAuODkzMDY2QzE0Mi42ODMgMC44OTMwNjYgMTQ1LjI2NiAxLjk5OTYyIDE0Ny40MTggNC4yMTI3MkMxNDkuNTcgNi4zNTQ0NCAxNTAuNjQ2IDguOTI0NSAxNTAuNjQ2IDExLjkyMjlDMTUwLjY0NiAxNC44NDk5IDE0OS41NyAxNy40MiAxNDcuNDE4IDE5LjYzMzFDMTQ1LjI2NiAyMS43NzQ4IDE0Mi42ODMgMjIuODQ1NiAxMzkuNjcxIDIyLjg0NTZaIiBmaWxsPSIjMTkxOTE5Ij48L3BhdGg+CjxwYXRoIGQ9Ik0yMzIuMTg4IDg0LjM4NTVDMjI5LjEwOCA4NC4zODU1IDIyNi40OTQgODMuMjc1NCAyMjQuMzQ2IDgxLjA1NTNDMjIyLjE5NyA3OC44MzUyIDIyMS4xMjMgNzYuMjIxMyAyMjEuMTIzIDczLjIxMzRDMjIxLjEyMyA3MC4xMzM5IDIyMi4xOTcgNjcuNTE5OSAyMjQuMzQ2IDY1LjM3MTRDMjI2LjQ5NCA2My4xNTEzIDIyOS4xMDggNjIuMDQxMyAyMzIuMTg4IDYyLjA0MTNDMjM1LjI2NyA2Mi4wNDEzIDIzNy44ODEgNjMuMTUxMyAyNDAuMDMgNjUuMzcxNEMyNDIuMjUgNjcuNTE5OSAyNDMuMzYgNzAuMTMzOSAyNDMuMzYgNzMuMjEzNEMyNDMuMzYgNzUuMjE4NiAyNDIuODU5IDc3LjA4MDcgMjQxLjg1NiA3OC43OTk0QzI0MC44NTMgODAuNDQ2NiAyMzkuNDkzIDgxLjgwNzMgMjM3Ljc3NCA4Mi44ODE2QzIzNi4xMjcgODMuODg0MiAyMzQuMjY1IDg0LjM4NTUgMjMyLjE4OCA4NC4zODU1WiIgZmlsbD0iI0ZGQjcwMCI+PC9wYXRoPgo8cGF0aCBkPSJNMzcuMTg4OSA1OS4yMjQ0QzQxLjg0NCA1OS4yMjQ0IDQ2LjAzMzUgNTguMDQyOCA0OS43NTc2IDU1LjY3OTRDNTMuNDgxNiA1My4zMTYxIDU2LjQxNzggNTAuMDU3NiA1OC41NjYzIDQ1LjkwMzhDNjAuNzE0OCA0MS42Nzg1IDYxLjc4OTEgMzYuNzcyOCA2MS43ODkxIDMxLjE4NjdDNjEuNzg5MSAyNS4yNDI2IDYwLjQ2NDIgMjAuMDE0NiA1Ny44MTQ0IDE1LjUwMjhDNTUuMTY0NiAxMC45MTkzIDUxLjUxMjEgNy4zMzg1MiA0Ni44NTcxIDQuNzYwMzRDNDIuMTMwNCAyLjE4MjE2IDM2LjY1MTggMC44OTMwNjYgMzAuNDIxMiAwLjg5MzA2NkMyNC4zMzM4IDAuODkzMDY2IDE5LjAzNDIgMi4xNDYzNSAxNC41MjI0IDQuNjUyOTJDMTAuMDEwNiA3LjA4Nzg3IDYuNTAxMzcgMTAuNTI1NCAzLjk5NDggMTQuOTY1NkMxLjQxNjYyIDE5LjMzNDIgMC4xMjc1NDEgMjQuNDE5IDAuMTI3NTQxIDMwLjIxOTlWODEuODg5OEMwLjEyNzU0MSA4My4xODg3IDEuMTgwNSA4NC4yNDE3IDIuNDc5MzkgODQuMjQxN0gxNy4zMjY5QzE4LjYyNTggODQuMjQxNyAxOS42Nzg4IDgzLjE4ODcgMTkuNjc4OCA4MS44ODk4VjQ5Ljk1MjFDMTkuNjc4OCA0OS43MzM1IDE5Ljg1NiA0OS41NTYzIDIwLjA3NDYgNDkuNTU2M0MyMC4yMjY2IDQ5LjU1NjMgMjAuMzY0OSA0OS42NDM2IDIwLjQzMjggNDkuNzc5NkMyMS4zNTE3IDUxLjYyMjUgMjIuNTY4NSA1My4yNjY5IDI0LjA4MzIgNTQuNzEyNkMyNS41ODcxIDU2LjE0NSAyNy40MTMzIDU3LjI1NSAyOS41NjE4IDU4LjA0MjhDMzEuNzEwMyA1OC44MzA2IDM0LjI1MjYgNTkuMjI0NCAzNy4xODg5IDU5LjIyNDRaTTMwLjg1MDkgNDEuMTc3MkMyOC45MTcyIDQxLjE3NzIgMjcuMjM0MyA0MC43MTE3IDI1LjgwMTkgMzkuNzgwNkMyNC4yOTggMzguODQ5NiAyMy4xNTIxIDM3LjU2MDYgMjIuMzY0NCAzNS45MTM0QzIxLjUwNSAzNC4xOTQ2IDIxLjA3NTMgMzIuMjYxIDIxLjA3NTMgMzAuMTEyNUMyMS4wNzUzIDI4LjAzNTYgMjEuNTA1IDI2LjIwOTQgMjIuMzY0NCAyNC42MzM4QzIzLjE1MjEgMjMuMDU4MyAyNC4yOTggMjEuODA1IDI1LjgwMTkgMjAuODc0QzI3LjIzNDMgMTkuOTQzIDI4LjkxNzIgMTkuNDc3NSAzMC44NTA5IDE5LjQ3NzVDMzIuNzEyOSAxOS40Nzc1IDM0LjM5NTkgMTkuOTQzIDM1Ljg5OTggMjAuODc0QzM3LjQwMzggMjEuODA1IDM4LjU4NTQgMjMuMDU4MyAzOS40NDQ4IDI0LjYzMzhDNDAuMjMyNiAyNi4yMDk0IDQwLjYyNjUgMjguMDM1NiA0MC42MjY1IDMwLjExMjVDNDAuNjI2NSAzMi4yNjEgNDAuMjMyNiAzNC4xOTQ2IDM5LjQ0NDggMzUuOTEzNEMzOC41ODU0IDM3LjU2MDYgMzcuNDAzOCAzOC44NDk2IDM1Ljg5OTggMzkuNzgwNkMzNC4zOTU5IDQwLjcxMTcgMzIuNzEyOSA0MS4xNzcyIDMwLjg1MDkgNDEuMTc3MloiIGZpbGw9IiMxOTE5MTkiPjwvcGF0aD4KPHBhdGggZD0iTTE3OS41NjMgMjUuOTEwM0MxNzQuOTA4IDI1LjkxMDMgMTcwLjcxOCAyNy4wOTIgMTY2Ljk5NCAyOS40NTUzQzE2My4yNyAzMS44MTg3IDE2MC4zMzQgMzUuMDc3MiAxNTguMTg2IDM5LjIzMDlDMTU2LjAzNyA0My40NTYzIDE1NC45NjMgNDguMzYyIDE1NC45NjMgNTMuOTQ4MUMxNTQuOTYzIDU5Ljg5MjIgMTU2LjI4OCA2NS4xMjAyIDE1OC45MzggNjkuNjMyQzE2MS41ODcgNzQuMjE1NCAxNjUuMjQgNzcuNzk2MiAxNjkuODk1IDgwLjM3NDRDMTc0LjYyMiA4Mi45NTI2IDE4MC4xIDg0LjI0MTcgMTg2LjMzMSA4NC4yNDE3QzE5Mi40MTggODQuMjQxNyAxOTcuNzE4IDgyLjk4ODQgMjAyLjIzIDgwLjQ4MTlDMjA2Ljc0MSA3OC4wNDY5IDIxMC4yNTEgNzQuNjA5MyAyMTIuNzU3IDcwLjE2OTFDMjE1LjMzNSA2NS44MDA1IDIxNi42MjQgNjAuNzE1OCAyMTYuNjI0IDU0LjkxNDlWMy4yNDQ5M0MyMTYuNjI0IDEuOTQ2MDQgMjE1LjU3MSAwLjg5MzA4MiAyMTQuMjczIDAuODkzMDgySDE5OS40MjVDMTk4LjEyNiAwLjg5MzA4MiAxOTcuMDczIDEuOTQ2MDQgMTk3LjA3MyAzLjI0NDkzVjM1LjE4MjdDMTk3LjA3MyAzNS40MDEzIDE5Ni44OTYgMzUuNTc4NSAxOTYuNjc3IDM1LjU3ODVDMTk2LjUyNSAzNS41Nzg1IDE5Ni4zODcgMzUuNDkxMiAxOTYuMzE5IDM1LjM1NTFDMTk1LjQgMzMuNTEyMyAxOTQuMTgzIDMxLjg2NzkgMTkyLjY2OSAzMC40MjIxQzE5MS4xNjUgMjguOTg5OCAxODkuMzM5IDI3Ljg3OTggMTg3LjE5IDI3LjA5MkMxODUuMDQyIDI2LjMwNDIgMTgyLjQ5OSAyNS45MTAzIDE3OS41NjMgMjUuOTEwM1pNMTg1LjkwMSA0My45NTc2QzE4Ny44MzUgNDMuOTU3NiAxODkuNTE4IDQ0LjQyMzEgMTkwLjk1IDQ1LjM1NDFDMTkyLjQ1NCA0Ni4yODUxIDE5My42IDQ3LjU3NDIgMTk0LjM4OCA0OS4yMjE0QzE5NS4yNDcgNTAuOTQwMiAxOTUuNjc3IDUyLjg3MzggMTk1LjY3NyA1NS4wMjIzQzE5NS42NzcgNTcuMDk5MiAxOTUuMjQ3IDU4LjkyNTQgMTk0LjM4OCA2MC41MDA5QzE5My42IDYyLjA3NjUgMTkyLjQ1NCA2My4zMjk4IDE5MC45NSA2NC4yNjA4QzE4OS41MTggNjUuMTkxOCAxODcuODM1IDY1LjY1NzMgMTg1LjkwMSA2NS42NTczQzE4NC4wMzkgNjUuNjU3MyAxODIuMzU2IDY1LjE5MTggMTgwLjg1MiA2NC4yNjA4QzE3OS4zNDggNjMuMzI5OCAxNzguMTY3IDYyLjA3NjUgMTc3LjMwNyA2MC41MDA5QzE3Ni41MTkgNTguOTI1NCAxNzYuMTI1IDU3LjA5OTIgMTc2LjEyNSA1NS4wMjIzQzE3Ni4xMjUgNTIuODczOCAxNzYuNTE5IDUwLjk0MDIgMTc3LjMwNyA0OS4yMjE0QzE3OC4xNjcgNDcuNTc0MiAxNzkuMzQ4IDQ2LjI4NTEgMTgwLjg1MiA0NS4zNTQxQzE4Mi4zNTYgNDQuNDIzMSAxODQuMDM5IDQzLjk1NzYgMTg1LjkwMSA0My45NTc2WiIgZmlsbD0iIzE5MTkxOSI+PC9wYXRoPgo8L3N2Zz4=)](/)  * Product ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWRvd24gc2l6ZS00IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0idHJ1ZSIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZD0ibTYgOSA2IDYgNi02Ij48L3BhdGg+IDwvc3ZnPg==)\n\n    Core features\n\n    + [Cost tracking ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](/product/cost-tracking) Manage AI vendor costs\n                    + [Billing ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](/product/billing) Automate AI agent revenue\n\n    More\n\n    + [Blocks ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](/product/blocks) Build dashboards with AI\n* Solutions ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWRvd24gc2l6ZS00IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0idHJ1ZSIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZD0ibTYgOSA2IDYgNi02Ij48L3BhdGg+IDwvc3ZnPg==)\n\n    By role\n\n    + [Commercial ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](/solutions/by-role/commercial) Build custom deals\n\n    By industry\n\n    + [Agent builders ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](/solutions/by-industry/agent-builders) Build sustainable revenue\n                    + [SaaS ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](/solutions/by-industry/saas) Navigate the agentic revolution\n* Resources ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWRvd24gc2l6ZS00IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0idHJ1ZSIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZD0ibTYgOSA2IDYgNi02Ij48L3BhdGg+IDwvc3ZnPg==)\n\n    Company\n\n    + [About us ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](/about-us) Meet the team\n                    + [Blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](/blog) Agent economics \\& growth tips\n                    + [Podcast ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](https://agenttalk.substack.com/) Interviews with AI founders\n\n    Developers\n\n    + [Docs ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](https://docs.paid.ai/) How to use Paid\n                    + [Dashboard ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9InN0cm9rZS1sby1jb250cmFzdCAtbXItMC41IG1sLTEuNSBzdHJva2UtWzEuNXB4XSIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyIgZGF0YS1hc3Ryby1jaWQtNnY0amU0c3E9IiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0IiBkYXRhLWFzdHJvLWNpZC02djRqZTRzcT0iIj48L3BhdGg+IDwvc3ZnPg==)](https://app.paid.ai/) Configure agents \\& API keys\n* [Pricing](/pricing)\n\n \n\n[Get started ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Ii1tci0xIG1sLTIgc3Ryb2tlLVtjdXJyZW50Q29sb3JdIHN0cm9rZS1bMS43NXB4XSIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMCIgdmlld2JveD0iMCAwIDEwIDEwIiB3aWR0aD0iMTAiPiA8cGF0aCBjbGFzcz0ib3BhY2l0eS0wIHRyYW5zaXRpb24gZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAiIGQ9Ik0wIDVoNyI+PC9wYXRoPiA8cGF0aCBjbGFzcz0idHJhbnNpdGlvbiBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC1bM3B4XSIgZD0iTTEgMWw0IDQtNCA0Ij48L3BhdGg+IDwvc3ZnPg==)](/get-started)\n\n ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1tZW51IHRleHQtaGktY29udHJhc3Qgc2l6ZS0xMCIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZD0iTTQgMTJoMTYiPjwvcGF0aD48cGF0aCBkPSJNNCAxOGgxNiI+PC9wYXRoPjxwYXRoIGQ9Ik00IDZoMTYiPjwvcGF0aD4gPC9zdmc+)\n\n[Paid.ai blog](/blog)/[AI agents](/blog/ai-agents)\n\nPaid \\+ GitLaw: Introducing Legal Contracts Built for AI Agents\n===============================================================\n\n<img src='/_astro/ai_decision_tree_hero_Z1UE5KB.png' alt='A tree with a person standing beneath, its branches transforming into flowing text, creating a wave-like pattern against a beige background.' title='' width='704' height='377' />\n\n<img src='/_astro/arnon_2bLmMl.png' alt='A heashot of Arnon Shimoni, co-founder & marketing at Paid.ai.' title='' width='48' height='48' />\n\nArnon Shimoni 8 Oct 25\n\nSubscribe\n\n \n\n  Subscribe\n\n \n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGVjayBzaXplLTQiIGZpbGw9Im5vbmUiIGhlaWdodD0iMjQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxwYXRoIGQ9Ik0yMCA2IDkgMTdsLTUtNSI+PC9wYXRoPiA8L3N2Zz4=) Subscribed\n\n---\n\nWe've partnered with [GitLaw](https://git.law) to launch something that should have existed from day one: a Master Services Agreement specifically designed for AI agents.\n\nNot because we love legal documents (we don\u2019t), but because the contracts most agent companies are using create problems they don't see until something breaks.\n\nThe problem with using SaaS contracts for agents\n------------------------------------------------\n\nMost AI agent companies are still using SaaS contracts which makes no sense.\n\nYour software isn't just sitting there helping someone fill out a form. It's booking meetings, writing code, making decisions. When something goes wrong, who's liable?\n\nStandard contracts don't answer that question. They assume software waits for human instructions. Click button, thing happens, done.\n\nBut your agent operates differently. It decides which prospects to contact. It writes outreach messages. It follows up based on response patterns. It learns from interactions and adjusts behavior over time.\n\nThose are autonomous actions. And when your agent does something unexpected, the gap between what your contract says and what your product does creates legal exposure you can't price for.\n\nThree ways agents break traditional contracts\n---------------------------------------------\n\n<img src='/_astro/agents-break-contracts_Z1PkC6o.png' alt='How do agents break traditional contracts?' title='' width='672' height='1512' />\n\n### **Agents make decisions without approval**\n\nYour workflow agent doesn't suggest next steps. It executes them. Sends emails. Updates records. Moves data between systems. No human clicking approve at every stage.\n\n### **Agents act continuously**\n\nTraditional software processes tasks one at a time when asked. Agents run 24/7, making hundreds of micro\\-decisions. Remember the Ford dealership chatbot that hallucinated a free truck offer? That's what happens when autonomous systems operate under contracts written for passive tools.\n\n### **Agents adapt over time**\n\nStatic software behaves the same way every deployment. Agents learn from context, adjust to patterns, change behavior based on accumulated data. The system you shipped six months ago operates differently today.\n\nYour SaaS contract wasn't built for any of this.\n\nWhat the Agentic MSA actually covers\n------------------------------------\n\n[Working with Nick and the GitLaw team](https://git.law/news/launching-the-agentic-msa----free-open-and-designed-for-ai-builders), we identified the contract gaps that create the most exposure for agent companies. The new MSA addresses three critical areas:\n\n### **Agent classification and decision responsibility**\n\nThe contract establishes that your agent functions as a sophisticated tool, not an autonomous employee. When a customer's agent books 500 meetings with the wrong prospect list, the answer to \"who approved that?\" cannot be \"the AI decided.\"\n\nIt has to be \"the customer deployed the agent with these parameters and maintained oversight responsibility.\"\n\nThe MSA includes explicit language in Section 1\\.2 that protects you from liability for autonomous decisions while clarifying customer responsibility.\n\n### **Liability limitations and risk allocation**\n\nAI agents hallucinate. They produce confident outputs that turn out wrong. The MSA includes explicit disclaimers that agent outputs require human verification before material business decisions.\n\nIt also includes damage caps appropriate for unpredictable systems. Typically 12 months of fees with exclusions for indirect losses. Not being difficult. Acknowledging you can't predict every edge case in software that learns and adapts.\n\nSection 7 covers liability limitations with AI\\-specific disclaimers about output accuracy in Section 4\\.1\\.\n\n### **Data ownership and training rights**\n\nThis kills more deals than any other contract issue. Your agent ingests customer data and generates outputs. You might want to use those interactions to improve your models.\n\nCustomers panic when they hear that. They imagine their proprietary data training models that help competitors.\n\nThe MSA establishes that customers own their data and any agent outputs. Then it provides separate, customizable language about using de\\-identified, aggregated data for training purposes. With clear opt\\-out options.\n\nMost customers accept training use when it's explained clearly. Trying to slip it in through vague language destroys trust.\n\nSection 2\\.1 covers ownership with customizable training permissions in the cover page variables.\n\nWhy this matters for agent monetization\n---------------------------------------\n\nAt Paid, we solve billing and cost tracking for AI agents. But we kept hearing the same problem before companies even got to pricing.\n\nFounders would tell us they couldn't figure out how to charge for agents. Then we'd look at their contracts. They were trying to price outcome\\-based work using terms written for seat\\-based software.\n\n> \"Most AI agent companies are still using SaaS contract language which makes no sense. Your software isn't just sitting there helping someone fill out a form. It's booking meetings, writing code, making decisions. When something goes wrong, who's liable? The standard contracts don't answer that. We kept hearing this from founders, so when GitLaw said they were building an agent\\-specific MSA, we jumped in. Builders need legal frameworks that match what their agents actually do\".  \n> Manny Medina, Paid CEO\n\nYou can't bill for outcomes if your contract only covers usage. You can't price based on value delivered if your liability framework assumes predictable, passive behavior. You can't protect your margins when the legal foundation doesn't match what your product does.\n\nThe contract shapes everything that comes after. Get it wrong and your entire business model sits on shaky ground.\n\nHow to use the Agentic MSA\n--------------------------\n\nThe MSA is open source and free to use. You can access it directly in the [GitLaw Community](https://git.law/community) or ask the GitLaw AI Agent to generate a customized version for your specific needs.\n\nBecause the law around AI agents is evolving rapidly, treat this as a starting point, not a substitute for legal advice. Work with a commercial lawyer to customize it for your situation.\n\n<img src='/_astro/agentic-msa_4YqsG.png' alt='Screenshot of the Agentic MSA on GitLaw' title='' width='672' height='1820' />\n\n*The AI Agent MSA is available now on GitLaw*\n\nThe template uses CommonPaper's Software Licensing Agreement and AI Addendum as a foundation, adapted for the unique characteristics of AI agents.\n\nNick and the GitLaw team built this based on patterns from reviewing hundreds of agent contracts. We contributed our research from working with dozens of agent companies on monetization challenges.\n\nTogether, we're building the infrastructure the agent economy needs. Legal frameworks that match how agents actually work. Billing systems that align pricing with value delivery. Cost tracking that protects margins.\n\nBecause agents aren't just another SaaS feature. They're a fundamentally different product category that needs different infrastructure.\n\nWhat happens next\n-----------------\n\nLegal frameworks always lag behind technology. Right now that lag creates real risk for anyone building agents.\n\nYou can ignore it and hope nothing breaks. Or you can use contracts built for what agents actually do, not what software did ten years ago.\n\nMost founders choose hope. The ones who survive choose better infrastructure \\- and you'll soon find these MSAs baked into Paid's offering too.\n\n[\u2192 Access the Agentic MSA now](https://git.law/community/doc/ai-agent-msa-software-license-agreement-md-A9NZrQ?utm_source=paid_blog)\n\n[\u2192 Read the announcement on GitLaw](https://git.law/news/launching-the-agentic-msa----free-open-and-designed-for-ai-builders)\n\n[\u2192 Listen to our conversation with Nick](https://go.paid.ai/podcast-s2e21) about building legal infrastructure for the agent economy.\n\n  [Play](https://youtube.com/watch?v=RqwUorzPLsU)\n\n### Insights straight to your inbox\n\nJoin 10,000\\+ subscribers getting the latest insights on AI monetization.\n\nSubscribe\n\n \n\n  Subscribe\n\n \n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGVjayBzaXplLTQiIGZpbGw9Im5vbmUiIGhlaWdodD0iMjQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxwYXRoIGQ9Ik0yMCA2IDkgMTdsLTUtNSI+PC9wYXRoPiA8L3N2Zz4=) Subscribed\n\n---\n\nRelated articles\n----------------\n\n[The agentic runtime is a crystal ball](/blog/ai-agents/the-agentic-runtime-is-a-crystal-ball) The most expensive agentic operations were their most valuable customers. Your agent's runtime is revealing which features matter, who'll upgrade, and what your business actually does. The cost layer is your intelligence layer.  \n\n27 Aug 25 \u2022  Arnon\n\n<img src='/_astro/agent-runtime-is-crystal-ball-hero-square_Z15fL0I.png' alt='Financial crystal ball showing value pathways' title='' width='120' height='120' />\n\n[Platform Advantage Playbook: How SaaS CEOs Win the AI Agent Revolution](/blog/ai-agents/the-platform-advantage-playbook-saas-leaders-can-win-the-agent-revolution) Learn how established SaaS companies can leverage their platform advantages to dominate the agent revolution. Insights from leaders at Box, Salesforce, HubSpot \\& more on hybrid pricing, ARR per employee, and transforming from seats to outcomes.  \n\n25 Aug 25 \u2022  Arnon\n\n<img src='/_astro/leverage_cranes_square_15L5II.png' alt='Illustration of three large cranes on a waterfront at sunset, with birds flying in the golden sky and reflections on the water.' title='' width='120' height='120' />\n\n[The SaaS Platform Play of the Decade: Your Agent Economy Advantage](/blog/ai-agents/the-saas-platform-play-of-the-decade-your-agent-economy-advantage) Discover how SaaS companies can capture the $34B agent economy opportunity by becoming the infrastructure platform for AI agents. Learn the 3\\-layer strategy that turns AI disruption into 10x revenue growth through identity management, orchestration, and intelligence dashboards.  \n\n20 Aug 25 \u2022  Arnon\n\n<img src='/_astro/platform-saas-blog-header-square_Z1cUzeS.png' alt='Silhouettes of people standing on ripple-like patterns with a large, bright sun in the background, creating a dramatic contrast.' title='' width='120' height='120' />\n\nReady to get Paid?\n------------------\n\nPrice smarter. Protect margins. Grow revenue.\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtemFwIHRleHQtYWNjZW50IHNpemUtNiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZD0iTTQgMTRhMSAxIDAgMCAxLS43OC0xLjYzbDkuOS0xMC4yYS41LjUgMCAwIDEgLjg2LjQ2bC0xLjkyIDYuMDJBMSAxIDAgMCAwIDEzIDEwaDdhMSAxIDAgMCAxIC43OCAxLjYzbC05LjkgMTAuMmEuNS41IDAgMCAxLS44Ni0uNDZsMS45Mi02LjAyQTEgMSAwIDAgMCAxMSAxNHoiPjwvcGF0aD4gPC9zdmc+)\n\n### Get started for free\n\n* ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGVjayB0ZXh0LW1pZC1jb250cmFzdCBzaXplLTQiIGZpbGw9Im5vbmUiIGhlaWdodD0iMjQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxwYXRoIGQ9Ik0yMCA2IDkgMTdsLTUtNSI+PC9wYXRoPiA8L3N2Zz4=)\n\n    Generous free tier\n\n* ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGVjayB0ZXh0LW1pZC1jb250cmFzdCBzaXplLTQiIGZpbGw9Im5vbmUiIGhlaWdodD0iMjQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxwYXRoIGQ9Ik0yMCA2IDkgMTdsLTUtNSI+PC9wYXRoPiA8L3N2Zz4=)\n\n    Transparent pricing\n\n* ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGVjayB0ZXh0LW1pZC1jb250cmFzdCBzaXplLTQiIGZpbGw9Im5vbmUiIGhlaWdodD0iMjQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13... [truncated]"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01YGdSsEb2MKRyHXhqSNbbiH": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# Content from https://blog.google/technology/google-deepmind/gemini-computer-use-model/\n\n<!--\ncanonical: https://blog.google/technology/google-deepmind/gemini-computer-use-model/\nmeta-article-author: Google DeepMind\nmeta-article-published_time: 2025-10-07\nmeta-article-publisher: https://www.facebook.com/Google/\nmeta-authors: Google DeepMind\nmeta-content_type: blogv2.articlepage\nmeta-description: Today we are releasing the Gemini 2.5 Computer Use model via the API, which outperforms leading alternatives at browser and mobile tasks.\nmeta-gtm-tag: GTM-TRV24V\nmeta-keywords: None\nmeta-locale: en-us\nmeta-og-description: Today we are releasing the Gemini 2.5 Computer Use model via the API, which outperforms leading alternatives at browser and mobile tasks.\nmeta-og-image: https://storage.googleapis.com/gweb-uniblog-publish-prod/images/CTU_16x9_RD8-V01.width-1300.png\nmeta-og-site_name: Google\nmeta-og-title: Introducing the Gemini 2.5 Computer Use model\nmeta-og-type: article\nmeta-og-url: https://blog.google/technology/google-deepmind/gemini-computer-use-model/\nmeta-optimize_experiments: []\nmeta-page: 82044\nmeta-published_time: 2025-10-07T19:00:00+00:00\nmeta-robots: max-image-preview:large\nmeta-tags: Gemini Models,AI,Google DeepMind\nmeta-twitter:card: summary_large_image\nmeta-twitter:description: Today we are releasing the Gemini 2.5 Computer Use model via the API, which outperforms leading alternatives at browser and mobile tasks.\nmeta-twitter:image:src: https://storage.googleapis.com/gweb-uniblog-publish-prod/images/CTU_16x9_RD8-V01.width-1300.png\nmeta-twitter:site: @google\nmeta-twitter:title: Introducing the Gemini 2.5 Computer Use model\nmeta-twitter:url: https://blog.google/technology/google-deepmind/gemini-computer-use-model/\nmeta-viewport: width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0\nmeta-x-ua-compatible: IE=edge\ntitle: Introducing the Gemini 2.5 Computer Use model\n-->\n\n[https://www.googletagmanager.com/ns.html?id=GTM-TRV24V](https://www.googletagmanager.com/ns.html?id=GTM-TRV24V)\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1oZWFkZXJfX2hhbWJ1cmdlci1pbWcgaC1jLWhlYWRlcl9faGFtYnVyZ2VyLWltZy0tc3RhbmRhcmQgZXZlbnRzLW9mZiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI2gtYnVyZ2VyIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJUaGUgR29vZ2xlIGxvZ28iIHJvbGU9ImltZyI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNoLWNvbG9yLWdvb2dsZS1sb2dvIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)\n\n[Skip to main content](#jump-content)\n\n[The Keyword](/)\n\nIntroducing the Gemini 2\\.5 Computer Use model\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS1jb2xvci10ZXh0IiB0aXRsZT0iU2hhcmUiPgo8dXNlIGhyZWY9Ii9zdGF0aWMvYmxvZ3YyL2ltYWdlcy9pY29ucy5zdmc/dmVyc2lvbj1wcjIwMjUxMDAyLTE2NTMjc29jaWFsLXNoYXJlIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)\n\nShare\n\n[![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS1zb2NpYWwgaC1jLWljb24tLTMwcHgiIHZpZXdib3g9IjAgMCAzMCAzMCI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNzb2NpYWwtdHdpdHRlciIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\nTwitter](https://twitter.com/intent/tweet?text=Introducing%20the%20Gemini%202.5%20Computer%20Use%20model%20%40google&url=https://blog.google/technology/google-deepmind/gemini-computer-use-model/)[![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS1zb2NpYWwgaC1jLWljb24tLTMwcHgiIHZpZXdib3g9IjAgMCAzMCAzMCI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNzb2NpYWwtZmFjZWJvb2siIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48L3VzZT4KPC9zdmc+)\n\nFacebook](https://www.facebook.com/sharer/sharer.php?caption=Introducing%20the%20Gemini%202.5%20Computer%20Use%20model&u=https://blog.google/technology/google-deepmind/gemini-computer-use-model/)[![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS1zb2NpYWwgaC1jLWljb24tLTMwcHgiIHZpZXdib3g9IjAgMCAzMCAzMCI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNzb2NpYWwtbGlua2VkaW4iIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48L3VzZT4KPC9zdmc+)\n\nLinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https://blog.google/technology/google-deepmind/gemini-computer-use-model/&title=Introducing%20the%20Gemini%202.5%20Computer%20Use%20model)[![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS1zb2NpYWwgaC1jLWljb24tLTMwcHgiIHZpZXdib3g9IjAgMCAzMCAzMCI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNzb2NpYWwtbWFpbCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\nMail](mailto:?subject=Introducing%20the%20Gemini%202.5%20Computer%20Use%20model&body=Check out this article on the Keyword:%0A%0AIntroducing%20the%20Gemini%202.5%20Computer%20Use%20model%0A%0AToday we are releasing the Gemini 2.5 Computer Use model via the API, which outperforms leading alternatives at browser and mobile tasks.%0A%0Ahttps://blog.google/technology/google-deepmind/gemini-computer-use-model/)\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaC1jLWljb24gaC1jLWljb24tLWNvbG9yLXRleHQiIHJvbGU9InByZXNlbnRhdGlvbiIgdGl0bGU9IkNvcHkgbGluayI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNzb2NpYWwtbGluayIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\nCopy link\n\n* [Home](/)\n* Product news\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n    Product news\n\n    + Android, Chrome \\& Play\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Android](/products/android/)\n                - [Chrome](/products/chrome/)\n                - [Chromebooks](/products/chromebooks/)\n                - [Google Play](/products/google-play/)\n                - [Wear OS](/products/wear-os/)\n                - [See all](/products/android-chrome-play/)\n        + Platforms \\& Devices\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Fitbit](/products/fitbit/)\n                - [Google Nest](/products/google-nest/)\n                - [Pixel](/products/pixel/)\n                - [See all](/products/platforms-devices/)\n        + Explore \\& Get Answers\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Gemini](/products/gemini/)\n                - [Maps](/products/maps/)\n                - [News](/products/news/)\n                - [Search](/products/search/)\n                - [Shopping](/products/shopping/)\n                - [See all](/products/explore-get-answers/)\n        + Connect \\& Communicate\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Classroom](/products/classroom/)\n                - [Photos](/products/photos/)\n                - [Registry](/products/registry/)\n                - [Translate](/products/translate/)\n        + In the Cloud\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Google Workspace](/products/workspace/)\n                - [More on the Cloud Blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiBoLWMtaWNvbiB1bmktbWFpbi1tZW51X19zdWJuYXYtc3VibGlzdC1leHRlcm5hbC1pY29uIiByb2xlPSJwcmVzZW50YXRpb24iIHZpZXdib3g9IjAgMCAxOCAxOCI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNtaS1hcnJvdy1mb3J3YXJkIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)](https://cloud.google.com/blog/)\n                - [Google Cloud](/products/google-cloud/)\n                - [See all](/products/cloud/)[See all product updates](/products/)\n\n    + Android, Chrome \\& Play\n\n    - [Android](/products/android/)\n                    - [Chrome](/products/chrome/)\n                    - [Chromebooks](/products/chromebooks/)\n                    - [Google Play](/products/google-play/)\n                    - [Wear OS](/products/wear-os/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/products/android-chrome-play/ \"See all Android, Chrome & Play articles\")\n            + Platforms \\& Devices\n\n    - [Fitbit](/products/fitbit/)\n                    - [Google Nest](/products/google-nest/)\n                    - [Pixel](/products/pixel/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/products/platforms-devices/ \"See all Platforms & Devices articles\")\n            + Explore \\& Get Answers\n\n    - [Gemini](/products/gemini/)\n                    - [Maps](/products/maps/)\n                    - [News](/products/news/)\n                    - [Search](/products/search/)\n                    - [Shopping](/products/shopping/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/products/explore-get-answers/ \"See all Explore & Get Answers articles\")\n            + Connect \\& Communicate\n\n    - [Classroom](/products/classroom/)\n                    - [Photos](/products/photos/)\n                    - [Registry](/products/registry/)\n                    - [Translate](/products/translate/)\n            + In the Cloud\n\n    - [Google Workspace](/products/workspace/)\n                    - [More on the Cloud Blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiBoLWMtaWNvbiB1bmktbWFpbi1tZW51X19zdWJtZW51LWV4dGVybmFsLWljb24iIHJvbGU9InByZXNlbnRhdGlvbiIgdmlld2JveD0iMCAwIDE4IDE4Ij4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWFycm93LWZvcndhcmQiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48L3VzZT4KPC9zdmc+)](https://cloud.google.com/blog/)\n                    - [Google Cloud](/products/google-cloud/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/products/cloud/ \"See all In the Cloud articles\")\n\n    [See all product updates ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/products/)\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS0yNHB4IHVuaS1tYWluLW1lbnVfX3N1Ym1lbnUtY2xvc2UtLWljb24iPgo8dXNlIGhyZWY9Ii9zdGF0aWMvYmxvZ3YyL2ltYWdlcy9pY29ucy5zdmc/dmVyc2lvbj1wcjIwMjUxMDAyLTE2NTMjY2xvc2VfaWNvbiIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n* Company news\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n    Company news\n\n    + Outreach \\& initiatives\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Arts \\& Culture](/outreach-initiatives/arts-culture/)\n                - [Education](/outreach-initiatives/education/)\n                - [Entrepreneurs](/outreach-initiatives/entrepreneurs/)\n                - [Public Policy](/outreach-initiatives/public-policy/)\n                - [Sustainability](/outreach-initiatives/sustainability/)\n                - [See all](/outreach-initiatives/)\n        + Technology\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [AI](/technology/ai/)\n                - [Developers](/technology/developers/)\n                - [Health](/technology/health/)\n                - [Google DeepMind](/technology/google-deepmind/)\n                - [Google Labs](/technology/google-labs/)\n                - [Safety and security](/technology/safety-security/)\n                - [See all](/technology/)\n        + Inside Google\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Data centers and infrastructure](/inside-google/infrastructure/)\n                - [Doodles](/inside-google/doodles/)\n                - [Googlers](/inside-google/googlers/)\n                - [Life at Google](/inside-google/life-at-google/)\n                - [See all](/inside-google/)\n        + Around the globe\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Google in Asia](/around-the-globe/google-asia/)\n                - [Google in Europe](/around-the-globe/google-europe/)\n                - [Google in Latin America](/around-the-globe/google-latin-america/)\n                - [See all](/around-the-globe/)\n        + Authors\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Sundar Pichai, CEO](/authors/sundar-pichai/)\n                - [Demis Hassabis, CEO and Co\\-Founder, Google DeepMind](/authors/demis-hassabis/)\n                - [Kent Walker, SVP](/authors/kent-walker/)\n                - [James Manyika, SVP](/authors/james-manyika/)\n                - [Ruth Porat, President \\& Chief Investment Officer](/authors/ruth-porat/)\n                - [See all](/authors/)\n\n    + Outreach \\& initiatives\n\n    - [Arts \\& Culture](/outreach-initiatives/arts-culture/)\n                    - [Education](/outreach-initiatives/education/)\n                    - [Entrepreneurs](/outreach-initiatives/entrepreneurs/)\n                    - [Public Policy](/outreach-initiatives/public-policy/)\n                    - [Sustainability](/outreach-initiatives/sustainability/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/outreach-initiatives/ \"See all Outreach & initiatives articles\")\n            + Technology\n\n    - [AI](/technology/ai/)\n                    - [Developers](/technology/developers/)\n                    - [Health](/technology/health/)\n                    - [Google DeepMind](/technology/google-deepmind/)\n                    - [Google Labs](/technology/google-labs/)\n                    - [Safety and security](/technology/safety-security/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/technology/ \"See all Technology articles\")\n            + Inside Google\n\n    - [Data centers and infrastructure](/inside-google/infrastructure/)\n                    - [Doodles](/inside-google/doodles/)\n                    - [Googlers](/inside-google/googlers/)\n                    - [Life at Google](/inside-google/life-at-google/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/inside-google/ \"See all Inside Google articles\")\n            + Around the globe\n\n    - [Google in Asia](/around-the-globe/google-asia/)\n                    - [Google in Europe](/around-the-globe/google-europe/)\n                    - [Google in Latin America](/around-the-globe/google-latin-america/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/around-the-globe/ \"See all Around the globe articles\")\n            + Authors\n\n    - [Sundar Pichai, CEO](/authors/sundar-pichai/)\n                    - [Demis Hassabis, CEO and Co\\-Founder, Google DeepMind](/authors/demis-hassabis/)\n                    - [Kent Walker, SVP](/authors/kent-walker/)\n                    - [James Manyika, SVP](/authors/james-manyika/)\n                    - [Ruth Porat, President \\& Chief Investment Officer](/authors/ruth-porat/)[See all ![SVG Image](data:image/svg+xml;base64,PHN2ZyBpZD0ibWktYXJyb3ctZm9yd2FyZC1uby1iZyIgdmlld2JveD0iMCAwIDMyIDMyIj4KPHBvbHlnb24gcG9pbnRzPSIxNiwwIDEzLjIsMi44IDI0LjMsMTQgMCwxNCAwLDE4IDI0LjMsMTggMTMuMiwyOS4yIDE2LDMyIDMyLDE2Ij48L3BvbHlnb24+Cjwvc3ZnPg==)](/authors/ \"See all Authors articles\")![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS0yNHB4IHVuaS1tYWluLW1lbnVfX3N1Ym1lbnUtY2xvc2UtLWljb24iPgo8dXNlIGhyZWY9Ii9zdGF0aWMvYmxvZ3YyL2ltYWdlcy9pY29ucy5zdmc/dmVyc2lvbj1wcjIwMjUxMDAyLTE2NTMjY2xvc2VfaWNvbiIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n* [Feed](/feed)\n\n[Subscribe](/newsletter-subscribe/)\n\n* Global (English)\nAfrica (English)\nAustralia (English)\nBrasil (Portugu\u00eas)\nCanada (English)\nCanada (Fran\u00e7ais)\n\u010cesko (\u010ce\u0161tina)\nDeutschland (Deutsch)\nEspa\u00f1a (Espa\u00f1ol)\nFrance (Fran\u00e7ais)\nIndia (English)\nIndonesia (Bahasa Indonesia)\nItalia (Italiano)\n\u65e5\u672c (\u65e5\u672c\u8a9e)\n\ub300\ud55c\ubbfc\uad6d (\ud55c\uad6d\uc5b4)\nLatinoam\u00e9rica (Espa\u00f1ol)\n\u0627\u0644\u0634\u0631\u0642 \u0627\u0644\u0623\u0648\u0633\u0637 \u0648\u0634\u0645\u0627\u0644 \u0623\u0641\u0631\u064a\u0642\u064a\u0627 (\u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629)\nMENA (English)\nNederlands (Nederland)\nPolska (Polski)\nPortugal (Portugu\u00eas)\n\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22 (\u0e44\u0e17\u0e22)\nT\u00fcrkiye (T\u00fcrk\u00e7e)\n\u53f0\u7063 (\u4e2d\u6587)\n\n[Subscribe](/newsletter-subscribe/)\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgYXJpYS1sYWJlbD0iQ2xvc2UgTWVudSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS0yNHB4IHVuaS1tYWluLW1lbnVfX3N1Ym1lbnUtY2xvc2UtLWljb24iPgo8dXNlIGhyZWY9Ii9zdGF0aWMvYmxvZ3YyL2ltYWdlcy9pY29ucy5zdmc/dmVyc2lvbj1wcjIwMjUxMDAyLTE2NTMjY2xvc2VfaWNvbiIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJHb29nbGUiIHJvbGU9ImltZyI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNoLWNvbG9yLWdvb2dsZS1sb2dvIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)\n\n[The Keyword](/)\n\n* [Home](/)\n* Product news\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n    Product news\n\n    + Android, Chrome \\& Play\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Android](/products/android/)\n                - [Chrome](/products/chrome/)\n                - [Chromebooks](/products/chromebooks/)\n                - [Google Play](/products/google-play/)\n                - [Wear OS](/products/wear-os/)\n                - [See all](/products/android-chrome-play/)\n        + Platforms \\& Devices\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Fitbit](/products/fitbit/)\n                - [Google Nest](/products/google-nest/)\n                - [Pixel](/products/pixel/)\n                - [See all](/products/platforms-devices/)\n        + Explore \\& Get Answers\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Gemini](/products/gemini/)\n                - [Maps](/products/maps/)\n                - [News](/products/news/)\n                - [Search](/products/search/)\n                - [Shopping](/products/shopping/)\n                - [See all](/products/explore-get-answers/)\n        + Connect \\& Communicate\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Classroom](/products/classroom/)\n                - [Photos](/products/photos/)\n                - [Registry](/products/registry/)\n                - [Translate](/products/translate/)\n        + In the Cloud\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Google Workspace](/products/workspace/)\n                - [More on the Cloud Blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiBoLWMtaWNvbiB1bmktbWFpbi1tZW51X19zdWJuYXYtc3VibGlzdC1leHRlcm5hbC1pY29uIiByb2xlPSJwcmVzZW50YXRpb24iIHZpZXdib3g9IjAgMCAxOCAxOCI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyNtaS1hcnJvdy1mb3J3YXJkIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)](https://cloud.google.com/blog/)\n                - [Google Cloud](/products/google-cloud/)\n                - [See all](/products/cloud/)[See all product updates](/products/)\n* Company news\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n    Company news\n\n    + Outreach \\& initiatives\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Arts \\& Culture](/outreach-initiatives/arts-culture/)\n                - [Education](/outreach-initiatives/education/)\n                - [Entrepreneurs](/outreach-initiatives/entrepreneurs/)\n                - [Public Policy](/outreach-initiatives/public-policy/)\n                - [Sustainability](/outreach-initiatives/sustainability/)\n                - [See all](/outreach-initiatives/)\n        + Technology\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [AI](/technology/ai/)\n                - [Developers](/technology/developers/)\n                - [Health](/technology/health/)\n                - [Google DeepMind](/technology/google-deepmind/)\n                - [Google Labs](/technology/google-labs/)\n                - [Safety and security](/technology/safety-security/)\n                - [See all](/technology/)\n        + Inside Google\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Data centers and infrastructure](/inside-google/infrastructure/)\n                - [Doodles](/inside-google/doodles/)\n                - [Googlers](/inside-google/googlers/)\n                - [Life at Google](/inside-google/life-at-google/)\n                - [See all](/inside-google/)\n        + Around the globe\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Google in Asia](/around-the-globe/google-asia/)\n                - [Google in Europe](/around-the-globe/google-europe/)\n                - [Google in Latin America](/around-the-globe/google-latin-america/)\n                - [See all](/around-the-globe/)\n        + Authors\n            ![SVG Image](data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI21pLWV4cGFuZCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjwvdXNlPgo8L3N2Zz4=)\n\n            - [Sundar Pichai, CEO](/authors/sundar-pichai/)\n                - [Demis Hassabis, CEO and Co\\-Founder, Google DeepMind](/authors/demis-hassabis/)\n                - [Kent Walker, SVP](/authors/kent-walker/)\n                - [James Manyika, SVP](/authors/james-manyika/)\n                - [Ruth Porat, President \\& Chief Investment Officer](/authors/ruth-porat/)\n                - [See all](/authors/)\n* [Feed](/feed)\n\n* * [Press corner](/press/ \"Press corner\")\n* [RSS feed](/rss/ \"RSS feed\")\n\n[Subscribe](/newsletter-subscribe/)\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI3VuaS1pY29uLWNoZXZyb24tcmlnaHQiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48L3VzZT4KPC9zdmc+)\n\nBreadcrumb\n\n1. [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI3VuaS1pY29uLWhvbWVwYWdlIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)](https://blog.google/ \"The Keyword\")\n2. ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImJyZWFkY3J1bWJfX2NoZXZyb24iIHJvbGU9InByZXNlbnRhdGlvbiI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyN1bmktaWNvbi1jaGV2cm9uLXJpZ2h0IiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)[Technology](https://blog.google/technology/)\n3. ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImJyZWFkY3J1bWJfX2NoZXZyb24iIHJvbGU9InByZXNlbnRhdGlvbiI+Cjx1c2UgaHJlZj0iL3N0YXRpYy9ibG9ndjIvaW1hZ2VzL2ljb25zLnN2Zz92ZXJzaW9uPXByMjAyNTEwMDItMTY1MyN1bmktaWNvbi1jaGV2cm9uLXJpZ2h0IiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)[Google DeepMind](https://blog.google/technology/google-deepmind/)\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0icHJlc2VudGF0aW9uIj4KPHVzZSBocmVmPSIvc3RhdGljL2Jsb2d2Mi9pbWFnZXMvaWNvbnMuc3ZnP3ZlcnNpb249cHIyMDI1MTAwMi0xNjUzI3VuaS1pY29uLWNoZXZyb24tcmlnaHQiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48L3VzZT4KPC9zdmc+)\n\nIntroducing the Gemini 2\\.5 Computer Use model\n==============================================\n\nOct 07, 2025\n\n\u00b7\n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS1jb2xvci10ZXh0IiB0aXRsZT0iU2hhcmUiPgo8dXNlIGhyZWY9Ii9zdGF0aWMvYmxvZ3YyL2ltYWdlcy9pY29ucy5zdmc/dmVyc2lvbj1wcjIwMjUxMDAyLTE2NTMjc29jaWFsLXNoYXJlIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PC91c2U+Cjwvc3ZnPg==)\n\nShare\n\n[![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImgtYy1pY29uIGgtYy1pY29uLS1zb2NpYWwgaC1... [truncated]"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01Abzj7w7PKBxBFSuP8qAT3h": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# Content from https://simonwillison.net/2025/Oct/7/vibe-engineering/\n\n<!--\ncanonical: https://simonwillison.net/2025/Oct/7/vibe-engineering/\nlink-alternate: /atom/everything/\nmeta-author: Simon Willison\nmeta-content-type: text/html; charset=utf-8\nmeta-og-description: I feel like vibe coding is pretty well established now as covering the fast, loose and irresponsible way of building software with AI\u2014entirely prompt-driven, and with no attention paid to \u2026\nmeta-og-site_name: Simon Willison\u2019s Weblog\nmeta-og-title: Vibe engineering\nmeta-og-type: article\nmeta-og-updated_time: 1759847545\nmeta-og-url: https://simonwillison.net/2025/Oct/7/vibe-engineering/\nmeta-twitter:card: summary\nmeta-twitter:creator: @simonw\nmeta-viewport: width=device-width, initial-scale=1\ntitle: Vibe engineering\n-->\n\n[Simon Willison\u2019s Weblog](/)\n============================\n\n[Subscribe](/about/#subscribe)\n\nVibe engineering\n----------------\n\n7th October 2025\n\nI feel like **vibe coding** is [pretty well established now](https://simonwillison.net/2025/Mar/19/vibe-coding/) as covering the fast, loose and irresponsible way of building software with AI\u2014entirely prompt\\-driven, and with no attention paid to how the code actually works. This leaves us with a terminology gap: what should we call the other end of the spectrum, where seasoned professionals accelerate their work with LLMs while staying proudly and confidently accountable for the software they produce?\n\nI propose we call this **vibe engineering**, with my tongue only partially in my cheek.\n\nOne of the lesser spoken truths of working productively with LLMs as a software engineer on non\\-toy\\-projects is that it\u2019s *difficult*. There\u2019s a lot of depth to understanding how to use the tools, there are plenty of traps to avoid, and the pace at which they can churn out working code raises the bar for what the human participant can and should be contributing.\n\nThe rise of **coding agents**\u2014tools like [Claude Code](https://www.claude.com/product/claude-code) (released February 2025\\), OpenAI\u2019s [Codex CLI](https://github.com/openai/codex) (April) and [Gemini CLI](https://github.com/google-gemini/gemini-cli) (June) that can iterate on code, actively testing and modifying it until it achieves a specified goal, has dramatically increased the usefulness of LLMs for real\\-world coding problems.\n\nI\u2019m increasingly hearing from experienced, credible software engineers who are running multiple copies of agents at once, tackling several problems in parallel and expanding the scope of what they can take on. I was skeptical of this at first but [I\u2019ve started running multiple agents myself now](https://simonwillison.net/2025/Oct/5/parallel-coding-agents/) and it\u2019s surprisingly effective, if mentally exhausting!\n\nThis feels very different from classic vibe coding, where I outsource a simple, low\\-stakes task to an LLM and accept the result if it appears to work. Most of my [tools.simonwillison.net](https://tools.simonwillison.net/) collection ([previously](https://simonwillison.net/2025/Sep/4/highlighted-tools/)) were built like that. Iterating with coding agents to produce production\\-quality code that I\u2019m confident I can maintain in the future feels like a different process entirely.\n\nIt\u2019s also become clear to me that LLMs actively reward existing top tier software engineering practices:\n\n* **Automated testing**. If your project has a robust, comprehensive and stable test suite agentic coding tools can *fly* with it. Without tests? Your agent might claim something works without having actually tested it at all, plus any new change could break an unrelated feature without you realizing it. Test\\-first development is particularly effective with agents that can iterate in a loop.\n* **Planning in advance**. Sitting down to hack something together goes much better if you start with a high level plan. Working with an agent makes this even more important\u2014you can iterate on the plan first, then hand it off to the agent to write the code.\n* **Comprehensive documentation**. Just like human programmers, an LLM can only keep a subset of the codebase in its context at once. Being able to feed in relevant documentation lets it use APIs from other areas without reading the code first. Write good documentation first and the model may be able to build the matching implementation from that input alone.\n* **Good version control habits**. Being able to undo mistakes and understand when and how something was changed is even more important when a coding agent might have made the changes. LLMs are also fiercely competent at Git\u2014they can navigate the history themselves to track down the origin of bugs, and they\u2019re better than most developers at using [git bisect](https://til.simonwillison.net/git/git-bisect). Use that to your advantage.\n* Having **effective automation** in place. Continuous integration, automated formatting and linting, continuous deployment to a preview environment\u2014all things that agentic coding tools can benefit from too. LLMs make writing quick automation scripts easier as well, which can help them then repeat tasks accurately and consistently next time.\n* A **culture of code review**. This one explains itself. If you\u2019re fast and productive at code review you\u2019re going to have a much better time working with LLMs than if you\u2019d rather write code yourself than review the same thing written by someone (or something) else.\n* A **very weird form of management**. Getting good results out of a coding agent feels uncomfortably close to getting good results out of a human collaborator. You need to provide clear instructions, ensure they have the necessary context and provide actionable feedback on what they produce. It\u2019s a *lot* easier than working with actual people because you don\u2019t have to worry about offending or discouraging them\u2014but any existing management experience you have will prove surprisingly useful.\n* Really good **manual QA (quality assurance)**. Beyond automated tests, you need to be really good at manually testing software, including predicting and digging into edge\\-cases.\n* Strong **research skills**. There are dozens of ways to solve any given coding problem. Figuring out the best options and proving an approach has always been important, and remains a blocker on unleashing an agent to write the actual code.\n* The ability to **ship to a preview environment**. If an agent builds a feature, having a way to safely preview that feature (without deploying it straight to production) makes reviews much more productive and greatly reduces the risk of shipping something broken.\n* An instinct for **what can be outsourced** to AI and what you need to manually handle yourself. This is constantly evolving as the models and tools become more effective. A big part of working effectively with LLMs is maintaining a strong intuition for when they can best be applied.\n* An updated **sense of estimation**. Estimating how long a project will take has always been one of the hardest but most important parts of being a senior engineer, especially in organizations where budget and strategy decisions are made based on those estimates. AI\\-assisted coding makes this *even harder*\u2014things that used to take a long time are much faster, but estimations now depend on new factors which we\u2019re all still trying to figure out.\n\nIf you\u2019re going to really exploit the capabilities of these new tools, you need to be operating *at the top of your game*. You\u2019re not just responsible for writing the code\u2014you\u2019re researching approaches, deciding on high\\-level architecture, writing specifications, defining success criteria, [designing agentic loops](https://simonwillison.net/2025/Sep/30/designing-agentic-loops/), planning QA, managing a growing army of weird digital interns who will absolutely cheat if you give them a chance, and spending *so much time on code review*.\n\nAlmost all of these are characteristics of senior software engineers already!\n\nAI tools **amplify existing expertise**. The more skills and experience you have as a software engineer the faster and better the results you can get from working with LLMs and coding agents.\n\n#### \u201cVibe engineering\u201d, really?\n\nIs this a stupid name? Yeah, probably. \u201cVibes\u201d as a concept in AI feels a little tired at this point. \u201cVibe coding\u201d itself is used by a lot of developers in a dismissive way. I\u2019m ready to reclaim vibes for something more constructive.\n\nI\u2019ve never really liked the artificial distinction between \u201ccoders\u201d and \u201cengineers\u201d\u2014that\u2019s always smelled to me a bit like gatekeeping. But in this case a bit of gatekeeping is exactly what we need!\n\n**Vibe engineering** establishes a clear distinction from vibe coding. It signals that this is a different, harder and more sophisticated way of working with AI tools to build production software.\n\nI like that this is cheeky and likely to be controversial. This whole space is still absurd in all sorts of different ways. We shouldn\u2019t take ourselves too seriously while we figure out the most productive ways to apply these new tools.\n\nI\u2019ve tried in the past to get terms like **[AI\\-assisted programming](https://simonwillison.net/tags/ai-assisted-programming/)** to stick, with approximately zero success. May as well try rubbing some vibes on it and see what happens.\n\nI also really like the clear mismatch between \u201cvibes\u201d and \u201cengineering\u201d. It makes the combined term self\\-contradictory in a way that I find mischievous and (hopefully) sticky.\n\nPosted [7th October 2025](/2025/Oct/7/) at 2:32 pm \u00b7 Follow me on [Mastodon](https://fedi.simonwillison.net/@simon), [Bluesky](https://bsky.app/profile/simonwillison.net), [Twitter](https://twitter.com/simonw) or [subscribe to my newsletter](https://simonwillison.net/about/#subscribe)\n\nMore recent articles\n--------------------\n\n* [OpenAI DevDay 2025 live blog](/2025/Oct/6/openai-devday-live-blog/) \\- 6th October 2025\n* [Embracing the parallel coding agent lifestyle](/2025/Oct/5/parallel-coding-agents/) \\- 5th October 2025\n\nThis is **Vibe engineering** by Simon Willison, posted on [7th October 2025](/2025/Oct/7/).\n\nPart of series **[How I use LLMs and ChatGPT](/series/using-llms/)**\n\n29. [Tips on prompting ChatGPT for UK technology secretary Peter Kyle](/2025/Jun/3/tips-for-peter-kyle/) \\- June 3, 2025, 7:08 p.m.\n30. [Designing agentic loops](/2025/Sep/30/designing-agentic-loops/) \\- Sept. 30, 2025, 3:20 p.m.\n31. [Embracing the parallel coding agent lifestyle](/2025/Oct/5/parallel-coding-agents/) \\- Oct. 5, 2025, 12:06 p.m.\n32. **Vibe engineering** \\- Oct. 7, 2025, 2:32 p.m.\n\n[definitions 30](/tags/definitions/)[software\\-engineering 59](/tags/software-engineering/)[ai 1604](/tags/ai/)[generative\\-ai 1413](/tags/generative-ai/)[llms 1382](/tags/llms/)[ai\\-assisted\\-programming 246](/tags/ai-assisted-programming/)[vibe\\-coding 47](/tags/vibe-coding/)[coding\\-agents 62](/tags/coding-agents/)\n\n**Previous:** [OpenAI DevDay 2025 live blog](/2025/Oct/6/openai-devday-live-blog/)\n\n### Monthly briefing\n\nSponsor me for **$10/month** and get a curated email digest of the month's most important LLM developments. \n\nPay me to send you less! \n\n[Sponsor \\& subscribe](https://github.com/sponsors/simonw/)\n\n* [Colophon](/about/#about-site)\n* \u00a9\n* [2002](/2002/)\n* [2003](/2003/)\n* [2004](/2004/)\n* [2005](/2005/)\n* [2006](/2006/)\n* [2007](/2007/)\n* [2008](/2008/)\n* [2009](/2009/)\n* [2010](/2010/)\n* [2011](/2011/)\n* [2012](/2012/)\n* [2013](/2013/)\n* [2014](/2014/)\n* [2015](/2015/)\n* [2016](/2016/)\n* [2017](/2017/)\n* [2018](/2018/)\n* [2019](/2019/)\n* [2020](/2020/)\n* [2021](/2021/)\n* [2022](/2022/)\n* [2023](/2023/)\n* [2024](/2024/)\n* [2025](/2025/)\n\n"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01U453u8hsxFnw5wRVYygphp": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# Content from https://github.com/llama-farm/llamafarm\n\n<!--\ncanonical: https://github.com/llama-farm/llamafarm\nlink-alternate: https://github.githubassets.com/favicons/favicon.png\nmeta-analytics-location: /<user-name>/<repo-name>\nmeta-apple-itunes-app: app-id=1477376905, app-argument=https://github.com/llama-farm/llamafarm\nmeta-browser-errors-url: https://api.github.com/_private/browser/errors\nmeta-browser-stats-url: https://api.github.com/_private/browser/stats\nmeta-color-scheme: light dark\nmeta-current-catalog-service-hash: f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb\nmeta-description: Deploy any AI model, agents, database, RAG, and pipeline locally in minutes - llama-farm/llamafarm\nmeta-expected-hostname: github.com\nmeta-fb-app_id: 1401488693436528\nmeta-fetch-nonce: v2:02a408f1-12ce-1669-a65b-7f8c5f2e7d55\nmeta-github-keyboard-shortcuts: repository,copilot\nmeta-go-import: github.com/llama-farm/llamafarm git https://github.com/llama-farm/llamafarm.git\nmeta-google-site-verification: Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I\nmeta-hostname: github.com\nmeta-hovercard-subject-tag: repository:1017038703\nmeta-html-safe-nonce: 267b6d8d32ef4f9912a501ce144f2e4771eeea544db38d33d5ec0fae94f5ffa1\nmeta-octolytics-dimension-repository_id: 1017038703\nmeta-octolytics-dimension-repository_is_fork: false\nmeta-octolytics-dimension-repository_network_root_id: 1017038703\nmeta-octolytics-dimension-repository_network_root_nwo: llama-farm/llamafarm\nmeta-octolytics-dimension-repository_nwo: llama-farm/llamafarm\nmeta-octolytics-dimension-repository_public: true\nmeta-octolytics-dimension-user_id: 220101443\nmeta-octolytics-dimension-user_login: llama-farm\nmeta-octolytics-url: https://collector.github.com/github/collect\nmeta-og-description: Deploy any AI model, agents, database, RAG, and pipeline locally in minutes - llama-farm/llamafarm\nmeta-og-image: https://repository-images.githubusercontent.com/1017038703/b40ebe46-1b18-48e4-8b05-fd127e39e9e3\nmeta-og-image-alt: Deploy any AI model, agents, database, RAG, and pipeline locally in minutes - llama-farm/llamafarm\nmeta-og-site_name: GitHub\nmeta-og-title: GitHub - llama-farm/llamafarm: Deploy any AI model, agents, database, RAG, and pipeline locally in minutes\nmeta-og-type: object\nmeta-og-url: https://github.com/llama-farm/llamafarm\nmeta-release: 0ab59844135ff75a9b1e023fb39f933d6f3f49ca\nmeta-request-id: D3DF:24C250:3C38B5:53C8B1:68E669E2\nmeta-route-action: disambiguate\nmeta-route-controller: files\nmeta-route-pattern: /:user_id/:repository\nmeta-theme-color: #1e2327\nmeta-turbo-body-classes: logged-out env-production page-responsive\nmeta-turbo-cache-control: no-preview\nmeta-twitter:card: summary_large_image\nmeta-twitter:description: Deploy any AI model, agents, database, RAG, and pipeline locally in minutes - llama-farm/llamafarm\nmeta-twitter:image: https://repository-images.githubusercontent.com/1017038703/b40ebe46-1b18-48e4-8b05-fd127e39e9e3\nmeta-twitter:site: @github\nmeta-twitter:title: GitHub - llama-farm/llamafarm: Deploy any AI model, agents, database, RAG, and pipeline locally in minutes\nmeta-ui-target: full\nmeta-user-login: \nmeta-viewport: width=device-width\nmeta-visitor-hmac: 14b72819a9ecbba1a76bf3ce8dad6f78ba85f4baca05c5746481ebb4bb364f6d\nmeta-visitor-payload: eyJyZWZlcnJlciI6IiIsInJlcXVlc3RfaWQiOiJEM0RGOjI0QzI1MDozQzM4QjU6NTNDOEIxOjY4RTY2OUUyIiwidmlzaXRvcl9pZCI6IjkxNjUwNTE4ODAyOTMxNjU1MzgiLCJyZWdpb25fZWRnZSI6ImlhZCIsInJlZ2lvbl9yZW5kZXIiOiJpYWQifQ==\nmeta-x-pjax-csp-version: c922ef32c4ab94f8b870c62883f3e41755ec705db76ec4efb0d343458f1e28c7\nmeta-x-pjax-css-version: e41f5e9938c1f58f3f3a63eefa43c32feab3ad64f1c0ef4a9e1a60685fa11e6e\nmeta-x-pjax-js-version: c50ede5cbf68d716a84ec464e75ebcfb9c8d9e70e9e780db671f884e21d70072\nmeta-x-pjax-version: 5f6662f05060336e345ff38c28a1dbd0bd86ec6d1ebc8cd2fc531a5ca8c8b9d4\ntitle: GitHub - llama-farm/llamafarm: Deploy any AI model, agents, database, RAG, and pipeline locally in minutes\n-->\n\n[Skip to content](#start-of-content)\n\nNavigation Menu\n---------------\n\nToggle navigation\n\n[![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1tYXJrLWdpdGh1YiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIzMiIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIzMiI+CjxwYXRoIGQ9Ik0xMiAxQzUuOTIzIDEgMSA1LjkyMyAxIDEyYzAgNC44NjcgMy4xNDkgOC45NzkgNy41MjEgMTAuNDM2LjU1LjA5Ni43NTYtLjIzMy43NTYtLjUyMiAwLS4yNjItLjAxMy0xLjEyOC0uMDEzLTIuMDQ5LTIuNzY0LjUwOS0zLjQ3OS0uNjc0LTMuNjk5LTEuMjkyLS4xMjQtLjMxNy0uNjYtMS4yOTMtMS4xMjctMS41NTQtLjM4NS0uMjA3LS45MzYtLjcxNS0uMDE0LS43MjkuODY2LS4wMTQgMS40ODUuNzk3IDEuNjkxIDEuMTI4Ljk5IDEuNjYzIDIuNTcxIDEuMTk2IDMuMjA0LjkwNy4wOTYtLjcxNS4zODUtMS4xOTYuNzAxLTEuNDcxLTIuNDQ4LS4yNzUtNS4wMDUtMS4yMjQtNS4wMDUtNS40MzIgMC0xLjE5Ni40MjYtMi4xODYgMS4xMjgtMi45NTYtLjExMS0uMjc1LS40OTYtMS40MDIuMTEtMi45MTUgMCAwIC45MjEtLjI4OCAzLjAyNCAxLjEyOGExMC4xOTMgMTAuMTkzIDAgMCAxIDIuNzUtLjM3MWMuOTM2IDAgMS44NzEuMTIzIDIuNzUuMzcxIDIuMTA0LTEuNDMgMy4wMjUtMS4xMjggMy4wMjUtMS4xMjguNjA1IDEuNTEzLjIyMSAyLjY0LjExMSAyLjkxNS43MDEuNzcgMS4xMjcgMS43NDcgMS4xMjcgMi45NTYgMCA0LjIyMi0yLjU3MSA1LjE1Ny01LjAxOSA1LjQzMi4zOTkuMzQ0Ljc0MyAxLjAwNC43NDMgMi4wMzUgMCAxLjQ3MS0uMDE0IDIuNjU0LS4wMTQgMy4wMjUgMCAuMjg5LjIwNi42MzIuNzU2LjUyMkMxOS44NTEgMjAuOTc5IDIzIDE2Ljg1NCAyMyAxMmMwLTYuMDc3LTQuOTIyLTExLTExLTExWiI+PC9wYXRoPgo8L3N2Zz4=)](/)\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fllama-farm%2Fllamafarm) \n\n![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1zbGlkZXJzIEJ1dHRvbi12aXN1YWwiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiPgo8cGF0aCBkPSJNMTUgMi43NWEuNzUuNzUgMCAwIDEtLjc1Ljc1aC00YS43NS43NSAwIDAgMSAwLTEuNWg0YS43NS43NSAwIDAgMSAuNzUuNzVabS04LjUuNzV2MS4yNWEuNzUuNzUgMCAwIDAgMS41IDB2LTRhLjc1Ljc1IDAgMCAwLTEuNSAwVjJIMS43NWEuNzUuNzUgMCAwIDAgMCAxLjVINi41Wm0xLjI1IDUuMjVhLjc1Ljc1IDAgMCAwIDAtMS41aC02YS43NS43NSAwIDAgMCAwIDEuNWg2Wk0xNSA4YS43NS43NSAwIDAgMS0uNzUuNzVIMTEuNVYxMGEuNzUuNzUgMCAxIDEtMS41IDBWNmEuNzUuNzUgMCAwIDEgMS41IDB2MS4yNWgyLjc1QS43NS43NSAwIDAgMSAxNSA4Wm0tOSA1LjI1di0yYS43NS43NSAwIDAgMC0xLjUgMHYxLjI1SDEuNzVhLjc1Ljc1IDAgMCAwIDAgMS41SDQuNXYxLjI1YS43NS43NSAwIDAgMCAxLjUgMHYtMlptOSAwYS43NS43NSAwIDAgMS0uNzUuNzVoLTZhLjc1Ljc1IDAgMCAxIDAtMS41aDZhLjc1Ljc1IDAgMCAxIC43NS43NVoiPjwvcGF0aD4KPC9zdmc+)\n\nAppearance settings\n\n* Platform ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jaGV2cm9uLWRvd24gSGVhZGVyTWVudS1pY29uIG1sLTEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIG9wYWNpdHk9IjAuNSIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiI+CjxwYXRoIGQ9Ik0xMi43OCA1LjIyYS43NDkuNzQ5IDAgMCAxIDAgMS4wNmwtNC4yNSA0LjI1YS43NDkuNzQ5IDAgMCAxLTEuMDYgMEwzLjIyIDYuMjhhLjc0OS43NDkgMCAxIDEgMS4wNi0xLjA2TDggOC45MzlsMy43Mi0zLjcxOWEuNzQ5Ljc0OSAwIDAgMSAxLjA2IDBaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jb3BpbG90IGNvbG9yLWZnLXN1YnRsZSBtci0zIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjI0IiB2ZXJzaW9uPSIxLjEiIHZpZXdib3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij4KPHBhdGggZD0iTTIzLjkyMiAxNi45OTJjLS44NjEgMS40OTUtNS44NTkgNS4wMjMtMTEuOTIyIDUuMDIzLTYuMDYzIDAtMTEuMDYxLTMuNTI4LTExLjkyMi01LjAyM0EuNjQxLjY0MSAwIDAgMSAwIDE2LjczNnYtMi44NjlhLjg0MS44NDEgMCAwIDEgLjA1My0uMjJjLjM3Mi0uOTM1IDEuMzQ3LTIuMjkyIDIuNjA1LTIuNjU2LjE2Ny0uNDI5LjQxNC0xLjA1NS42NDQtMS41MTdhMTAuMTk1IDEwLjE5NSAwIDAgMS0uMDUyLTEuMDg2YzAtMS4zMzEuMjgyLTIuNDk5IDEuMTMyLTMuMzY4LjM5Ny0uNDA2Ljg5LS43MTcgMS40NzQtLjk1MiAxLjM5OS0xLjEzNiAzLjM5Mi0yLjA5MyA2LjEyMi0yLjA5MyAyLjczMSAwIDQuNzY3Ljk1NyA2LjE2NiAyLjA5My41ODQuMjM1IDEuMDc3LjU0NiAxLjQ3NC45NTIuODUuODY5IDEuMTMyIDIuMDM3IDEuMTMyIDMuMzY4IDAgLjM2OC0uMDE0LjczMy0uMDUyIDEuMDg2LjIzLjQ2Mi40NzcgMS4wODguNjQ0IDEuNTE3IDEuMjU4LjM2NCAyLjIzMyAxLjcyMSAyLjYwNSAyLjY1NmEuODMyLjgzMiAwIDAgMSAuMDUzLjIydjIuODY5YS42NDEuNjQxIDAgMCAxLS4wNzguMjU2Wk0xMi4xNzIgMTFoLS4zNDRhNC4zMjMgNC4zMjMgMCAwIDEtLjM1NS41MDhDMTAuNzAzIDEyLjQ1NSA5LjU1NSAxMyA3Ljk2NSAxM2MtMS43MjUgMC0yLjk4OS0uMzU5LTMuNzgyLTEuMjU5YTIuMDA1IDIuMDA1IDAgMCAxLS4wODUtLjEwNEw0IDExLjc0MXY2LjU4NWMxLjQzNS43NzkgNC41MTQgMi4xNzkgOCAyLjE3OSAzLjQ4NiAwIDYuNTY1LTEuNCA4LTIuMTc5di02LjU4NWwtLjA5OC0uMTA0cy0uMDMzLjA0NS0uMDg1LjEwNGMtLjc5My45LTIuMDU3IDEuMjU5LTMuNzgyIDEuMjU5LTEuNTkgMC0yLjczOC0uNTQ1LTMuNTA4LTEuNDkyYTQuMzIzIDQuMzIzIDAgMCAxLS4zNTUtLjUwOGgtLjAxNi4wMTZabS42NDEtMi45MzVjLjEzNiAxLjA1Ny40MDMgMS45MTMuODc4IDIuNDk3LjQ0Mi41NDQgMS4xMzQuOTM4IDIuMzQ0LjkzOCAxLjU3MyAwIDIuMjkyLS4zMzcgMi42NTctLjc1MS4zODQtLjQzNS41NTgtMS4xNS41NTgtMi4zNjEgMC0xLjE0LS4yNDMtMS44NDctLjcwNS0yLjMxOS0uNDc3LS40ODgtMS4zMTktLjg2Mi0yLjgyNC0xLjAyNS0xLjQ4Ny0uMTYxLTIuMTkyLjEzOC0yLjUzMy41MjktLjI2OS4zMDctLjQzNy44MDgtLjQzOCAxLjU3OHYuMDIxYzAgLjI2NS4wMjEuNTYyLjA2My44OTNabS0xLjYyNiAwYy4wNDItLjMzMS4wNjMtLjYyOC4wNjMtLjg5NHYtLjAyYy0uMDAxLS43Ny0uMTY5LTEuMjcxLS40MzgtMS41NzgtLjM0MS0uMzkxLTEuMDQ2LS42OS0yLjUzMy0uNTI5LTEuNTA1LjE2My0yLjM0Ny41MzctMi44MjQgMS4wMjUtLjQ2Mi40NzItLjcwNSAxLjE3OS0uNzA1IDIuMzE5IDAgMS4yMTEuMTc1IDEuOTI2LjU1OCAyLjM2MS4zNjUuNDE0IDEuMDg0Ljc1MSAyLjY1Ny43NTEgMS4yMSAwIDEuOTAyLS4zOTQgMi4zNDQtLjkzOC40NzUtLjU4NC43NDItMS40NC44NzgtMi40OTdaIj48L3BhdGg+PHBhdGggZD0iTTE0LjUgMTQuMjVhMSAxIDAgMCAxIDEgMXYyYTEgMSAwIDAgMS0yIDB2LTJhMSAxIDAgMCAxIDEtMVptLTUgMGExIDEgMCAwIDEgMSAxdjJhMSAxIDAgMCAxLTIgMHYtMmExIDEgMCAwIDEgMS0xWiI+PC9wYXRoPgo8L3N2Zz4=)\n\n    GitHub Copilot\n\n    Write better code with AI](https://github.com/features/copilot)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1zcGFya2xlLWZpbGwgY29sb3ItZmctc3VidGxlIG1yLTMiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMjQiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiPgo8cGF0aCBkPSJNMTEuMjk2IDEuOTI0Yy4yNC0uNjU2IDEuMTY4LS42NTYgMS40MDggMGwuNzE3IDEuOTU4YTExLjI1IDExLjI1IDAgMCAwIDYuNjk3IDYuNjk3bDEuOTU4LjcxN2MuNjU3LjI0LjY1NyAxLjE2OCAwIDEuNDA4bC0xLjk1OC43MTdhMTEuMjUgMTEuMjUgMCAwIDAtNi42OTcgNi42OTdsLS43MTcgMS45NThjLS4yNC42NTctMS4xNjguNjU3LTEuNDA4IDBsLS43MTctMS45NThhMTEuMjUgMTEuMjUgMCAwIDAtNi42OTctNi42OTdsLTEuOTU4LS43MTdjLS42NTYtLjI0LS42NTYtMS4xNjggMC0xLjQwOGwxLjk1OC0uNzE3YTExLjI1IDExLjI1IDAgMCAwIDYuNjk3LTYuNjk3bC43MTctMS45NThaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    GitHub Spark New\n\n    Build and deploy intelligent apps](https://github.com/features/spark)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1haS1tb2RlbCBjb2xvci1mZy1zdWJ0bGUgbXItMyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIyNCIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCI+CjxwYXRoIGQ9Ik0xOS4zNzUgOC41YTMuMjUgMy4yNSAwIDEgMS0zLjE2MyA0aC0zYTMuMjUyIDMuMjUyIDAgMCAxLTQuNDQzIDIuNTA5TDcuMjE0IDE3Ljc2YTMuMjUgMy4yNSAwIDEgMS0xLjM0Mi0uNjc0bDEuNjcyLTIuOTU3QTMuMjM4IDMuMjM4IDAgMCAxIDYuNzUgMTJjMC0uOTA3LjM3MS0xLjcyNy45Ny0yLjMxNkw2LjExNyA2Ljg0NkEzLjI1MyAzLjI1MyAwIDAgMSAxLjg3NSAzLjc1YTMuMjUgMy4yNSAwIDEgMSA1LjUyNiAyLjMybDEuNjAzIDIuODM2QTMuMjUgMy4yNSAwIDAgMSAxMy4wOTMgMTFoMy4xMTlhMy4yNTIgMy4yNTIgMCAwIDEgMy4xNjMtMi41Wk0xMCAxMC4yNWExLjc1IDEuNzUgMCAxIDAtLjAwMSAzLjQ5OUExLjc1IDEuNzUgMCAwIDAgMTAgMTAuMjVaTTUuMTI1IDJhMS43NSAxLjc1IDAgMSAwIDAgMy41IDEuNzUgMS43NSAwIDAgMCAwLTMuNVptMTIuNSA5Ljc1YTEuNzUgMS43NSAwIDEgMCAzLjUgMCAxLjc1IDEuNzUgMCAwIDAtMy41IDBabS0xNC4yNSA4LjVhMS43NSAxLjc1IDAgMSAwIDMuNTAxLS4wMDEgMS43NSAxLjc1IDAgMCAwLTMuNTAxLjAwMVoiPjwvcGF0aD4KPC9zdmc+)\n\n    GitHub Models New\n\n    Manage and compare prompts](https://github.com/features/models)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1zaGllbGQtY2hlY2sgY29sb3ItZmctc3VidGxlIG1yLTMiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMjQiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiPgo8cGF0aCBkPSJNMTYuNTMgOS43OGEuNzUuNzUgMCAwIDAtMS4wNi0xLjA2TDExIDEzLjE5bC0xLjk3LTEuOTdhLjc1Ljc1IDAgMCAwLTEuMDYgMS4wNmwyLjUgMi41YS43NS43NSAwIDAgMCAxLjA2IDBsNS01WiI+PC9wYXRoPjxwYXRoIGQ9Im0xMi41NC42MzcgOC4yNSAyLjY3NUExLjc1IDEuNzUgMCAwIDEgMjIgNC45NzZWMTBjMCA2LjE5LTMuNzcxIDEwLjcwNC05LjQwMSAxMi44M2ExLjcwNCAxLjcwNCAwIDAgMS0xLjE5OCAwQzUuNzcgMjAuNzA1IDIgMTYuMTkgMiAxMFY0Ljk3NmMwLS43NTguNDg5LTEuNDMgMS4yMS0xLjY2NEwxMS40Ni42MzdhMS43NDggMS43NDggMCAwIDEgMS4wOCAwWm0tLjYxNyAxLjQyNi04LjI1IDIuNjc2YS4yNDkuMjQ5IDAgMCAwLS4xNzMuMjM3VjEwYzAgNS40NiAzLjI4IDkuNDgzIDguNDMgMTEuNDI2YS4xOTkuMTk5IDAgMCAwIC4xNCAwQzE3LjIyIDE5LjQ4MyAyMC41IDE1LjQ2MSAyMC41IDEwVjQuOTc2YS4yNS4yNSAwIDAgMC0uMTczLS4yMzdsLTguMjUtMi42NzZhLjI1My4yNTMgMCAwIDAtLjE1NCAwWiI+PC9wYXRoPgo8L3N2Zz4=)\n\n    GitHub Advanced Security\n\n    Find and fix vulnerabilities](https://github.com/security/advanced-security)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi13b3JrZmxvdyBjb2xvci1mZy1zdWJ0bGUgbXItMyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIyNCIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCI+CjxwYXRoIGQ9Ik0xIDNhMiAyIDAgMCAxIDItMmg2LjVhMiAyIDAgMCAxIDIgMnY2LjVhMiAyIDAgMCAxLTIgMkg3djQuMDYzQzcgMTYuMzU1IDcuNjQ0IDE3IDguNDM4IDE3SDEyLjV2LTIuNWEyIDIgMCAwIDEgMi0ySDIxYTIgMiAwIDAgMSAyIDJWMjFhMiAyIDAgMCAxLTIgMmgtNi41YTIgMiAwIDAgMS0yLTJ2LTIuNUg4LjQzN0EyLjkzOSAyLjkzOSAwIDAgMSA1LjUgMTUuNTYyVjExLjVIM2EyIDIgMCAwIDEtMi0yWm0yLS41YS41LjUgMCAwIDAtLjUuNXY2LjVhLjUuNSAwIDAgMCAuNS41aDYuNWEuNS41IDAgMCAwIC41LS41VjNhLjUuNSAwIDAgMC0uNS0uNVpNMTQuNSAxNGEuNS41IDAgMCAwLS41LjVWMjFhLjUuNSAwIDAgMCAuNS41SDIxYS41LjUgMCAwIDAgLjUtLjV2LTYuNWEuNS41IDAgMCAwLS41LS41WiI+PC9wYXRoPgo8L3N2Zz4=)\n\n    Actions\n\n    Automate any workflow](https://github.com/features/actions)\n\n    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jb2Rlc3BhY2VzIGNvbG9yLWZnLXN1YnRsZSBtci0zIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjI0IiB2ZXJzaW9uPSIxLjEiIHZpZXdib3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij4KPHBhdGggZD0iTTMuNSAzLjc1QzMuNSAyLjc4NCA0LjI4NCAyIDUuMjUgMmgxMy41Yy45NjYgMCAxLjc1Ljc4NCAxLjc1IDEuNzV2Ny41QTEuNzUgMS43NSAwIDAgMSAxOC43NSAxM0g1LjI1YTEuNzUgMS43NSAwIDAgMS0xLjc1LTEuNzVabS0yIDEyYzAtLjk2Ni43ODQtMS43NSAxLjc1LTEuNzVoMTcuNWMuOTY2IDAgMS43NS43ODQgMS43NSAxLjc1djRhMS43NSAxLjc1IDAgMCAxLTEuNzUgMS43NUgzLjI1YTEuNzUgMS43NSAwIDAgMS0xLjc1LTEuNzVaTTUuMjUgMy41YS4yNS4yNSAwIDAgMC0uMjUuMjV2Ny41YzAgLjEzOC4xMTIuMjUuMjUuMjVoMTMuNWEuMjUuMjUgMCAwIDAgLjI1LS4yNXYtNy41YS4yNS4yNSAwIDAgMC0uMjUtLjI1Wm0tMiAxMmEuMjUuMjUgMCAwIDAtLjI1LjI1djRjMCAuMTM4LjExMi4yNS4yNS4yNWgxNy41YS4yNS4yNSAwIDAgMCAuMjUtLjI1di00YS4yNS4yNSAwIDAgMC0uMjUtLjI1WiI+PC9wYXRoPjxwYXRoIGQ9Ik0xMCAxNy43NWEuNzUuNzUgMCAwIDEgLjc1LS43NWg2LjVhLjc1Ljc1IDAgMCAxIDAgMS41aC02LjVhLjc1Ljc1IDAgMCAxLS43NS0uNzVabS00IDBhLjc1Ljc1IDAgMCAxIC43NS0uNzVoLjVhLjc1Ljc1IDAgMCAxIDAgMS41aC0uNWEuNzUuNzUgMCAwIDEtLjc1LS43NVoiPjwvcGF0aD4KPC9zdmc+)\n\n    Codespaces\n\n    Instant dev environments](https://github.com/features/codespaces)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1pc3N1ZS1vcGVuZWQgY29sb3ItZmctc3VidGxlIG1yLTMiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMjQiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiPgo8cGF0aCBkPSJNMTIgMWM2LjA3NSAwIDExIDQuOTI1IDExIDExcy00LjkyNSAxMS0xMSAxMVMxIDE4LjA3NSAxIDEyIDUuOTI1IDEgMTIgMVpNMi41IDEyYTkuNSA5LjUgMCAwIDAgOS41IDkuNSA5LjUgOS41IDAgMCAwIDkuNS05LjVBOS41IDkuNSAwIDAgMCAxMiAyLjUgOS41IDkuNSAwIDAgMCAyLjUgMTJabTkuNSAyYTIgMiAwIDEgMS0uMDAxLTMuOTk5QTIgMiAwIDAgMSAxMiAxNFoiPjwvcGF0aD4KPC9zdmc+)\n\n    Issues\n\n    Plan and track work](https://github.com/features/issues)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jb2RlLXJldmlldyBjb2xvci1mZy1zdWJ0bGUgbXItMyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIyNCIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCI+CjxwYXRoIGQ9Ik0xMC4zIDYuNzRhLjc1Ljc1IDAgMCAxLS4wNCAxLjA2bC0yLjkwOCAyLjcgMi45MDggMi43YS43NS43NSAwIDEgMS0xLjAyIDEuMWwtMy41LTMuMjVhLjc1Ljc1IDAgMCAxIDAtMS4xbDMuNS0zLjI1YS43NS43NSAwIDAgMSAxLjA2LjA0Wm0zLjQ0IDEuMDZhLjc1Ljc1IDAgMSAxIDEuMDItMS4xbDMuNSAzLjI1YS43NS43NSAwIDAgMSAwIDEuMWwtMy41IDMuMjVhLjc1Ljc1IDAgMSAxLTEuMDItMS4xbDIuOTA4LTIuNy0yLjkwOC0yLjdaIj48L3BhdGg+PHBhdGggZD0iTTEuNSA0LjI1YzAtLjk2Ni43ODQtMS43NSAxLjc1LTEuNzVoMTcuNWMuOTY2IDAgMS43NS43ODQgMS43NSAxLjc1djEyLjVhMS43NSAxLjc1IDAgMCAxLTEuNzUgMS43NWgtOS42OWwtMy41NzMgMy41NzNBMS40NTggMS40NTggMCAwIDEgNSAyMS4wNDNWMTguNUgzLjI1YTEuNzUgMS43NSAwIDAgMS0xLjc1LTEuNzVaTTMuMjUgNGEuMjUuMjUgMCAwIDAtLjI1LjI1djEyLjVjMCAuMTM4LjExMi4yNS4yNS4yNWgyLjVhLjc1Ljc1IDAgMCAxIC43NS43NXYzLjE5bDMuNzItMy43MmEuNzQ5Ljc0OSAwIDAgMSAuNTMtLjIyaDEwYS4yNS4yNSAwIDAgMCAuMjUtLjI1VjQuMjVhLjI1LjI1IDAgMCAwLS4yNS0uMjVaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    Code Review\n\n    Manage code changes](https://github.com/features/code-review)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jb21tZW50LWRpc2N1c3Npb24gY29sb3ItZmctc3VidGxlIG1yLTMiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMjQiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiPgo8cGF0aCBkPSJNMS43NSAxaDEyLjVjLjk2NiAwIDEuNzUuNzg0IDEuNzUgMS43NXY5LjVBMS43NSAxLjc1IDAgMCAxIDE0LjI1IDE0SDguMDYxbC0yLjU3NCAyLjU3M0ExLjQ1OCAxLjQ1OCAwIDAgMSAzIDE1LjU0M1YxNEgxLjc1QTEuNzUgMS43NSAwIDAgMSAwIDEyLjI1di05LjVDMCAxLjc4NC43ODQgMSAxLjc1IDFaTTEuNSAyLjc1djkuNWMwIC4xMzguMTEyLjI1LjI1LjI1aDJhLjc1Ljc1IDAgMCAxIC43NS43NXYyLjE5bDIuNzItMi43MmEuNzQ5Ljc0OSAwIDAgMSAuNTMtLjIyaDYuNWEuMjUuMjUgMCAwIDAgLjI1LS4yNXYtOS41YS4yNS4yNSAwIDAgMC0uMjUtLjI1SDEuNzVhLjI1LjI1IDAgMCAwLS4yNS4yNVoiPjwvcGF0aD48cGF0aCBkPSJNMjIuNSA4Ljc1YS4yNS4yNSAwIDAgMC0uMjUtLjI1aC0zLjVhLjc1Ljc1IDAgMCAxIDAtMS41aDMuNWMuOTY2IDAgMS43NS43ODQgMS43NSAxLjc1djkuNUExLjc1IDEuNzUgMCAwIDEgMjIuMjUgMjBIMjF2MS41NDNhMS40NTcgMS40NTcgMCAwIDEtMi40ODcgMS4wM0wxNS45MzkgMjBIMTAuNzVBMS43NSAxLjc1IDAgMCAxIDkgMTguMjV2LTEuNDY1YS43NS43NSAwIDAgMSAxLjUgMHYxLjQ2NWMwIC4xMzguMTEyLjI1LjI1LjI1aDUuNWEuNzUuNzUgMCAwIDEgLjUzLjIybDIuNzIgMi43MnYtMi4xOWEuNzUuNzUgMCAwIDEgLjc1LS43NWgyYS4yNS4yNSAwIDAgMCAuMjUtLjI1di05LjVaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    Discussions\n\n    Collaborate outside of code](https://github.com/features/discussions)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jb2RlLXNxdWFyZSBjb2xvci1mZy1zdWJ0bGUgbXItMyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIyNCIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCI+CjxwYXRoIGQ9Ik0xMC4zIDguMjRhLjc1Ljc1IDAgMCAxLS4wNCAxLjA2TDcuMzUyIDEybDIuOTA4IDIuN2EuNzUuNzUgMCAxIDEtMS4wMiAxLjFsLTMuNS0zLjI1YS43NS43NSAwIDAgMSAwLTEuMWwzLjUtMy4yNWEuNzUuNzUgMCAwIDEgMS4wNi4wNFptMy40NCAxLjA2YS43NS43NSAwIDEgMSAxLjAyLTEuMWwzLjUgMy4yNWEuNzUuNzUgMCAwIDEgMCAxLjFsLTMuNSAzLjI1YS43NS43NSAwIDEgMS0xLjAyLTEuMWwyLjkwOC0yLjctMi45MDgtMi43WiI+PC9wYXRoPjxwYXRoIGQ9Ik0yIDMuNzVDMiAyLjc4NCAyLjc4NCAyIDMuNzUgMmgxNi41Yy45NjYgMCAxLjc1Ljc4NCAxLjc1IDEuNzV2MTYuNUExLjc1IDEuNzUgMCAwIDEgMjAuMjUgMjJIMy43NUExLjc1IDEuNzUgMCAwIDEgMiAyMC4yNVptMS43NS0uMjVhLjI1LjI1IDAgMCAwLS4yNS4yNXYxNi41YzAgLjEzOC4xMTIuMjUuMjUuMjVoMTYuNWEuMjUuMjUgMCAwIDAgLjI1LS4yNVYzLjc1YS4yNS4yNSAwIDAgMC0uMjUtLjI1WiI+PC9wYXRoPgo8L3N2Zz4=)\n\n    Code Search\n\n    Find more, search less](https://github.com/features/code-search)\n\n    Explore\n\n    + [Why GitHub](https://github.com/why-github)\n                    + [Documentation ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1saW5rLWV4dGVybmFsIEhlYWRlck1lbnUtZXh0ZXJuYWwtaWNvbiBjb2xvci1mZy1zdWJ0bGUiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiPgo8cGF0aCBkPSJNMy43NSAyaDMuNWEuNzUuNzUgMCAwIDEgMCAxLjVoLTMuNWEuMjUuMjUgMCAwIDAtLjI1LjI1djguNWMwIC4xMzguMTEyLjI1LjI1LjI1aDguNWEuMjUuMjUgMCAwIDAgLjI1LS4yNXYtMy41YS43NS43NSAwIDAgMSAxLjUgMHYzLjVBMS43NSAxLjc1IDAgMCAxIDEyLjI1IDE0aC04LjVBMS43NSAxLjc1IDAgMCAxIDIgMTIuMjV2LTguNUMyIDIuNzg0IDIuNzg0IDIgMy43NSAyWm02Ljg1NC0xaDQuMTQ2YS4yNS4yNSAwIDAgMSAuMjUuMjV2NC4xNDZhLjI1LjI1IDAgMCAxLS40MjcuMTc3TDEzLjAzIDQuMDMgOS4yOCA3Ljc4YS43NTEuNzUxIDAgMCAxLTEuMDQyLS4wMTguNzUxLjc1MSAwIDAgMS0uMDE4LTEuMDQybDMuNzUtMy43NS0xLjU0My0xLjU0M0EuMjUuMjUgMCAwIDEgMTAuNjA0IDFaIj48L3BhdGg+Cjwvc3ZnPg==)](https://docs.github.com)\n                    + [GitHub Skills ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1saW5rLWV4dGVybmFsIEhlYWRlck1lbnUtZXh0ZXJuYWwtaWNvbiBjb2xvci1mZy1zdWJ0bGUiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiPgo8cGF0aCBkPSJNMy43NSAyaDMuNWEuNzUuNzUgMCAwIDEgMCAxLjVoLTMuNWEuMjUuMjUgMCAwIDAtLjI1LjI1djguNWMwIC4xMzguMTEyLjI1LjI1LjI1aDguNWEuMjUuMjUgMCAwIDAgLjI1LS4yNXYtMy41YS43NS43NSAwIDAgMSAxLjUgMHYzLjVBMS43NSAxLjc1IDAgMCAxIDEyLjI1IDE0aC04LjVBMS43NSAxLjc1IDAgMCAxIDIgMTIuMjV2LTguNUMyIDIuNzg0IDIuNzg0IDIgMy43NSAyWm02Ljg1NC0xaDQuMTQ2YS4yNS4yNSAwIDAgMSAuMjUuMjV2NC4xNDZhLjI1LjI1IDAgMCAxLS40MjcuMTc3TDEzLjAzIDQuMDMgOS4yOCA3Ljc4YS43NTEuNzUxIDAgMCAxLTEuMDQyLS4wMTguNzUxLjc1MSAwIDAgMS0uMDE4LTEuMDQybDMuNzUtMy43NS0xLjU0My0xLjU0M0EuMjUuMjUgMCAwIDEgMTAuNjA0IDFaIj48L3BhdGg+Cjwvc3ZnPg==)](https://skills.github.com)\n                    + [Blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1saW5rLWV4dGVybmFsIEhlYWRlck1lbnUtZXh0ZXJuYWwtaWNvbiBjb2xvci1mZy1zdWJ0bGUiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiPgo8cGF0aCBkPSJNMy43NSAyaDMuNWEuNzUuNzUgMCAwIDEgMCAxLjVoLTMuNWEuMjUuMjUgMCAwIDAtLjI1LjI1djguNWMwIC4xMzguMTEyLjI1LjI1LjI1aDguNWEuMjUuMjUgMCAwIDAgLjI1LS4yNXYtMy41YS43NS43NSAwIDAgMSAxLjUgMHYzLjVBMS43NSAxLjc1IDAgMCAxIDEyLjI1IDE0aC04LjVBMS43NSAxLjc1IDAgMCAxIDIgMTIuMjV2LTguNUMyIDIuNzg0IDIuNzg0IDIgMy43NSAyWm02Ljg1NC0xaDQuMTQ2YS4yNS4yNSAwIDAgMSAuMjUuMjV2NC4xNDZhLjI1LjI1IDAgMCAxLS40MjcuMTc3TDEzLjAzIDQuMDMgOS4yOCA3Ljc4YS43NTEuNzUxIDAgMCAxLTEuMDQyLS4wMTguNzUxLjc1MSAwIDAgMS0uMDE4LTEuMDQybDMuNzUtMy43NS0xLjU0My0xLjU0M0EuMjUuMjUgMCAwIDEgMTAuNjA0IDFaIj48L3BhdGg+Cjwvc3ZnPg==)](https://github.blog)\n\n    Integrations\n\n    + [GitHub Marketplace](https://github.com/marketplace)\n                    + [MCP Registry](https://github.com/mcp)\n\n    [View all features ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jaGV2cm9uLXJpZ2h0IEhlYWRlck1lbnUtdHJhaWxpbmctbGluay1pY29uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjE2IiB2ZXJzaW9uPSIxLjEiIHZpZXdib3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2Ij4KPHBhdGggZD0iTTYuMjIgMy4yMmEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUuNzUgMCAwIDEgMCAxLjA2bC00LjI1IDQuMjVhLjc1MS43NTEgMCAwIDEtMS4wNDItLjAxOC43NTEuNzUxIDAgMCAxLS4wMTgtMS4wNDJMOS45NCA4IDYuMjIgNC4yOGEuNzUuNzUgMCAwIDEgMC0xLjA2WiI+PC9wYXRoPgo8L3N2Zz4=)](https://github.com/features)\n\n* Solutions ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jaGV2cm9uLWRvd24gSGVhZGVyTWVudS1pY29uIG1sLTEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIG9wYWNpdHk9IjAuNSIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiI+CjxwYXRoIGQ9Ik0xMi43OCA1LjIyYS43NDkuNzQ5IDAgMCAxIDAgMS4wNmwtNC4yNSA0LjI1YS43NDkuNzQ5IDAgMCAxLTEuMDYgMEwzLjIyIDYuMjhhLjc0OS43NDkgMCAxIDEgMS4wNi0xLjA2TDggOC45MzlsMy43Mi0zLjcxOWEuNzQ5Ljc0OSAwIDAgMSAxLjA2IDBaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    By company size\n\n    + [Enterprises](https://github.com/enterprise)\n                    + [Small and medium teams](https://github.com/team)\n                    + [Startups](https://github.com/enterprise/startups)\n                    + [Nonprofits](/solutions/industry/nonprofits)\n\n    By use case\n\n    + [App Modernization](/solutions/use-case/app-modernization)\n                    + [DevSecOps](/solutions/use-case/devsecops)\n                    + [DevOps](/solutions/use-case/devops)\n                    + [CI/CD](/solutions/use-case/ci-cd)\n                    + [View all use cases](/solutions/use-case)\n\n    By industry\n\n    + [Healthcare](/solutions/industry/healthcare)\n                    + [Financial services](/solutions/industry/financial-services)\n                    + [Manufacturing](/solutions/industry/manufacturing)\n                    + [Government](/solutions/industry/government)\n                    + [View all industries](/solutions/industry)\n\n    [View all solutions ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jaGV2cm9uLXJpZ2h0IEhlYWRlck1lbnUtdHJhaWxpbmctbGluay1pY29uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjE2IiB2ZXJzaW9uPSIxLjEiIHZpZXdib3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2Ij4KPHBhdGggZD0iTTYuMjIgMy4yMmEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUuNzUgMCAwIDEgMCAxLjA2bC00LjI1IDQuMjVhLjc1MS43NTEgMCAwIDEtMS4wNDItLjAxOC43NTEuNzUxIDAgMCAxLS4wMTgtMS4wNDJMOS45NCA4IDYuMjIgNC4yOGEuNzUuNzUgMCAwIDEgMC0xLjA2WiI+PC9wYXRoPgo8L3N2Zz4=)](/solutions)\n\n* Resources ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jaGV2cm9uLWRvd24gSGVhZGVyTWVudS1pY29uIG1sLTEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIG9wYWNpdHk9IjAuNSIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiI+CjxwYXRoIGQ9Ik0xMi43OCA1LjIyYS43NDkuNzQ5IDAgMCAxIDAgMS4wNmwtNC4yNSA0LjI1YS43NDkuNzQ5IDAgMCAxLTEuMDYgMEwzLjIyIDYuMjhhLjc0OS43NDkgMCAxIDEgMS4wNi0xLjA2TDggOC45MzlsMy43Mi0zLjcxOWEuNzQ5Ljc0OSAwIDAgMSAxLjA2IDBaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    Topics\n\n    + [AI](/resources/articles/ai)\n                    + [DevOps](/resources/articles/devops)\n                    + [Security](/resources/articles/security)\n                    + [Software Development](/resources/articles/software-development)\n                    + [View all](/resources/articles)\n\n    Explore\n\n    + [Learning Pathways ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1saW5rLWV4dGVybmFsIEhlYWRlck1lbnUtZXh0ZXJuYWwtaWNvbiBjb2xvci1mZy1zdWJ0bGUiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiPgo8cGF0aCBkPSJNMy43NSAyaDMuNWEuNzUuNzUgMCAwIDEgMCAxLjVoLTMuNWEuMjUuMjUgMCAwIDAtLjI1LjI1djguNWMwIC4xMzguMTEyLjI1LjI1LjI1aDguNWEuMjUuMjUgMCAwIDAgLjI1LS4yNXYtMy41YS43NS43NSAwIDAgMSAxLjUgMHYzLjVBMS43NSAxLjc1IDAgMCAxIDEyLjI1IDE0aC04LjVBMS43NSAxLjc1IDAgMCAxIDIgMTIuMjV2LTguNUMyIDIuNzg0IDIuNzg0IDIgMy43NSAyWm02Ljg1NC0xaDQuMTQ2YS4yNS4yNSAwIDAgMSAuMjUuMjV2NC4xNDZhLjI1LjI1IDAgMCAxLS40MjcuMTc3TDEzLjAzIDQuMDMgOS4yOCA3Ljc4YS43NTEuNzUxIDAgMCAxLTEuMDQyLS4wMTguNzUxLjc1MSAwIDAgMS0uMDE4LTEuMDQybDMuNzUtMy43NS0xLjU0My0xLjU0M0EuMjUuMjUgMCAwIDEgMTAuNjA0IDFaIj48L3BhdGg+Cjwvc3ZnPg==)](https://resources.github.com/learn/pathways)\n                    + [Events \\& Webinars](https://github.com/resources/events)\n                    + [Ebooks \\& Whitepapers](https://github.com/resources/whitepapers)\n                    + [Customer Stories](https://github.com/customer-stories)\n                    + [Partners](https://github.com/partners)\n                    + [Executive Insights](https://github.com/solutions/executive-insights)\n* Open Source ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jaGV2cm9uLWRvd24gSGVhZGVyTWVudS1pY29uIG1sLTEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIG9wYWNpdHk9IjAuNSIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiI+CjxwYXRoIGQ9Ik0xMi43OCA1LjIyYS43NDkuNzQ5IDAgMCAxIDAgMS4wNmwtNC4yNSA0LjI1YS43NDkuNzQ5IDAgMCAxLTEuMDYgMEwzLjIyIDYuMjhhLjc0OS43NDkgMCAxIDEgMS4wNi0xLjA2TDggOC45MzlsMy43Mi0zLjcxOWEuNzQ5Ljc0OSAwIDAgMSAxLjA2IDBaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    + [GitHub Sponsors\n\n    Fund open source developers](/sponsors)\n\n    + [The ReadME Project\n\n    GitHub community articles](https://github.com/readme)\n\n    Repositories\n\n    + [Topics](https://github.com/topics)\n                    + [Trending](https://github.com/trending)\n                    + [Collections](https://github.com/collections)\n* Enterprise ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jaGV2cm9uLWRvd24gSGVhZGVyTWVudS1pY29uIG1sLTEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIG9wYWNpdHk9IjAuNSIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiI+CjxwYXRoIGQ9Ik0xMi43OCA1LjIyYS43NDkuNzQ5IDAgMCAxIDAgMS4wNmwtNC4yNSA0LjI1YS43NDkuNzQ5IDAgMCAxLTEuMDYgMEwzLjIyIDYuMjhhLjc0OS43NDkgMCAxIDEgMS4wNi0xLjA2TDggOC45MzlsMy43Mi0zLjcxOWEuNzQ5Ljc0OSAwIDAgMSAxLjA2IDBaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1zdGFjayBjb2xvci1mZy1zdWJ0bGUgbXItMyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIyNCIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCI+CjxwYXRoIGQ9Ik0xMS4wNjMgMS40NTZhMS43NDkgMS43NDkgMCAwIDEgMS44NzQgMGw4LjM4MyA1LjMxNmExLjc1MSAxLjc1MSAwIDAgMSAwIDIuOTU2bC04LjM4MyA1LjMxNmExLjc0OSAxLjc0OSAwIDAgMS0xLjg3NCAwTDIuNjggOS43MjhhMS43NTEgMS43NTEgMCAwIDEgMC0yLjk1NlptMS4wNzEgMS4yNjdhLjI1LjI1IDAgMCAwLS4yNjggMEwzLjQ4MyA4LjAzOWEuMjUuMjUgMCAwIDAgMCAuNDIybDguMzgzIDUuMzE2YS4yNS4yNSAwIDAgMCAuMjY4IDBsOC4zODMtNS4zMTZhLjI1LjI1IDAgMCAwIDAtLjQyMloiPjwvcGF0aD48cGF0aCBkPSJNMS44NjcgMTIuMzI0YS43NS43NSAwIDAgMSAxLjAzNS0uMjMybDguOTY0IDUuNjg1YS4yNS4yNSAwIDAgMCAuMjY4IDBsOC45NjQtNS42ODVhLjc1Ljc1IDAgMCAxIC44MDQgMS4yNjdsLTguOTY1IDUuNjg1YTEuNzQ5IDEuNzQ5IDAgMCAxLTEuODc0IDBsLTguOTY1LTUuNjg1YS43NS43NSAwIDAgMS0uMjMxLTEuMDM1WiI+PC9wYXRoPjxwYXRoIGQ9Ik0xLjg2NyAxNi4zMjRhLjc1Ljc1IDAgMCAxIDEuMDM1LS4yMzJsOC45NjQgNS42ODVhLjI1LjI1IDAgMCAwIC4yNjggMGw4Ljk2NC01LjY4NWEuNzUuNzUgMCAwIDEgLjgwNCAxLjI2N2wtOC45NjUgNS42ODVhMS43NDkgMS43NDkgMCAwIDEtMS44NzQgMGwtOC45NjUtNS42ODVhLjc1Ljc1IDAgMCAxLS4yMzEtMS4wMzVaIj48L3BhdGg+Cjwvc3ZnPg==)\n\n    Enterprise platform\n\n    AI\\-powered developer platform](/enterprise)\n\n    Available add\\-ons\n\n    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1zaGllbGQtY2hlY2sgY29sb3ItZmctc3VidGxlIG1yLTMiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMjQiIHZlcnNpb249IjEuMSIgdmlld2JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiPgo8cGF0aCBkPSJNMTYuNTMgOS43OGEuNzUuNzUgMCAwIDAtMS4wNi0xLjA2TDExIDEzLjE5bC0xLjk3LTEuOTdhLjc1Ljc1IDAgMCAwLTEuMDYgMS4wNmwyLjUgMi41YS43NS43NSAwIDAgMCAxLjA2IDBsNS01WiI+PC9wYXRoPjxwYXRoIGQ9Im0xMi41NC42MzcgOC4yNSAyLjY3NUExLjc1IDEuNzUgMCAwIDEgMjIgNC45NzZWMTBjMCA2LjE5LTMuNzcxIDEwLjcwNC05LjQwMSAxMi44M2ExLjcwNCAxLjcwNCAwIDAgMS0xLjE5OCAwQzUuNzcgMjAuNzA1IDIgMTYuMTkgMiAxMFY0Ljk3NmMwLS43NTguNDg5LTEuNDMgMS4yMS0xLjY2NEwxMS40Ni42MzdhMS43NDggMS43NDggMCAwIDEgMS4wOCAwWm0tLjYxNyAxLjQyNi04LjI1IDIuNjc2YS4yNDkuMjQ5IDAgMCAwLS4xNzMuMjM3VjEwYzAgNS40NiAzLjI4IDkuNDgzIDguNDMgMTEuNDI2YS4xOTkuMTk5IDAgMCAwIC4xNCAwQzE3LjIyIDE5LjQ4MyAyMC41IDE1LjQ2MSAyMC41IDEwVjQuOTc2YS4yNS4yNSAwIDAgMC0uMTczLS4yMzdsLTguMjUtMi42NzZhLjI1My4yNTMgMCAwIDAtLjE1NCAwWiI+PC9wYXRoPgo8L3N2Zz4=)\n\n    GitHub Advanced Security\n\n    Enterprise\\-grade security features](https://github.com/security/advanced-security)\n\n                    + [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi1jb3BpbG90IGNvbG9yLWZnLXN1YnRsZSBtci0zIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjI0IiB2ZXJzaW9uPSIxLjEiIHZpZXdib3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij4KPHBhdGggZD0iTTIzLjkyMiAxNi45OTJjLS44NjEgMS40OTUtNS44NTkgNS4wMjMtMTEuOTIyIDUuMDIzLTYuMDYzIDAtMTEuMDYxLTMuNTI4LTExLjkyMi01LjAyM0EuNjQxLjY0MSAwIDAgMSAwIDE2LjczNnYtMi44NjlhLjg0MS44NDEgMCAwIDEgLjA1My0uMjJjLjM3Mi0uOTM1IDEuMzQ3LTIuMjkyIDIuNjA1LTIuNjU2LjE2Ny0uNDI5LjQxNC0xLjA1NS42NDQtMS41MTdhMTAuMTk1IDEwLjE5NSAwIDAgMS0uMDUyLTEuMDg2YzAtMS4zMzEuMjgyLTIuNDk5IDEuMTMyLTMuMzY4LjM5Ny0uNDA2Ljg5LS43MTcgMS40NzQtLjk1MiAxLjM5OS0xLjEzNiAzLjM5Mi0yLjA5MyA2LjEyMi0yLjA5MyAyLjczMSAwIDQuNzY3Ljk1NyA2LjE2NiAyLjA5My41ODQuMjM1IDEuMDc3LjU0NiAxLjQ3NC45NTIuODUuODY5IDEuMTMyIDIuMDM3IDEuMTMyIDMuMzY4IDAgLjM2OC0uMDE0LjczMy0uMDUyIDEuMDg2LjIzLjQ2Mi40NzcgMS4wODguNjQ0IDEuNTE3IDEuMjU4LjM2NCAyLjIzMyAxLjcyMSAyLjYwNSAyLjY1NmEuODMyLjgzMiAwIDAgMSAuMDUzLjIydjIuODY5YS42NDEuNjQxIDAgMCAxLS4wNzguMjU2Wk0xMi4xNzIgMTFoLS4zNDRhNC4zMjMgNC4zMjMgMCAwIDEtLjM1NS41MDhDMTAuNzAzIDEyLjQ1NSA5LjU1NSAxMyA3Ljk2NSAxM2MtMS43MjUgMC0yLjk4OS0uMzU5LTMuNzgyLTEuMjU5YTIuMDA1IDIuMDA1IDAgMCAxLS4wODUtLjEwNEw0IDExLjc0MXY2LjU4NWMxLjQzNS43NzkgNC41MTQgMi4xNzkgOCAyLjE3OSAzLjQ4NiAwIDYuNTY1LTEuNCA4LTIuMTc5di02LjU4NWwtLjA5OC0uMTA0cy0uMDMzLjA0NS0uMDg1LjEwNGMtLjc5My45LTIuMDU3IDEuMjU5LTMuNzgyIDEuMjU5LTEuNTkgMC0yLjczOC0uNTQ1LTMuNTA4LTEuNDkyYTQuMzIzIDQuMzIzIDAgMCAxLS4zNTUtLjUwOGgtLjAxNi4wMTZabS42NDEtMi45MzVjLjEzNiAxLjA1Ny40MDMgMS45MTMuODc4IDIuNDk3LjQ0M... [truncated]"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nGreat! I have excellent content for featured stories. Now let me search for a couple more AI agent related stories to round out the quick reads section and ensure we hit at least 10 minutes of reading time."
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01YTyqFSW5HWK15BNqteqmE9": {
+          "method": "tools/call",
+          "params": {
+            "name": "perplexity_mcp-perplexity_search_web",
+            "arguments": {
+              "query": "AI agents autonomous systems agentic workflows 2025",
+              "recency": "week"
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01YTyqFSW5HWK15BNqteqmE9": {
+          "content": [
+            {
+              "type": "text",
+              "text": "By 2025, **AI agents**\u2014also known as **agentic AI**\u2014have evolved into autonomous systems capable of independently planning, reasoning, and executing complex workflows across multiple domains without constant human oversight. These agents act proactively, making decisions and initiating actions to achieve high-level goals, marking a significant shift from traditional AI that only responds to commands or generates content[1][2][3][5].\n\nKey characteristics and trends of AI agents and autonomous systems in 2025 include:\n\n- **Agentic AI autonomy:** These systems combine advanced reasoning, memory, tool usage, and goal-driven planning to operate independently, handling tasks such as customer service, financial optimization, or supply chain management by themselves[1][2][3].\n\n- **Diverse agent types:** Enterprises deploy specialized AI agents tailored to distinct roles:\n  - *Taskers* break down objectives into manageable steps.\n  - *Automators* connect workflows across departments.\n  - *Collaborators* work interactively with humans to refine decisions.\n  - *Orchestrators* coordinate networks of agents and humans for complex operations[2].\n\n- **Business impact:** Agentic AI is driving productivity gains, cost reductions, and enhanced customer experiences. Gartner projects agentic AI will autonomously resolve 80% of common customer service issues by 2029, cutting operational costs by 30%. The market is rapidly growing, expected to expand from $28 billion in 2024 to $127 billion by 2029[1][7].\n\n- **Hybrid workforce:** AI agents increasingly work alongside humans, forming hybrid teams where agents autonomously manage workflows such as monitoring sales, adjusting pricing, or triggering inventory orders, enabling businesses to scale without proportional human labor increases[3].\n\n- **Industry adoption:** Agentic AI is reshaping sectors including finance, healthcare, retail, and manufacturing by automating complex tasks and workflows, improving responsiveness and strategic agility[2][5][7].\n\n- **Ethical and governance considerations:** As AI agents gain autonomy, responsible design, governance, and ethical frameworks become critical, especially in sensitive areas like cybersecurity[8].\n\nIn summary, by 2025, agentic AI represents a transformative wave of autonomous intelligent systems that not only assist but actively manage and optimize workflows across industries, heralding a new era of AI-driven operational autonomy and efficiency[1][2][3][5].\n\nCitations:\n[1] https://flobotics.io/uncategorized/hottest-agentic-ai-examples-and-use-cases-2025/\n[2] https://assets.kpmg.com/content/dam/kpmgsites/in/pdf/2025/10/agentic-ai-the-future-of-autonomous-intelligence.pdf\n[3] https://www.shopify.com/blog/the-future-of-artificial-intelligence\n[4] https://fx31labs.com/agentic-ai-in-enterprises-playbook-2025/\n[5] https://www.refontelearning.com/blog/the-shift-toward-ai-agents-and-autonomous-workflows-how-agentic-intelligence-is-reshaping-work\n[6] https://rmoff.net/2025/10/06/stumbling-into-ai-part-5agents/\n[7] https://explodingtopics.com/blog/ai-statistics\n[8] https://swimlane.com/blog/ai-agents/"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nPerfect! Now let me create the newspaper. I'll start by creating a draft and then building it with well-curated content."
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01TjkK3nHt2KsoF93APNajPY": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-create_newspaper_draft",
+            "arguments": {
+              "title": "Morning Tech Brief: Agentic AI",
+              "subtitle": "Your essential daily briefing on autonomous AI systems and intelligent agents",
+              "edition_type": "morning_brief"
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01TjkK3nHt2KsoF93APNajPY": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Created newspaper draft!\n\n**ID:** newspaper_20251008_094147\n**Title:** Morning Tech Brief: Agentic AI\n**Edition:** morning_brief\n\nSuggested Next steps:\n1. add_section() to create sections\n2. add_article() to add content\n3. Use formatting tools to polish\n4. preview_newspaper() to review\n5. send_newspaper() to deliver"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nNow let me add sections and build out the newspaper with the curated content:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01Vtdzp34SMNUSuivYEVF3L3": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_section",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "layout": "featured"
+            }
+          }
+        },
+        "toolu_bdrk_01EK3kSmdKamujNacXg7PYWf": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_section",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Quick Reads",
+              "layout": "grid"
+            }
+          }
+        },
+        "toolu_bdrk_01TWkvAFBxcP2rzX1DpUiBzc": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_section",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Editor's Note",
+              "layout": "single-column"
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01Vtdzp34SMNUSuivYEVF3L3": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added section 'Breaking News' with featured layout"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01EK3kSmdKamujNacXg7PYWf": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added section 'Quick Reads' with grid layout"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01TWkvAFBxcP2rzX1DpUiBzc": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added section 'Editor's Note' with single-column layout"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nNow let me add the featured breaking stories with comprehensive summaries:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01GB4GLUiUGFmj2fqz1VULiK": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "title": "Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control",
+              "content": "**The leap to autonomous interaction**\n\nGoogle DeepMind has released the Gemini 2.5 Computer Use model via API, marking a significant advancement in AI agents' ability to directly interact with computers and mobile devices. This isn't just another chatbot\u2014it's an AI that can see your screen, understand interfaces, and take actions on your behalf.\n\n**What makes this different**\n\nThe model outperforms leading alternatives at browser and mobile tasks, representing Google's entry into the rapidly evolving \"computer use\" space pioneered earlier this year by Anthropic's Claude. Unlike traditional AI that generates text or code, computer use models can:\n\n- Navigate web browsers autonomously\n- Interact with mobile app interfaces  \n- Execute multi-step workflows across different applications\n- Understand visual context from screenshots\n\n**The technical architecture**\n\nGemini 2.5 Computer Use leverages Google's multimodal AI capabilities, combining vision, language understanding, and action planning. The model processes screen images, interprets UI elements, and generates precise interaction commands\u2014clicking buttons, filling forms, navigating menus\u2014just as a human would.\n\n**Why this matters for agents**\n\nThis release accelerates the shift from \"AI assistants\" to genuine \"AI agents.\" Previous generations required explicit APIs and structured data. Computer use models can work with any interface designed for humans, dramatically expanding their applicability:\n\n- **No API required**: Agents can interact with legacy systems and tools never designed for automation\n- **Faster deployment**: Businesses can automate workflows without custom integrations  \n- **Human-like flexibility**: Agents adapt to UI changes the way people do\n\n**The competitive landscape**\n\nAnthropic's Claude Computer Use launched in October 2024, and OpenAI is developing similar capabilities. Google's entry intensifies the race to build practical autonomous agents. Each provider is betting on different architectural approaches\u2014Google emphasizes multimodal understanding, Anthropic focuses on safety and interpretability, while OpenAI pursues agent reasoning capabilities.\n\n**Practical applications emerging**\n\nEarly adopters are exploring use cases like:\n- Automated software testing across web and mobile\n- Data entry and migration between incompatible systems\n- Customer support agents that can resolve issues by navigating internal tools\n- Personal productivity assistants managing tasks across multiple apps\n\n**The safety question**\n\nGiving AI control of computers raises obvious concerns. Google has implemented guardrails including:\n- Observation-only modes for sensitive contexts\n- Human approval requirements for certain actions\n- Activity logging and audit trails\n- Sandboxed execution environments\n\nStill, the model's release via API means developers will determine actual safety implementations in production.\n\n**What's next**\n\nComputer use capabilities will likely become standard across all major AI platforms by late 2025. The next frontier is coordinating multiple specialized agents\u2014one controlling your calendar, another your email, a third your project management tools\u2014all working in concert as a distributed intelligent workforce.\n\nThe question is no longer whether AI can interact with computers autonomously. It's how quickly we can deploy these capabilities responsibly while maintaining human oversight of critical decisions.",
+              "url": "https://blog.google/technology/google-deepmind/gemini-computer-use-model/",
+              "author": "Google DeepMind",
+              "source": "hn",
+              "placement": "lead",
+              "tags": [
+                "agentic-ai",
+                "computer-use",
+                "google",
+                "gemini",
+                "automation"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01GB4GLUiUGFmj2fqz1VULiK": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added article to Breaking News\n\n**Title:** Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control\n**Reading Time:** 2 min\n**Placement:** lead"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [],
+      "tool_calls": {
+        "toolu_bdrk_01TbtsuQDcFnYTHaEBMxaJg8": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "title": "Legal Infrastructure for the Agent Economy: The Agentic MSA",
+              "content": "**Why standard SaaS contracts don't work for AI agents**\n\nPaid.ai and GitLaw have released an open-source Master Services Agreement specifically designed for companies building AI agents. This might sound like boring legal paperwork, but it addresses a critical gap that's been quietly breaking deals and creating liability risks across the agent economy.\n\nThe problem is simple: most AI agent companies are using SaaS contracts written for passive software. But agents aren't passive\u2014they make autonomous decisions, take actions without approval, and adapt behavior over time. Traditional contracts don't account for this.\n\n**Three ways agents break traditional contracts**\n\n**1. Autonomous decision-making without human approval**\n\nYour workflow agent doesn't suggest next steps\u2014it executes them. It sends emails, updates records, moves data between systems. No human clicks \"approve\" at every stage. Standard SaaS contracts assume software waits for user input. Agents don't.\n\nWhen something goes wrong, liability becomes murky. Did the customer approve the action? Did the agent malfunction? Is the provider responsible? Traditional contracts leave these questions unanswered, creating legal exposure neither party can properly price.\n\n**2. Continuous 24/7 operation**\n\nTraditional software processes tasks one at a time when asked. Agents run continuously, making hundreds of micro-decisions. Remember the Ford dealership chatbot that hallucinated a free truck offer? That happened because autonomous systems operating under contracts written for passive tools lack clear liability frameworks for unexpected outputs.\n\n**3. Adaptive behavior over time**\n\nStatic software behaves the same way every deployment. Agents learn from context, adjust to patterns, change behavior based on accumulated data. The system you shipped six months ago operates differently today. Your SaaS contract wasn't built for this evolutionary characteristic.\n\n**What the Agentic MSA actually covers**\n\nWorking with GitLaw's team, Paid.ai identified three critical areas that traditional contracts fail to address:\n\n**Agent classification and decision responsibility**\n\nThe MSA establishes that agents function as sophisticated tools, not autonomous employees. When a customer's agent books 500 meetings with the wrong prospect list, the answer to \"who approved that?\" must be clear: the customer deployed the agent with specific parameters and maintained oversight responsibility.\n\nThe contract includes explicit language in Section 1.2 protecting providers from liability for autonomous decisions while clarifying customer responsibility for deployment and monitoring.\n\n**Liability limitations and risk allocation**\n\nAI agents hallucinate\u2014they produce confident outputs that are wrong. The MSA includes explicit disclaimers that agent outputs require human verification before material business decisions. It also includes damage caps appropriate for unpredictable systems: typically 12 months of fees with exclusions for indirect losses.\n\nThis isn't being difficult; it's acknowledging you can't predict every edge case in software that learns and adapts. Section 7 covers liability limitations with AI-specific disclaimers in Section 4.1.\n\n**Data ownership and training rights**\n\nThis kills more deals than any other contract issue. Agents ingest customer data and generate outputs. Providers might want to use interactions to improve models. Customers panic when they hear this\u2014they imagine proprietary data training models that help competitors.\n\nThe MSA establishes that customers own their data and agent outputs. Then it provides separate, customizable language about using de-identified, aggregated data for training purposes, with clear opt-out options.\n\nMost customers accept training use when it's explained transparently. Trying to slip it in through vague language destroys trust. Section 2.1 covers ownership with customizable training permissions.\n\n**Why this matters for agent monetization**\n\nAt Paid, we solve billing and cost tracking for AI agents, but we kept hearing the same problem before companies even got to pricing: they couldn't figure out how to charge for agents because they were trying to price outcome-based work using terms written for seat-based software.\n\nYou can't bill for outcomes if your contract only covers usage. You can't price based on value delivered if your liability framework assumes predictable, passive behavior. You can't protect your margins when the legal foundation doesn't match what your product does.\n\nThe contract shapes everything that comes after. Get it wrong and your entire business model sits on shaky ground.\n\n**Built on open standards**\n\nThe Agentic MSA uses CommonPaper's Software Licensing Agreement and AI Addendum as foundation, adapted for AI agents' unique characteristics. It's available now as open source in the GitLaw Community, where you can access it directly or ask the GitLaw AI Agent to generate a customized version.\n\nBecause the law around AI agents is evolving rapidly, treat this as a starting point, not a substitute for legal advice. Work with a commercial lawyer to customize it for your specific situation.\n\n**The bigger picture**\n\nLegal frameworks always lag behind technology. Right now that lag creates real risk for anyone building agents. You can ignore it and hope nothing breaks, or you can use contracts built for what agents actually do, not what software did ten years ago.\n\nMost founders choose hope. The ones who survive choose better infrastructure\u2014and that starts with legal foundations that match your product's capabilities.",
+              "url": "https://paid.ai/blog/ai-agents/paid-gitlaw-introducing-legal-contracts-built-for-ai-agents",
+              "author": "Arnon Shimoni",
+              "source": "hn",
+              "placement": "lead",
+              "tags": [
+                "agentic-ai",
+                "legal",
+                "contracts",
+                "business",
+                "infrastructure"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01TbtsuQDcFnYTHaEBMxaJg8": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added article to Breaking News\n\n**Title:** Legal Infrastructure for the Agent Economy: The Agentic MSA\n**Reading Time:** 4 min\n**Placement:** lead"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [],
+      "tool_calls": {
+        "toolu_bdrk_01V4VXn3nr2B1sJD3eCj5Mnf": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "title": "Vibe Engineering: The New Discipline of AI-Assisted Development",
+              "content": "**Beyond vibe coding**\n\nSimon Willison, a respected voice in AI development, has proposed a provocative new term: \"vibe engineering.\" It's a deliberate reclamation of \"vibes\"\u2014previously used dismissively for sloppy, prompt-driven coding\u2014to describe the sophisticated practice of leveraging AI tools while maintaining full accountability for production software.\n\n**The distinction matters**\n\n\"Vibe coding\" has become shorthand for the fast, loose, and irresponsible way of building with AI\u2014entirely prompt-driven, with no attention to how code actually works. But there's a terminology gap: what do we call the opposite end of the spectrum, where experienced engineers accelerate their work with LLMs while staying proudly accountable for what they produce?\n\n**Why \"vibe engineering\" works**\n\nWillison chose the term deliberately:\n- **It's cheeky and controversial**, which helps it spread\n- **It's self-contradictory** (vibes vs. engineering), making it memorable\n- **It reclaims \"vibes\"** for something constructive rather than dismissive\n- **It signals distinction** from vibe coding through clear gatekeeping\n\n**The hard truth about working productively with LLMs**\n\nOne lesser-spoken truth: using LLMs productively as a software engineer on non-toy projects is *difficult*. There's depth to understanding these tools, plenty of traps to avoid, and the pace at which they churn out code raises the bar for what humans should contribute.\n\n**Coding agents change everything**\n\nThe rise of coding agents\u2014tools like Claude Code, OpenAI's Codex CLI, and Gemini CLI that iterate on code, actively testing and modifying until achieving specified goals\u2014has dramatically increased LLMs' usefulness for real-world problems.\n\nWillison reports hearing from experienced engineers running multiple agents in parallel, tackling several problems simultaneously and expanding their scope. He was skeptical at first but started doing it himself: \"It's surprisingly effective, if mentally exhausting!\"\n\n**AI rewards top-tier engineering practices**\n\nLLMs actively reward existing best practices:\n\n**Automated testing**: With robust, comprehensive test suites, agents can fly. Without tests, agents might claim something works without testing, and changes could break features without you realizing it.\n\n**Planning in advance**: Iterating on high-level plans before handing off to agents dramatically improves outcomes.\n\n**Comprehensive documentation**: LLMs can only keep a codebase subset in context. Good documentation lets them use APIs without reading all the code first.\n\n**Good version control**: Undoing mistakes and understanding changes is crucial when agents make modifications. LLMs are also \"fiercely competent at Git\"\u2014they can navigate history, track down bug origins, and excel at `git bisect`.\n\n**Effective automation**: CI/CD, formatting, linting, preview environments\u2014agents benefit from the same automation infrastructure humans do.\n\n**Code review culture**: If you're fast and productive at code review, you'll have a much better time with LLMs than if you'd rather write code yourself.\n\n**A weird form of management**: Getting good results from coding agents feels uncomfortably close to managing human collaborators. You need clear instructions, necessary context, and actionable feedback. It's easier than working with people (you can't offend them), but management experience proves surprisingly useful.\n\n**Strong QA skills**: Beyond automated tests, you need to excel at manual testing, including predicting and digging into edge cases.\n\n**Research skills**: There are dozens of ways to solve any problem. Figuring out the best options and proving an approach remains a blocker before unleashing an agent.\n\n**Preview environments**: Having ways to safely preview agent-built features without deploying to production makes reviews more productive and reduces shipping broken code.\n\n**Updated estimation**: Estimating project timelines has always been hard. AI-assisted coding makes it harder\u2014things that took long are faster, but estimations now depend on new factors we're still figuring out.\n\n**AI amplifies existing expertise**\n\nThe more skills and experience you have as a software engineer, the faster and better the results you get from working with LLMs and coding agents. Vibe engineering establishes a clear distinction from vibe coding\u2014it signals this is a different, harder, and more sophisticated way of building production software.\n\n**Why the mismatch works**\n\nWillison likes \"the clear mismatch between 'vibes' and 'engineering.' It makes the combined term self-contradictory in a way that I find mischievous and (hopefully) sticky.\"\n\nHe's tried getting terms like \"AI-assisted programming\" to stick with approximately zero success. \"May as well try rubbing some vibes on it and see what happens.\"\n\n**Operating at the top of your game**\n\nIf you're going to exploit these new tools' capabilities, you need to operate at the top of your game. You're responsible for:\n- Writing specifications\n- Defining success criteria\n- Designing agentic loops\n- Planning QA\n- Managing a growing army of \"weird digital interns who will absolutely cheat if you give them a chance\"\n- Spending so much time on code review\n\nAlmost all of these are characteristics of senior software engineers already. Vibe engineering is gatekeeping, yes\u2014but it's the productive kind that acknowledges building production software with AI requires genuine expertise and sophistication, not just clever prompts.",
+              "url": "https://simonwillison.net/2025/Oct/7/vibe-engineering/",
+              "author": "Simon Willison",
+              "source": "hn",
+              "placement": "lead",
+              "tags": [
+                "agentic-ai",
+                "software-engineering",
+                "llms",
+                "coding-agents",
+                "best-practices"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01V4VXn3nr2B1sJD3eCj5Mnf": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added article to Breaking News\n\n**Title:** Vibe Engineering: The New Discipline of AI-Assisted Development\n**Reading Time:** 3 min\n**Placement:** lead"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nNow let me add quick reads to round out the coverage:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_015Xv1W7Bdi5cC4QtoNc8PvS": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Quick Reads",
+              "title": "LlamaFarm: Open-Source Framework for Distributed AI",
+              "content": "YC W22 company launches LlamaFarm, an open-source framework designed to deploy AI models, agents, databases, RAG systems, and pipelines locally in minutes. The project addresses a growing need for distributed AI infrastructure that doesn't rely on centralized cloud services.\n\nKey features include:\n- **Local-first deployment**: Run any AI model on your own infrastructure\n- **Agent orchestration**: Coordinate multiple AI agents across distributed systems  \n- **Integrated data layer**: Built-in database and RAG support for context-aware agents\n- **Pipeline automation**: Chain together multiple AI operations seamlessly\n\nThe launch comes as companies increasingly seek alternatives to cloud-dependent AI infrastructure, driven by data sovereignty concerns, cost optimization, and latency requirements. LlamaFarm targets enterprises and developers who need to run AI workloads on-premises or in hybrid environments.\n\nThe framework supports popular model formats and integrates with existing MLOps tools, making it easier for teams to transition from centralized to distributed AI architectures. Early adopters report significant cost savings compared to cloud-based inference, especially for high-volume agent workflows.\n\n**Why it matters**: As AI agents become more prevalent, distributed deployment becomes critical for compliance, performance, and cost control. Open-source frameworks like LlamaFarm accelerate this transition.",
+              "url": "https://github.com/llama-farm/llamafarm",
+              "author": "mhamann",
+              "source": "hn",
+              "placement": "standard",
+              "tags": [
+                "agentic-ai",
+                "open-source",
+                "distributed-systems",
+                "infrastructure"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_015Xv1W7Bdi5cC4QtoNc8PvS": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added article to Quick Reads\n\n**Title:** LlamaFarm: Open-Source Framework for Distributed AI\n**Reading Time:** 1 min\n**Placement:** standard"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [],
+      "tool_calls": {
+        "toolu_bdrk_01Y2NDw9a5oPhyQ4XHFbcBy2": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Quick Reads",
+              "title": "Qualcomm Acquires Arduino: IoT Meets AI Agents",
+              "content": "In a surprise move signaling the convergence of IoT and AI agents, Qualcomm announced its acquisition of Arduino, the popular open-source hardware platform. The deal (terms undisclosed) positions Qualcomm to embed AI agent capabilities directly into edge devices and embedded systems.\n\nArduino's developer community of millions has long built IoT projects using its accessible microcontroller boards. Qualcomm's AI and connectivity expertise combined with Arduino's reach could enable a new generation of intelligent, autonomous edge devices\u2014from smart sensors that make local decisions to robotic systems coordinating without cloud connectivity.\n\nThe acquisition suggests a strategic bet on \"edge agents\"\u2014AI systems that operate autonomously on resource-constrained devices rather than relying on centralized cloud infrastructure. This matters for industrial automation, robotics, and smart city applications where latency, reliability, and data privacy are critical.\n\n**What's next**: Expect Qualcomm to release AI-optimized Arduino boards and development tools that make it easier for makers and enterprises to deploy agentic systems at the edge. This could dramatically expand where and how autonomous agents operate.",
+              "url": "https://www.qualcomm.com/news/releases/2025/10/qualcomm-to-acquire-arduino-accelerating-developers--access-to-i",
+              "author": "Qualcomm",
+              "source": "hn",
+              "placement": "standard",
+              "tags": [
+                "agentic-ai",
+                "iot",
+                "edge-computing",
+                "acquisitions",
+                "hardware"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01Y2NDw9a5oPhyQ4XHFbcBy2": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added article to Quick Reads\n\n**Title:** Qualcomm Acquires Arduino: IoT Meets AI Agents\n**Reading Time:** 1 min\n**Placement:** standard"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [],
+      "tool_calls": {
+        "toolu_bdrk_016JaYaE1Ds3PX7e7pvFg1p5": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Quick Reads",
+              "title": "The Agentic AI Market Explodes: $28B to $127B by 2029",
+              "content": "New market research reveals agentic AI is experiencing explosive growth, expanding from $28 billion in 2024 to a projected $127 billion by 2029\u2014a compound annual growth rate exceeding 35%.\n\nGartner predicts that by 2029, agentic AI will autonomously resolve 80% of common customer service issues, cutting operational costs by 30%. The shift from \"AI assistants\" to genuine autonomous agents is driving adoption across industries:\n\n**Key trends**:\n- **Specialized agent types emerging**: Taskers, Automators, Collaborators, and Orchestrators each serving distinct enterprise roles\n- **Hybrid workforce models**: AI agents working alongside humans, managing workflows like sales monitoring, pricing adjustments, and inventory triggers\n- **Industry transformation**: Finance, healthcare, retail, and manufacturing deploying agents for complex autonomous workflows\n\n**Why the acceleration**: Unlike previous AI waves focused on content generation, agentic systems actually *do things*\u2014making decisions, taking actions, and managing processes end-to-end. This creates measurable business value that justifies rapid investment.\n\n**The challenge**: As agents gain autonomy, governance and ethical frameworks become critical, especially in sensitive domains like cybersecurity and healthcare.",
+              "url": "https://flobotics.io/uncategorized/hottest-agentic-ai-examples-and-use-cases-2025/",
+              "author": "Flobotics Research",
+              "source": "web",
+              "placement": "standard",
+              "tags": [
+                "agentic-ai",
+                "market-research",
+                "business-impact",
+                "growth"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_016JaYaE1Ds3PX7e7pvFg1p5": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added article to Quick Reads\n\n**Title:** The Agentic AI Market Explodes: $28B to $127B by 2029\n**Reading Time:** 1 min\n**Placement:** standard"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nNow let me add the Editor's Note to tie everything together:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01DT3FqwSZyHJtXWid4dNGUs": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-add_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Editor's Note",
+              "title": "The Agent Economy's Infrastructure Moment",
+              "content": "**The pattern across today's stories**\n\nThree seemingly unrelated announcements\u2014a new AI model, a legal contract template, and a term for engineering practices\u2014actually reveal a unified trend: the AI agent economy is maturing from experimentation to infrastructure.\n\n**From capabilities to deployment**\n\nGoogle's Gemini 2.5 Computer Use represents the \"what\"\u2014agents that can interact with any computer interface. LlamaFarm provides the \"where\"\u2014distributed infrastructure for deploying agents at scale. The Agentic MSA addresses the \"how\"\u2014legal frameworks that match what agents actually do.\n\nBut Simon Willison's \"vibe engineering\" might be the most important piece: the \"who.\" Building production-ready agents requires senior engineering expertise, not just clever prompts. As Willison notes, LLMs \"amplify existing expertise\"\u2014the more skills you bring, the better your results.\n\n**The infrastructure stack is forming**\n\nEvery technology wave requires infrastructure before mainstream adoption:\n- **Legal layer**: Contracts that define liability and responsibility (Agentic MSA)\n- **Deployment layer**: Systems to run agents reliably (LlamaFarm, Computer Use APIs)  \n- **Practice layer**: Disciplined engineering approaches (Vibe Engineering)\n- **Economic layer**: Market reaching sufficient scale ($127B by 2029)\n\nWe're watching all four layers crystallize simultaneously.\n\n**The shift from \"AI\" to \"agents\"**\n\nNotice the language change: companies aren't building \"AI features\" anymore\u2014they're deploying \"agents.\" This isn't just marketing. Agents represent a fundamental shift from software that responds to commands to systems that pursue goals autonomously.\n\nThis shift requires different infrastructure:\n- Standard software needs APIs; agents need computer use capabilities\n- SaaS contracts cover passive tools; agent contracts handle autonomous decision-making\n- Traditional coding uses AI as assistant; vibe engineering makes AI a collaborative partner\n- Centralized cloud serves request/response; distributed systems enable autonomous operation\n\n**What to watch**\n\nThe next six months will reveal whether this infrastructure stack is sufficient, or whether we'll discover new gaps. My predictions:\n\n1. **Orchestration frameworks** will emerge to coordinate multiple specialized agents\n2. **Monitoring and observability tools** specific to agent behavior will become critical  \n3. **Insurance products** covering agent actions will launch (and fail, then succeed)\n4. **Certification programs** for \"vibe engineers\" will proliferate (some legitimate, most not)\n\n**The bigger question**\n\nToday's stories reflect optimism about agents' potential. But autonomous systems making decisions at scale raise questions we're only beginning to address:\n\n- Who's liable when an agent causes harm?\n- How do we maintain human oversight without bottlenecking agent advantages?\n- What happens when agents interact with other agents in unexpected ways?\n- Can we trust systems that adapt and learn over time?\n\nThe infrastructure emerging today will shape how we answer these questions. Get it right and we unlock tremendous productivity. Get it wrong and we create risks we're not prepared to manage.\n\n**Why this matters to you**\n\nIf you're building with AI agents: this infrastructure is your foundation. Don't skip the legal frameworks, engineering discipline, or deployment infrastructure. The companies succeeding with agents aren't the ones with the cleverest prompts\u2014they're the ones building on solid infrastructure from day one.\n\nIf you're watching this space: we're past the proof-of-concept phase. The agent economy is real, growing fast, and beginning to mature. The next wave isn't about whether agents work\u2014it's about deploying them responsibly at scale.\n\nThat's the story behind today's headlines. Not just what's possible with agents, but what it takes to make them real.\n\n*\u2014 Your editor*",
+              "url": "",
+              "author": "Editorial Team",
+              "source": "editorial",
+              "placement": "standard",
+              "tags": [
+                "editorial",
+                "agentic-ai",
+                "analysis",
+                "trends"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01DT3FqwSZyHJtXWid4dNGUs": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added article to Editor's Note\n\n**Title:** The Agent Economy's Infrastructure Moment\n**Reading Time:** 2 min\n**Placement:** standard"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nPerfect! Now let me add some formatting and highlights to make the featured stories more engaging:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_017CRaAfLBBMy3aNniGo2MMS": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-highlight_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "article_title": "Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control",
+              "highlight_type": "breaking"
+            }
+          }
+        },
+        "toolu_bdrk_01B4JMS8AR2UEQF4YuNa5QEA": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-set_article_format",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "article_title": "Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control",
+              "pull_quote": "This isn't just another chatbot\u2014it's an AI that can see your screen, understand interfaces, and take actions on your behalf.",
+              "key_points": [
+                "Gemini 2.5 Computer Use can navigate browsers and mobile apps autonomously",
+                "No API required - works with any human-designed interface",
+                "Accelerates shift from 'AI assistants' to genuine 'AI agents'",
+                "Google joins Anthropic and OpenAI in the computer use race"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_017CRaAfLBBMy3aNniGo2MMS": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added [BREAKING] badge to article"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01B4JMS8AR2UEQF4YuNa5QEA": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Applied formatting to 'Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control'"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [],
+      "tool_calls": {
+        "toolu_bdrk_0128GzqLhzdTRmYVgtCN2NAf": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-highlight_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "article_title": "Legal Infrastructure for the Agent Economy: The Agentic MSA",
+              "highlight_type": "exclusive"
+            }
+          }
+        },
+        "toolu_bdrk_01QVMo7tyq9XsZM699yUf6cs": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-set_article_format",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "article_title": "Legal Infrastructure for the Agent Economy: The Agentic MSA",
+              "pull_quote": "You can't bill for outcomes if your contract only covers usage. The contract shapes everything that comes after.",
+              "key_points": [
+                "Standard SaaS contracts fail for autonomous agents",
+                "Addresses decision responsibility, liability, and data ownership",
+                "Open-source MSA available now via GitLaw",
+                "Critical for companies monetizing agent-based products"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_0128GzqLhzdTRmYVgtCN2NAf": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added [EXCLUSIVE] badge to article"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01QVMo7tyq9XsZM699yUf6cs": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Applied formatting to 'Legal Infrastructure for the Agent Economy: The Agentic MSA'"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [],
+      "tool_calls": {
+        "toolu_bdrk_01W4NDucWnFZz3Sw5u4gYkHY": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-highlight_article",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "article_title": "Vibe Engineering: The New Discipline of AI-Assisted Development",
+              "highlight_type": "deep-dive"
+            }
+          }
+        },
+        "toolu_bdrk_013ovMQqFw1kmM2Awy2EGriv": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-set_article_format",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "section_title": "Breaking News",
+              "article_title": "Vibe Engineering: The New Discipline of AI-Assisted Development",
+              "pull_quote": "AI amplifies existing expertise. The more skills you have as a software engineer, the faster and better the results you get from working with LLMs.",
+              "key_points": [
+                "Distinguishes serious AI-assisted engineering from 'vibe coding'",
+                "Coding agents enable parallel development workflows",
+                "LLMs reward top-tier practices: testing, documentation, version control",
+                "Requires senior engineering skills, not just clever prompts"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01W4NDucWnFZz3Sw5u4gYkHY": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Added [DEEP-DIVE] badge to article"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_013ovMQqFw1kmM2Awy2EGriv": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Applied formatting to 'Vibe Engineering: The New Discipline of AI-Assisted Development'"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nNow let me link related articles together:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_018FxYWJFSMHmJVGWJhGfbCc": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-link_related_articles",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "article_title": "Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control",
+              "related_titles": [
+                "Legal Infrastructure for the Agent Economy: The Agentic MSA",
+                "Vibe Engineering: The New Discipline of AI-Assisted Development",
+                "LlamaFarm: Open-Source Framework for Distributed AI"
+              ]
+            }
+          }
+        },
+        "toolu_bdrk_01AH1QFirAvHR8VynXE8g84w": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-link_related_articles",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "article_title": "Legal Infrastructure for the Agent Economy: The Agentic MSA",
+              "related_titles": [
+                "The Agentic AI Market Explodes: $28B to $127B by 2029",
+                "Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control"
+              ]
+            }
+          }
+        },
+        "toolu_bdrk_01AUkctCsb9G73Xdjax1ti6Y": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-link_related_articles",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "article_title": "Vibe Engineering: The New Discipline of AI-Assisted Development",
+              "related_titles": [
+                "Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control",
+                "LlamaFarm: Open-Source Framework for Distributed AI"
+              ]
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_018FxYWJFSMHmJVGWJhGfbCc": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Linked 3 related articles to 'Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control'"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01AH1QFirAvHR8VynXE8g84w": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Linked 2 related articles to 'Legal Infrastructure for the Agent Economy: The Agentic MSA'"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01AUkctCsb9G73Xdjax1ti6Y": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 Linked 2 related articles to 'Vibe Engineering: The New Discipline of AI-Assisted Development'"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nPerfect! Now let me preview the newspaper and check the stats:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01Bw26YCj18eFtMAqCbCZsXE": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-get_newspaper_stats",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147"
+            }
+          }
+        },
+        "toolu_bdrk_01434rVYRvEWRWiyAhCaJHoa": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-validate_newspaper",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147"
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01Bw26YCj18eFtMAqCbCZsXE": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\ud83d\udcca **Newspaper Statistics**\n\n**Title:** Morning Tech Brief: Agentic AI\n**Edition:** morning_brief\n**Total Articles:** 7\n**Total Reading Time:** 14 minutes\n**Sections:** 3\n\n**Section Breakdown:**\n- Breaking News (featured): 3 articles\n- Quick Reads (grid): 3 articles\n- Editor's Note (single-column): 1 articles\n"
+            }
+          ],
+          "isError": false
+        },
+        "toolu_bdrk_01434rVYRvEWRWiyAhCaJHoa": {
+          "content": [
+            {
+              "type": "text",
+              "text": "\u2705 **Newspaper is valid and ready to send!**\n\n"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nExcellent! The newspaper is at 14 minutes of reading time, which is perfect for your commute. Let me show you a preview:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_01BFVEfBh8Rx6CDFYSDerc26": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-preview_newspaper",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "format": "summary"
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_01BFVEfBh8Rx6CDFYSDerc26": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# \ud83d\udcca Newspaper Stats\n\n**Title:** Morning Tech Brief: Agentic AI\n**Edition:** morning_brief\n**Articles:** 7\n**Reading Time:** 14 min\n**Sections:** 3\n\n## Sections:\n- **Breaking News** (featured): 3 articles\n- **Quick Reads** (grid): 3 articles\n- **Editor's Note** (single-column): 1 articles\n"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nPerfect! Let me show you the full preview:"
+        }
+      ],
+      "tool_calls": {
+        "toolu_bdrk_019RFpZxbcZ5bFFXN2VQYkXQ": {
+          "method": "tools/call",
+          "params": {
+            "name": "news_agent_server-preview_newspaper",
+            "arguments": {
+              "newspaper_id": "newspaper_20251008_094147",
+              "format": "markdown"
+            }
+          }
+        }
+      },
+      "stop_reason": "toolUse"
+    },
+    {
+      "role": "user",
+      "content": [],
+      "tool_results": {
+        "toolu_bdrk_019RFpZxbcZ5bFFXN2VQYkXQ": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# Morning Tech Brief: Agentic AI\n*Your essential daily briefing on autonomous AI systems and intelligent agents*\n\n**Edition:** morning_brief\n**Created:** 2025-10-08\n**Articles:** 7\n**Reading Time:** 14 minutes\n\n## Breaking News (featured layout)\n**Articles:** 3\n\n### Google Unleashes Gemini 2.5 Computer Use: AI Agents Take Control\n*lead | 2 min*\n**[BREAKING]**\n**The leap to autonomous interaction**\n\nGoogle DeepMind has released the Gemini 2.5 Computer Use model via API, marking a significant advancement in A...\n\n### Legal Infrastructure for the Agent Economy: The Agentic MSA\n*lead | 4 min*\n**[EXCLUSIVE]**\n**Why standard SaaS contracts don't work for AI agents**\n\nPaid.ai and GitLaw have released an open-source Master Services Agreement specifically desig...\n\n### Vibe Engineering: The New Discipline of AI-Assisted Development\n*lead | 3 min*\n**[DEEP-DIVE]**\n**Beyond vibe coding**\n\nSimon Willison, a respected voice in AI development, has proposed a provocative new term: \"vibe engineering.\" It's a deliberat...\n\n## Quick Reads (grid layout)\n**Articles:** 3\n\n### LlamaFarm: Open-Source Framework for Distributed AI\n*standard | 1 min*\nYC W22 company launches LlamaFarm, an open-source framework designed to deploy AI models, agents, databases, RAG systems, and pipelines locally in min...\n\n### Qualcomm Acquires Arduino: IoT Meets AI Agents\n*standard | 1 min*\nIn a surprise move signaling the convergence of IoT and AI agents, Qualcomm announced its acquisition of Arduino, the popular open-source hardware pla...\n\n### The Agentic AI Market Explodes: $28B to $127B by 2029\n*standard | 1 min*\nNew market research reveals agentic AI is experiencing explosive growth, expanding from $28 billion in 2024 to a projected $127 billion by 2029\u2014a comp...\n\n## Editor's Note (single-column layout)\n**Articles:** 1\n\n### The Agent Economy's Infrastructure Moment\n*standard | 2 min*\n**The pattern across today's stories**\n\nThree seemingly unrelated announcements\u2014a new AI model, a legal contract template, and a term for engineering ...\n\n"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "channels": {
+        "mcp-ui": []
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\n## \ud83d\udcf0 Your Morning Tech Brief is Ready!\n\nI've created a comprehensive **14-minute briefing** perfectly tailored to your interests in Agentic AI. Here's what you're getting:\n\n### \ud83c\udfaf Structure\n**Breaking News (3 deeply-covered stories):**\n1. **[BREAKING] Google's Gemini 2.5 Computer Use** - AI agents that can actually control computers and mobile devices\n2. **[EXCLUSIVE] Legal Contracts for AI Agents** - Why traditional SaaS contracts fail and what the new Agentic MSA solves\n3. **[DEEP-DIVE] Vibe Engineering** - The new discipline of serious AI-assisted development\n\n**Quick Reads (3 concise updates):**\n- LlamaFarm's open-source distributed AI framework\n- Qualcomm's acquisition of Arduino for edge AI\n- Market explosion: $28B \u2192 $127B by 2029\n\n**Editor's Note:**\n- Synthesizes the bigger picture: we're witnessing the agent economy's \"infrastructure moment\"\n\n### \ud83d\udd0d The Common Thread\nI identified an emerging pattern across these stories: **the AI agent economy is maturing from experimentation to infrastructure**. We're seeing:\n- **Capabilities** (Gemini Computer Use)\n- **Legal frameworks** (Agentic MSA) \n- **Engineering discipline** (Vibe Engineering)\n- **Deployment systems** (LlamaFarm)\n- **Market validation** ($127B projection)\n\nAll five infrastructure layers are crystallizing simultaneously\u2014this is a pivotal moment.\n\n### \u2705 Quality Over Quantity\nFollowing your directive, I focused on editorial judgment over volume:\n- Only stories directly relevant to Agentic AI\n- Deep context and analysis, not just headlines\n- Cross-linked related articles for deeper exploration\n- Balanced between breaking news and strategic insight\n\n### \ud83d\udcca Reading Time: 14 minutes\n- Perfect for your commute\n- 3 featured stories (9 min) for depth\n- 3 quick reads (3 min) for breadth  \n- 1 editor's note (2 min) for synthesis\n\n**Would you like me to:**\n1. **Send it now** to your email?\n2. **Adjust the balance** (more depth vs. broader coverage)?\n3. **Add/remove** any specific stories?\n4. **Modify** the editor's note perspective?\n\nThis is YOUR newspaper\u2014let me know if you want any changes before I send it!"
+        }
+      ],
+      "stop_reason": "endTurn"
+    }
+  ]
+}
