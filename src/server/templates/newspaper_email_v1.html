@@ -169,7 +169,7 @@
             </div>
 
             <div class="story-content">
-                {{ article.content }}
+                {{ article.content | markdown | safe }}
             </div>
 
             {% if article.url %}

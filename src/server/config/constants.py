@@ -21,3 +21,37 @@ DEFAULT_HEADERS = {
     "Sec-Fetch-Mode": "navigate",
     "Sec-Fetch-Site": "none",
 }
+
+# ============= HACKER NEWS API CONFIGURATION =============
+
+# Hacker News Firebase API base URL
+HN_API_BASE = "https://hacker-news.firebaseio.com/v0"
+
+# Hacker News website base URL
+HN_WEBSITE_BASE = "https://news.ycombinator.com"
+
+# Rate limiting delays (in seconds)
+HN_API_DELAY = 0.1  # 100ms delay between HN API calls
+WEB_SCRAPING_DELAY = 1.0  # 1 second delay for web scraping
+
+# ============= NEWSPAPER LAYOUTS =============
+
+VALID_LAYOUTS = ["grid", "single-column", "featured", "timeline"]
+
+VALID_PLACEMENTS = ["lead", "standard", "sidebar", "quick-read"]
+
+VALID_HIGHLIGHT_TYPES = ["breaking", "trending", "exclusive", "deep-dive"]
+
+VALID_TOC_STYLES = ["compact", "detailed", "visual"]
+
+VALID_EDITORIAL_TONES = ["analytical", "educational", "skeptical", "enthusiastic"]
+
+VALID_SUMMARY_STYLES = ["brief", "balanced", "detailed", "technical"]
+
+# ============= READING TIME CALCULATION =============
+
+WORDS_PER_MINUTE = 200  # Average reading speed
+
+# ============= CHROMADB SETTINGS =============
+
+CHROMA_METADATA = {"hnsw:space": "cosine"}  # Cosine similarity for semantic search

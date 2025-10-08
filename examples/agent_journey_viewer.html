@@ -354,14 +354,14 @@
 
         function toggleExpand(id) {
             const elem = document.getElementById(id);
-            const btn = elem.nextElementSibling;
+            const btn = document.querySelector(`button[onclick="toggleExpand('${id}')"]`);
             elem.classList.toggle('collapsed');
             btn.textContent = elem.classList.contains('collapsed') ? 'Show More ▼' : 'Show Less ▲';
         }
 
         function toggleResult(id) {
             const elem = document.getElementById(id);
-            const btn = elem.nextElementSibling;
+            const btn = document.querySelector(`button[onclick="toggleResult('${id}')"]`);
             const fullText = elem.getAttribute('data-full');
 
             if (elem.classList.contains('collapsed')) {

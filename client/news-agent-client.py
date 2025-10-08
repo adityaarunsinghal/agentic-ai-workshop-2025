@@ -21,18 +21,20 @@ fast = FastAgent("Newspaper Creation Agent")
     3. Cross-reference stories across different outlets
     4. Build research memory for future reference
     5. Deliver personalized news experiences
-    Always cite sources and provide diverse perspectives when possible.""",
+    Always cite sources and provide diverse perspectives when possible.
+    You may also have the perplexity or brave tools search for specific topics to dive deep or verify information as needed, which you
+    can use in tandem with the fetch tool to get full articles.""",
     name="News Agent",
     servers=[
         # Our custom newspaper creation server
-        # "news_agent_server",
-        "agent_server",
+        "news_agent_server",
+        # "agent_server",
         "fetch",  # Content fetching and extraction
         # "brave",  # Web search
         # "perplexity_mcp",  # AI-powered research
     ],
     request_params=RequestParams(
-        max_iterations=100,
+        max_iterations=9999,
     ),
 )
 async def main():

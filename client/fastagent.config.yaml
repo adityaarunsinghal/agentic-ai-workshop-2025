@@ -34,8 +34,8 @@ mcp:
         #         - "perplexity-mcp"
 
         # Our custom newspaper creation server (HTTP transport)
-        # news_agent_server:
-        agent_server:
+        news_agent_server:
+        # agent_server:
           transport: "http"
           url: "http://localhost:8080/mcp"
           read_transport_sse_timeout_seconds: 900

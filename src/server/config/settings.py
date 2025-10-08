@@ -94,6 +94,11 @@ class ServerSettings(BaseSettings):
         extra="ignore",  # Ignore unknown env vars
     )
 
+    chromadb_path: Path = Field(
+        default_factory=lambda: Path(__file__).parent.parent / "data" / "chromadb",
+        description="ChromaDB storage directory",
+    )
+
     # ============= Server Identity =============
 
     server_name: str = Field(

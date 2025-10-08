@@ -6,7 +6,7 @@
 			"args": [
 				"run",
 				"--directory",
-				".",
+				"{your_full_path_to_this_repo}",
 				"python",
 				"src/server/weather_server.py"
 			]

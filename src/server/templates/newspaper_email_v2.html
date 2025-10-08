@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>{{ newspaper_title }}</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Times New Roman', serif;
+        line-height: 1.4;
+        color: #000;
+        background: #fff;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .masthead {
+        text-align: center;
+        border-bottom: 4px double #000;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+      }
+
+      .masthead h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+
+      .date-edition {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-top: 10px;
+      }
+
+      /* Editorial Elements */
+      .editorial-element {
+        margin: 20px 0;
+        padding: 15px;
+        border: 2px solid #000;
+        background: #f9f9f9;
+      }
+
+      .editors-note {
+        border-left: 4px solid #333;
+        background: #f5f5f5;
+        font-style: italic;
+      }
+
+      .editors-note.highlighted {
+        background: #ffffcc;
+        border-color: #cc6600;
+      }
+
+      .theme-highlight {
+        background: #e6f3ff;
+        border-color: #0066cc;
+      }
+
+      .theme-highlight h3 {
+        color: #0066cc;
+        margin-bottom: 10px;
+      }
+
+      .stats-callout {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        background: #f0f0f0;
+        border: 2px dashed #666;
+        text-align: center;
+      }
+
+      .stat-item {
+        flex: 1;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* Section Layouts */
+      .newspaper-section {
+        margin-bottom: 30px;
+        border-bottom: 2px solid #000;
+        padding-bottom: 20px;
+      }
+
+      .newspaper-section:last-child {
+        border-bottom: none;
+      }
+
+      .section-header {
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+      }
+
+      /* Grid layout */
+      .section-articles.layout-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      /* Single column layout */
+      .section-articles.layout-single-column {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Featured layout (one big, rest small) */
+      .section-articles.layout-featured {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+      }
+
+      .section-articles.layout-featured .story:first-child {
+        grid-column: 1 / -1;
+      }
+
+      /* Timeline layout */
+      .section-articles.layout-timeline .story {
+        border-left: 3px solid #0066cc;
+        padding-left: 20px;
+        margin-left: 10px;
+        position: relative;
+      }
+
+      .section-articles.layout-timeline .story::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #0066cc;
+        border: 2px solid #fff;
+      }
+
+      /* Article Placements */
+      .story {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .story:last-child {
+        border-bottom: none;
+      }
+
+      .story-lead {
+        font-size: 1.2rem;
+      }
+
+      .story-lead h3 {
+        font-size: 1.5rem;
+      }
+
+      .story-sidebar {
+        font-size: 0.85rem;
+        padding: 10px;
+        background: #f9f9f9;
+        border-left: 3px solid #999;
+      }
+
+      .story-quick-read {
+        font-size: 0.9rem;
+      }
+
+      .story-quick-read h3 {
+        font-size: 1rem;
+      }
+
+      /* Article Elements */
+      .story h3 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+      }
+
+      .byline {
+        font-size: 0.8rem;
+        font-style: italic;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #666;
+      }
+
+      .story-content {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: justify;
+        margin-bottom: 10px;
+      }
+
+      /* Highlight Badges */
+      .badge {
+        display: inline-block;
+        padding: 3px 8px;
+        margin-bottom: 8px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 3px;
+      }
+
+      .badge-breaking {
+        background: #cc0000;
+        color: #fff;
+      }
+
+      .badge-trending {
+        background: #ff6600;
+        color: #fff;
+      }
+
+      .badge-exclusive {
+        background: #6600cc;
+        color: #fff;
+      }
+
+      .badge-deep-dive {
+        background: #006633;
+        color: #fff;
+      }
+
+      /* Article Formatting */
+      .pull-quote {
+        font-size: 1.2rem;
+        font-style: italic;
+        margin: 15px 0;
+        padding: 15px;
+        border-left: 4px solid #333;
+        background: #f5f5f5;
+      }
+
+      .key-points {
+        margin: 15px 0;
+        padding: 15px;
+        background: #f0f8ff;
+        border: 1px solid #0066cc;
+      }
+
+      .key-points h4 {
+        margin-bottom: 10px;
+        color: #0066cc;
+      }
+
+      .key-points ul {
+        margin-left: 20px;
+      }
+
+      .callout-box {
+        margin: 15px 0;
+        padding: 15px;
+        background: #ffffcc;
+        border: 2px solid #cc6600;
+      }
+
+      .code-snippet {
+        margin: 15px 0;
+        padding: 15px;
+        background: #f4f4f4;
+        border: 1px solid #ddd;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85rem;
+        overflow-x: auto;
+      }
+
+      .resource-box {
+        margin: 20px 0;
+        padding: 15px;
+        background: #f9f9f9;
+        border: 1px solid #ccc;
+      }
+
+      .resource-box h4 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .resource-box ul {
+        list-style: none;
+      }
+
+      .resource-box li {
+        margin-bottom: 8px;
+      }
+
+      /* Images */
+      .story img {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+      }
+
+      .image-caption {
+        font-size: 0.8rem;
+        color: #666;
+        font-style: italic;
+        margin-top: 5px;
+      }
+
+      /* Links */
+      .source-link {
+        font-size: 0.8rem;
+        color: #007cba;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .source-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Related Articles */
+      .related-articles {
+        margin-top: 15px;
+        padding: 10px;
+        background: #f5f5f5;
+        border-left: 3px solid #0066cc;
+      }
+
+      .related-articles h5 {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+      }
+
+      .related-articles ul {
+        list-style: none;
+        font-size: 0.85rem;
+      }
+
+      /* Table of Contents */
+      .table-of-contents {
+        margin: 20px 0;
+        padding: 20px;
+        background: #f9f9f9;
+        border: 2px solid #333;
+      }
+
+      .table-of-contents h2 {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .toc-section {
+        margin-bottom: 10px;
+      }
+
+      .toc-section-title {
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .toc-articles {
+        margin-left: 20px;
+        list-style: disc;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .section-articles {
+          grid-template-columns: 1fr !important;
+        }
+        .masthead h1 {
+          font-size: 2.5rem;
+        }
+        .stats-callout {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="masthead">
+      <h1>{{ newspaper_title }}</h1>
+      {% if subtitle %}
+      <p style="font-size: 1.2rem; font-style: italic; margin-top: 5px">
+        {{ subtitle }}
+      </p>
+      {% endif %}
+      <div class="date-edition">
+        <span>{{ current_date }}</span>
+        <span>{{ edition }}</span>
+      </div>
+    </header>
+
+    <!-- Editorial Elements (Top) -->
+    {% for element in editorial_elements %} {% if element.placement == "top" %}
+    {% if element.type == "editors_note" %}
+    <div class="editorial-element editors-note {{ element.style }}">
+      <strong>📝 Editor's Note:</strong> {{ element.content | markdown | safe }}
+    </div>
+    {% elif element.type == "theme_highlight" %}
+    <div class="editorial-element theme-highlight">
+      <h3>🎯 {{ element.theme }}</h3>
+      <p>{{ element.description | markdown | safe }}</p>
+      <p><em>Related: {{ element.related_articles | join(', ') }}</em></p>
+    </div>
+    {% endif %} {% endif %} {% endfor %}
+
+    <!-- Table of Contents -->
+    {% if table_of_contents and table_of_contents.enabled %}
+    <div class="table-of-contents">
+      <h2>📋 Contents</h2>
+      {% for section in sections %} {% if section.articles %}
+      <div class="toc-section">
+        <div class="toc-section-title">{{ section.title }}</div>
+        <ul class="toc-articles">
+          {% for article in section.articles %}
+          <li>{{ article.title }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Sections -->
+    {% for section in sections %}
+    <section class="newspaper-section">
+      <h2 class="section-header">{{ section.title }}</h2>
+
+      <!-- Section Editorial Elements -->
+      {% for element in section.editorial_elements %} {% if element.type ==
+      "stats_callout" %}
+      <div class="stats-callout">
+        {% for stat in element.stats %}
+        <div class="stat-item">
+          <div class="stat-value">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %} {% endfor %}
+
+      <div class="section-articles layout-{{ section.layout }}">
+        {% for article in section.articles %}
+        <article class="story story-{{ article.placement }}">
+          <!-- Highlight Badge -->
+          {% if article.format.highlight_type %}
+          <span class="badge badge-{{ article.format.highlight_type }}">
+            {{ article.format.highlight_type }}
+          </span>
+          {% endif %}
+
+          <h3>{{ article.title }}</h3>
+
+          <div class="byline">
+            {% if article.author %}By {{ article.author }} | {% endif %} {% if
+            article.format.reading_time %}{{ article.format.reading_time }} min
+            read{% endif %}
+          </div>
+
+          <!-- Image -->
+          {% if article.format.show_image and article.format.image_url %}
+          <img
+            src="{{ article.format.image_url }}"
+            alt="{{ article.title }}"
+          />
+          {% if article.format.image_caption %}
+          <div class="image-caption">{{ article.format.image_caption }}</div>
+          {% endif %} {% endif %}
+
+          <!-- Content -->
+          <div class="story-content">
+            {{ article.content | markdown | safe }}
+          </div>
+
+          <!-- Pull Quote -->
+          {% if article.format.pull_quote %}
+          <blockquote class="pull-quote">
+            "{{ article.format.pull_quote }}"
+          </blockquote>
+          {% endif %}
+
+          <!-- Key Points -->
+          {% if article.format.key_points %}
+          <div class="key-points">
+            <h4>Key Takeaways:</h4>
+            <ul>
+              {% for point in article.format.key_points %}
+              <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          <!-- Callout Box -->
+          {% if article.format.callout_box | markdown | safe %}
+          <div class="callout-box">
+            {{ article.format.callout_box | markdown | safe }}
+          </div>
+          {% endif %}
+
+          <!-- Code Snippet -->
+          {% if article.format.code_snippet %}
+          <pre class="code-snippet">{{ article.format.code_snippet }}</pre>
+          {% endif %}
+
+          <!-- Related Articles -->
+          {% if article.related_articles %}
+          <div class="related-articles">
+            <h5>Related Stories:</h5>
+            <ul>
+              {% for related in article.related_articles %}
+              <li>→ {{ related }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          <!-- Source Link -->
+          {% if article.url %}
+          <a
+            href="{{ article.url }}"
+            target="_blank"
+            class="source-link"
+          >
+            → Read Original Source
+          </a>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+
+      <!-- Section Resource Boxes -->
+      {% for element in section.editorial_elements %} {% if element.type ==
+      "resource_box" %}
+      <div class="resource-box">
+        <h4>{{ element.title }}</h4>
+        <ul>
+          {% for resource in element.resources %}
+          <li>
+            <a
+              href="{{ resource.url }}"
+              target="_blank"
+              >{{ resource.title }}</a
+            >
+            {% if resource.description %} - {{ resource.description }}{% endif
+            %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %} {% endfor %}
+    </section>
+    {% endfor %}
+
+    <!-- Editorial Elements (Bottom) -->
+    {% for element in editorial_elements %} {% if element.placement == "bottom"
+    %} {% if element.type == "editors_note" %}
+    <div class="editorial-element editors-note {{ element.style }}">
+      <strong>📝 Editor's Note:</strong> {{ element.content | markdown | safe }}
+    </div>
+    {% endif %} {% endif %} {% endfor %}
+    <footer class="footer">
+      Generated by Newspaper Creation Agent on {{ current_date }}
+    </footer>
+  </body>
+</html>
