@@ -20,22 +20,21 @@ mcp:
         fetch:
             command: "uvx"
             args: ["mcp-server-fetch"]
-        # filesystem:
-        #     command: "npx"
-        #     args: ["-y", "@modelcontextprotocol/server-filesystem", "."]
-        # brave:
-        #     command: npx
-        #     args: ["-y", "@modelcontextprotocol/server-brave-search"]
-        # perplexity_mcp:
-        #     env:
-        #         PERPLEXITY_MODEL: "sonar"
-        #     command: "uvx"
-        #     args:
-        #         - "perplexity-mcp"
+        filesystem:
+            command: "npx"
+            args: ["-y", "@modelcontextprotocol/server-filesystem", "."]
+        brave:
+            command: npx
+            args: ["-y", "@modelcontextprotocol/server-brave-search"]
+        perplexity_mcp:
+            env:
+                PERPLEXITY_MODEL: "sonar"
+            command: "uvx"
+            args:
+                - "perplexity-mcp"
 
         # Our custom newspaper creation server (HTTP transport)
         news_agent_server:
-        # agent_server:
           transport: "http"
           url: "http://localhost:8080/mcp"
           read_transport_sse_timeout_seconds: 900
