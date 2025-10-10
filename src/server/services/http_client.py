@@ -213,19 +213,19 @@ class HackerNewsClient(BaseHTTPClient):
             return {"items": [], "profiles": []}
 
 
-async def fetch_content(url: str, max_length: Optional[int] = 5000) -> str:
+async def fetch_content(url: str, max_length: Optional[int] = 5000) -> tuple[str, str]:
     """
     Simple utility for fetching content from a URL and converting to markdown.
 
     Uses html_to_markdown for clean content extraction with automatic
-    retry logic and length limiting.
+    retry logic and length limiting. Returns both content and final URL after redirects.
 
     Args:
         url: URL to fetch content from
         max_length: Maximum content length (default: 5000 chars)
 
     Returns:
-        str: Markdown content, truncated if needed
+        tuple[str, str]: (Markdown content, final URL after redirects)
 
     Raises:
         httpx.HTTPError: If request fails after retries
@@ -235,18 +235,21 @@ async def fetch_content(url: str, max_length: Optional[int] = 5000) -> str:
     retries = 2
     logger = get_logger("fetch_content")
 
-    async with httpx.AsyncClient(headers=DEFAULT_HEADERS, timeout=120) as client:
+    async with httpx.AsyncClient(headers=DEFAULT_HEADERS, timeout=120, follow_redirects=True) as client:
         for attempt in range(1, retries + 1):
             try:
                 resp = await client.get(url)
                 resp.raise_for_status()
                 content = convert_to_markdown(resp.text)
 
+                # Capture final URL after redirects
+                final_url = str(resp.url)
+
                 # Apply length limit if specified
                 if max_length and len(content) > max_length:
                     content = content[:max_length] + "... [truncated]"
-                logger.debug(f"Fetched content from {url} ({len(content)} chars)")
-                return content
+                logger.debug(f"Fetched content from {url} -> {final_url} ({len(content)} chars)")
+                return content, final_url
 
             except httpx.HTTPError as exc:
                 if attempt == retries:

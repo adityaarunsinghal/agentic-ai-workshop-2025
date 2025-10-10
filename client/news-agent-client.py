@@ -28,6 +28,7 @@ fast = FastAgent("Newspaper Creation Agent")
     servers=[
         # Our custom newspaper creation server
         "news_agent_server",
+        # "preference_agent",  # User preference agent
         "fetch",  # Content fetching and extraction
         "brave",  # Web search
         "perplexity_mcp",  # AI-powered research

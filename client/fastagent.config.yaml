@@ -1,7 +1,7 @@
 openai:
   base_url: "https://openrouter.ai/api/v1"
 
-default_model: "openrouter.anthropic/claude-3.5-haiku"
+default_model: "openrouter.anthropic/claude-haiku-4.5"
 
 # Logging and Console Configuration:
 logger:
@@ -12,7 +12,7 @@ logger:
     # Show tool calls on the console
     show_tools: true
     # Truncate long tool responses on the console
-    truncate_tools: true
+    truncate_tools: false
 
 # MCP Servers
 mcp:
@@ -38,3 +38,9 @@ mcp:
           transport: "http"
           url: "http://localhost:8080/mcp"
           read_transport_sse_timeout_seconds: 900
+
+        # Our custom preference agent (HTTP transport)
+        # preference_agent:
+        #   transport: "http"
+        #   url: "http://localhost:8082/mcp"
+        #   read_transport_sse_timeout_seconds: 900
