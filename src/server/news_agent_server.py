@@ -1696,5 +1696,12 @@ if __name__ == "__main__":
     print("  • Quality enforcement - prevents low-quality newspapers")
     print("\n" + "=" * 60 + "\n")
 
-    # Run server
-    asyncio.run(mcp.run_async(transport="streamable-http", port=8080))
+    # Run server: bind to all interfaces so it's reachable from containers and host
+    print("🌐 Binding MCP HTTP server to 0.0.0.0:8080 (path: /mcp)")
+    asyncio.run(
+        mcp.run_async(
+            transport="streamable-http",
+            host="0.0.0.0",
+            port=8080,
+        )
+    )

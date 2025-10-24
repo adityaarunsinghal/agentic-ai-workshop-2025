@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Start MCP server (HTTP on :8080)
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: workshop-mcp-server
+    working_dir: /app
+    command: bash -lc "python /app/src/server/news_agent_server.py"
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./src:/app/src
+      - ./client:/app/client
+      - ./notebooks:/app/notebooks
+      - ./src/server/data:/app/src/server/data
+      - ./client/fastagent.secrets.yaml:/app/client/fastagent.secrets.yaml:ro
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    tty: true

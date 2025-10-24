@@ -85,6 +85,16 @@ A sophisticated newspaper agent that:
 
 ## Quick Start
 
+### Make
+```
+# this start the mcp server
+make build
+
+# u can interact w the server by set up the client in whatever env
+# 1. local env w venv
+# 2. inside the same docker
+# 3. call make client
+```
 ### Prerequisites
 
 ```bash
