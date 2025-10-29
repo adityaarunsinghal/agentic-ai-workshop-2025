@@ -389,7 +389,7 @@ fetch_hn_stories_with_content()  # One call does everything
 
 **Memory, Context Management & Smart Tools**
 
-<details open>
+<details>
 <summary>Expand Session 2 Details</summary>
 
 #### What You Learned
@@ -580,42 +580,211 @@ Agent Context:
 
 ---
 
-### Session 3: Production & Multi-Agent (October 15, 2024)
+### Session 3: Multi-Agent Collaboration (October 15, 2024)
 
-**Coming Next Week**
+**When to Split and How to Coordinate**
 
-<details>
-<summary>Preview Session 3 Content</summary>
+<details open>
+<summary>Expand Session 3 Details</summary>
 
-#### What You'll Learn
+#### What You Learned
 
-- Multi-agent orchestration patterns
-- Agent specialization and delegation
-- Predictive intelligence
-- Production hosting strategies
-- Monitoring and observability
-- Scaling considerations
+The **agent specialization problem** and when to split monolithic agents:
 
-#### Planned Topics
+**The Problem:**
+- At the START of Session 2, we had 31 tools in one agent
+- Session 2 Part 2 consolidated these to 20 tools (but still mixed concerns!)
+- Tool bloat causing confusion and wrong tool selection
+- Mixed concerns (news + preferences) still in one context
+- No security boundaries between domains
+- Growing complexity making debugging harder
 
-**Multi-Agent Patterns:**
-- Discovery Agent (finds and enriches content)
-- Curation Agent (filters and ranks)
-- Editorial Agent (synthesis and formatting)
-- QA Agent (validation and quality control)
+**The Solution:**
+Split the monolith into specialized agents that collaborate at focused checkpoints, not constant coordination.
 
-**Production Considerations:**
-- Deployment architectures (serverless, containerized, etc.)
-- Error handling and recovery
-- Rate limiting and cost control
-- Monitoring dashboards
-- A/B testing agent behaviors
+#### Key Concepts Introduced
 
-**Advanced Patterns:**
-- Predictive content discovery
-- Dynamic interest learning
-- Conversation memory compression
-- Tool result caching strategies
+**The Reviewer Agent Pattern:**
+```
+Agent A: [Works independently for 10 min - fetches 20 articles, creates draft]
+Agent A: Here's my complete draft. Review it?
+Agent B: [Analyzes for 2 min against stored preferences]
+Agent B: Good! Adjust topics X and Y.
+Agent A: [Revises for 5 min]
+Agent A: Revised draft. Better?
+Agent B: ✅ APPROVED!
+```
+
+**Why this works:**
+- Most work is independent (reducing context overhead)
+- Collaboration happens at specific handoffs
+- Each agent has focused toolset (fewer tools = better selection)
+- Clear boundaries enable security isolation
+
+**Agents as MCP Tools:**
+```python
+# Preference agent exposed as MCP server
+preference_agent_mcp = FastMCP(name="preference-agent")
+
+@preference_agent_mcp.tool()
+async def chat(message: str) -> str:
+    """Chat with the preference modeling agent for content reviews."""
+    # Internally uses FastAgent with access to preference tools
+    return await agent(message)
+
+# News agent calls preference agent like any other tool
+result = await client.call_tool(
+    "chat",
+    arguments={"message": f"Review this draft: {full_content}"}
+)
+```
+
+**Sophisticated Preference Modeling with ChromaDB:**
+```python
+# Instead of simple topic list in Markdown:
+interests = ["AI", "ML", "Python"]
+
+# Now: Semantic memory with temporal patterns
+memory.store_document(
+    content="""Reading pattern observed:
+    Time: 8:00 AM
+    Preferred: Brief, scannable content (2-3 min)
+    Topics: Tech news, industry updates
+    Depth: Surface-level, breaking news
+    """,
+    metadata={"type": "reading_pattern", "time": "morning", "depth": "brief"}
+)
+
+# Agent can answer complex questions:
+# "What content does user prefer in the morning?" → Brief updates
+# "Find AI-related preferences" → Matches "Agentic AI", "transformers", etc.
+```
+
+**Three-Question Decision Framework:**
+
+When should you split an agent?
+
+| Question | What It Means | Example |
+|----------|---------------|---------|
+| **Natural boundaries?** | Distinct domains, phases, security zones, or review stages | News creation vs preference modeling |
+| **Complex enough?** | Each piece has substantial independent work | Not simple calculator with 3 tools |
+| **Mostly independent?** | Focused collaboration, not constant coordination | Review draft after creation, not "should I fetch article 1?" |
+
+**If YES to all three → Split the agent!**
+
+#### Architecture Evolution
+
+**Before (End of Session 2):**
+```
+Monolithic News Agent (20 tools - consolidated but still mixed concerns)
+├─ Content discovery
+├─ Structure
+├─ Articles
+├─ Editorial
+├─ Memory
+├─ Preferences (3 tools)  ← Mixed concern!
+├─ Analysis
+└─ Polish
+```
+
+**After (Session 3 - Agent Specialization):**
+```
+News Agent (14 tools)                    Preference Agent (6 tools)
+├─ Content discovery                     ├─ read_interests
+├─ Structure                             ├─ add_interests
+├─ Articles                              ├─ remove_interests
+├─ Editorial                             ├─ store_preference
+├─ Memory                                ├─ search_preferences
+├─ Analysis                              └─ get_memory_stats
+└─ Polish                                      ↓
+     ↓                                    [ChromaDB]
+     └─→ chat tool (calls Preference Agent)
+```
+
+**Benefits:**
+- 30% reduction in news agent tool count (20 → 14 focused tools)
+- Clear separation of concerns
+- Security isolation (news agent can't directly access preference DB)
+- Each agent has focused, non-ambiguous toolset
+- Preference agent reusable by multiple news agents
+
+#### Anti-Pattern: Constant Coordination
+
+**❌ Bad Example:**
+```
+News Agent: Should I fetch article 1?
+Preference Agent: Let me check... yes
+News Agent: Should I fetch article 2?
+Preference Agent: Let me check... no
+News Agent: Should I fetch article 3?
+Preference Agent: Let me check... yes
+```
+**Problem:** No independent work! This should be ONE agent.
+
+**✅ Good Example:**
+```
+News Agent: [Discovers 20 stories, creates complete draft - 10 min work]
+News Agent: Here's the full draft for review: [complete content]
+Preference Agent: [Searches preferences, validates alignment - 2 min]
+Preference Agent: ❌ DENIED: Too technical for morning. User prefers brief updates at 8 AM.
+News Agent: [Revises to briefer summaries - 5 min]
+News Agent: Revised draft attached. Better?
+Preference Agent: ✅ APPROVED! Aligns with morning reading patterns.
+```
+
+#### Implemented Components
+
+**Preference Tools Server (FastMCP):**
+- ChromaDB-backed semantic memory
+- Tools: `store_preference`, `search_preferences`, `get_memory_stats`
+- Interest management: `read_interests`, `add_interests`, `remove_interests`
+- Runs on port 8081
+- Stateless, reusable by multiple agents
+
+**Preference Agent (FastAgent as MCP):**
+- Wraps preference tools with LLM intelligence
+- Exposed as MCP server with single `chat` tool
+- Provides expert reviews: "✅ APPROVED" or "❌ DENIED: [reasons]"
+- Learns patterns from successful content
+- Runs on port 8082
+
+**Multi-Agent Workflow:**
+```
+News Agent (client)
+    ↓ HTTP
+Preference Agent (port 8082) ← FastAgent with intelligence
+    ↓ MCP tool calls
+Preference Tools (port 8081) ← FastMCP with ChromaDB tools
+    ↓
+ChromaDB Storage
+```
+
+**Semantic Preference Understanding:**
+- Temporal patterns: Morning (brief), evening (deep), weekend (entertaining)
+- Depth preferences: Technical deep-dives vs quick updates
+- Topic clustering: "Agentic AI" matches "autonomous agents", "LLM systems"
+- Context-aware filtering by time, depth, topic metadata
+
+#### Notebooks
+
+- [`0301_multi_agent_collaboration.ipynb`](notebooks/0301_multi_agent_collaboration.ipynb) - Complete multi-agent system
+
+#### Important Caveats
+
+**Unintended Social Dynamics:**
+- Research shows LLMs exhibit peer pressure when collaborating ([study](https://arxiv.org/abs/2506.03053))
+- Extended agent interactions can converge towards unexpected themes
+- **Mitigation:** Clear task boundaries, diverse models, monitoring
+
+**Error Cascades:**
+- One agent's error compounds through the system
+- If news agent mis-summarizes, preference agent might approve wrong content
+- **Mitigation:** Tools return data from source of truth, operator overrides
+
+**Evaluation Challenges:**
+- Models can detect when being tested (Claude 4.5, GPT-5 system cards)
+- Multi-agent systems need holistic evaluation, not just individual agent testing
+- **Mitigation:** Production-like testing, diverse scenarios, continuous monitoring
 
 </details>
 
